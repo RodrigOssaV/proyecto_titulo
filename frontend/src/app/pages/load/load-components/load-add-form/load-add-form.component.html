@@ -1,0 +1,60 @@
+<div class="card-footer">
+    <button class="button is-primary is-fullwidth" (click)="launchModal()">Assigments</button>
+
+    <div class="modal" id="addDriverService">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Assigment loads</p>
+                <button class="delete" aria-label="close" (click)="launchModal()"></button>
+            </header>
+
+            <section class="modal-card-body">
+                <form #formAddLoad="ngForm" (ngSubmit)="addLoad(formAddLoad)">
+                    <div class="autocomplete-container">
+                        <label for="" class="label">Search driver...</label>
+                        <div class="autocomplete-suggestions">
+                            <div class="select is-fullwidth">
+                                <select name="rut_driver" [(ngModel)]="load.rut_driver">
+                                    <option value="" selected>Driver</option>
+                                    <option [value]="driver.rut" *ngFor="let driver of listDrivers">
+                                        {{ driver.name }} {{ driver.lastname }} - {{ driver.rut}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="autocomplete-container">
+                        <label for="" class="label">Search supplier...</label>
+                        <div class="autocomplete-suggestions">
+                            <div class="select is-fullwidth">
+                                <select name="id_supplier" [(ngModel)]="load.id_supplier">
+                                    <option value="" selected>Supplier</option>
+                                    <option [value]="supplier.id_supplier" *ngFor="let supplier of listSuppliers">
+                                        {{ supplier.name_supplier }} - {{ supplier.type_supplier }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="" class="label">Date assigment</label>
+                        <input type="date" class="input" name="date_load" [(ngModel)]="load.date_load">
+                    </div>
+
+                    <div class="field">
+                        <label for="" class="label">Amount assigment</label>
+                        <input type="number" class="input" name="amount_load" min="0" [(ngModel)]="load.amount_load"
+                        onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57">
+                    </div>
+
+                    <button class="button is-primary mt5 is-fullwidth">Save assigment</button>
+                </form>
+
+                <button class="button is-danger is-fullwidth mt-5" (click)="launchModal()">Cancelar</button>
+            </section>
+        </div>
+    </div>
+</div>

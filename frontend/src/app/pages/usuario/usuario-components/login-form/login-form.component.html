@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-content">
+        <label for="" class="label">Iniciar sesión</label>
+        <form #inicioSessionFormUsuario="ngForm" (submit)="inicioSesion()">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input [(ngModel)]="userTemplate.email" type="text" name="email" id="email" class="input">
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input [(ngModel)]="userTemplate.password" type="password" name="password" id="password" class="input">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <button type="submit" class="button is-primary">
+                    LogIn
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+    

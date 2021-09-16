@@ -1,0 +1,29 @@
+<div class="columns is-fullwidth">
+    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Total asignado</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let supplier of listSupplier">
+                <td>{{ supplier.name_supplier }}</td>
+                <td>{{ supplier.id_supplier }}</td>
+                <td>{{ supplier.type_supplier }}</td>
+                <td>{{ supplier.total_amount }}</td>
+                <td>
+                    <!-- <button class="button is-small" (click)="editDriver(driver)">Editar</button>
+                    <button class="button is-small" (click)="deleteDriver(driver)">Delete</button> -->
+                    <button class="button is-small">Profile</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <app-update-form [updateDriver]="driverEdit"></app-update-form>
+<app-delete-form [deleteDriver]="driverDelete"></app-delete-form> -->

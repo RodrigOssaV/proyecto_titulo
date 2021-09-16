@@ -1,0 +1,12 @@
+<ng-container *ngIf="authService.usuarioLogueado()">
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="navbar is-right">
+                <a class="navbar-item" (click)="authService.logout()">
+                Cerrar sesión
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-container>
+

@@ -1,0 +1,54 @@
+<div id="updateDriverModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Editar conductor</p>
+            <button class="delete" aria-label="close" (click)="toggleEditarModal()"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <form #formUpdateDriver="ngForm" (ngSubmit)="update_Driver(formUpdateDriver)">
+                <div class="field">
+                    <label for="" class="label">Nombres</label>
+                    <input type="text" class="input" [value]="updateDriver.name" name="name" [(ngModel)]="updateDriver.name">
+                </div>
+
+                <div class="field">
+                    <label for="" class="label">Apellidos </label>
+                    <input type="text" class="input" placeholder="Burgos Moreno" [value]="updateDriver.lastname" name="lastname" [(ngModel)]="updateDriver.lastname">
+                </div>
+
+                <!-- <div class="columns is-fullwidth">
+                    <div class="column is-8">
+                        <div class="field">
+                            <label for="" class="label">Rol único nacional</label>
+                            <input type="text" class="input" name="rut" [value]="oldRut.rut">
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="field">
+                            <label for="" class="label">Digito</label>
+                            <input type="text" class="input" placeholder="5" name="digito_driver" [value]="oldRut.digito">
+                        </div>
+                    </div>                        
+                </div> -->
+
+                <div class="columns is-fullwidth">
+                    <div class="column">
+                        <label for="" class="label">Teléfono</label> 
+                        <div class="field has-addons">                                                               
+                                <p class="button is-static">
+                                    +56 9
+                                </p>
+                                <input type="text" class="input" [value]="updateDriver.phone" name="phone" [(ngModel)]="updateDriver.phone">
+                        </div>                            
+                    </div>
+                </div>
+
+                <button class="button is-primary mt5 is-fullwidth">Guardar conductor</button>
+            </form>
+            <button class="button is-danger is-fullwidth mt-5" (click)="toggleEditarModal()">Cancelar</button>
+        </section>
+    </div>
+
+</div>

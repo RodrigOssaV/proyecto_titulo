@@ -1,0 +1,18 @@
+<div id="deleteDriverModal" class="modal">
+    <div class="modal-background"></div>
+    
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Eliminar Producto</p>
+            <button class="delete" aria-label="close" (click)="launchDeleteModal()"></button>
+        </header>
+        <section class="modal-card-body">
+            ¿Está seguro que desea eliminar a {{deleteDriver.name}}?
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-danger" (click)="delete_Driver()">Eliminar</button>
+            <button class="button" (click)="launchDeleteModal()">Cancel</button>
+        </footer>
+    </div>
+    
+</div>

@@ -1,0 +1,35 @@
+<div id="updateStatusLoadModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Update assigment load</p>
+            <button class="delete" aria-label="close" (click)="updateStatusLoadModal()"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <form #formUpdateStatusLoad="ngForm" (ngSubmit)="update_status_load(formUpdateStatusLoad)">
+                
+                <fieldset disabled>
+                    <div class="field">
+                        <label for="" class="label">id_status_load</label>
+                        <input type="text" class="input" name="id_statusload"  
+                        [placeholder]="updateStatusLoad.id_status_load">
+                    </div>
+                </fieldset>
+                
+                <div class="field">
+                    <label for="" class="label">amount_delivery</label>
+                    <input 
+                    type="number" class="input" name="id_load" 
+                    [value]="updateStatusLoad.amount_delivery" min="0" [max]="updateStatusLoad.amount_not_delivery"
+                    onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57"
+                    >
+                </div>
+
+                <button class="button is-primary mt5 is-fullwidth">Save load</button>
+            </form>
+            <button class="button is-danger is-fullwidth mt-5" (click)="updateStatusLoadModal()">Cancelar</button>
+        </section>
+    </div>
+
+</div>

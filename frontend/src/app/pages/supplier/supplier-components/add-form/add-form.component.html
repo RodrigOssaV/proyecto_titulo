@@ -1,0 +1,35 @@
+<div class="card-footer">
+    <button class="button is-primary is-fullwidth" (click)="launchModal()">Add on</button>
+
+    <div class="modal" id="addDriverService">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Incorporate supplier</p>
+                <button class="delete" aria-label="close" (click)="launchModal()"></button>
+            </header>
+
+            <section class="modal-card-body">
+                <form #formAddSupplier="ngForm" (ngSubmit)="addSupplier(formAddSupplier)">
+
+                    <div class="field">
+                        <label for="" class="label">Name</label>
+                        <input 
+                        type="text" class="input" placeholder="Marketing y Comunicaciones Soffan" 
+                        name="name_supplier" [(ngModel)]="newSupplier.name_supplier">
+                    </div>
+
+                    <div class="field">
+                        <label for="" class="label">Type</label>
+                        <input 
+                        type="text" class="input" placeholder="encomiendas, diarios, sobres, camas, etc..." 
+                        name="type_supplier" [(ngModel)]="newSupplier.type_supplier">
+                    </div>
+
+                    <button class="button is-primary mt5 is-fullwidth">Save</button>
+                </form>
+                <button class="button is-danger is-fullwidth mt-5" (click)="launchModal()">Cancel</button>
+            </section>
+        </div>
+    </div>
+</div>
