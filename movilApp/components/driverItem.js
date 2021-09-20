@@ -1,23 +1,30 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import React from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 import Layout from "../styles/layout";
 
 const driverItem = ({driver}) => {
+
+    const navigation = useNavigation();
+
     return (
         <Layout>
             <View style = {style.driverContainer}>
-                <Image
-                    style = {style.tinyLogo}
-                    source = {{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-                />
-                <Text style = {style.driverTitle}>{driver.name} {driver.lastname}</Text>
-                {/* <Text style = {style.driverTitle}>{driver.lastname}</Text> */}
-                <Text style = {style.rutTitle}>{driver.rut}</Text>
+                <TouchableOpacity 
+                    style = {style.box}
+                    onPress = {()=> navigation.navigate('DriverFormScreen', {rut: driver.rut})}
+                >
+                    <Image style = {style.tinyLogo} 
+                        source = {{uri: 'https://reactnative.dev/img/tiny_logo.png'}}/>
+                    <Text style = {style.driverTitle}>{driver.name} {driver.lastname}</Text>
+                    <Text style = {style.driverTitle}>{driver.rut}</Text>
+                    <Text style = {style.driverTitle}>(+56) {driver.phone}</Text>
+                </TouchableOpacity>
             </View>
         </Layout>
     )
-}
+};
 
 const style = StyleSheet.create({
     driverContainer: {
@@ -29,12 +36,12 @@ const style = StyleSheet.create({
         justifyContent: 'space-around',
         margin: 2,
         borderRadius: 15,
-        opacity: 0.7
+        /* opacity: 0.7 */
     },
     driverTitle: {
         color: '#ffffff',
         fontWeight: 'bold',
-        opacity: 1
+        /* opacity: 1 */
     },
     rutTitle: {
         color: '#ffffff',
@@ -43,7 +50,10 @@ const style = StyleSheet.create({
         width: 50,
         height: 50,
     },
+    box: {
+        alignItems: 'center'
+    }
 });
 
-export default driverItem
+export default driverItem;
 

@@ -1,25 +1,51 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet, TextInput, TouchableOpacity, Text, View } from 'react-native'
 
 import Layout from "../styles/layout";
-import { addDriver } from "../services/driver";
+import { addDriver, updateDriver, getDriver } from "../services/driver";
 
-const driverForm = ({navigation}) => {
+const driverForm = ({navigation, route}) => {
 
     const [driver, setDriver] = useState({
         rut: '',
         name: '',
         lastname: '',
         phone: ''
-    })
+    });
 
-    const handleChange = (name, value) => setDriver({...driver, [name]: value})
+    const [editing, setEditing] = useState(false);
+
+    const handleChange = (name, value) => setDriver({...driver, [name]: value});
 
     const handleSubmit = async () => {
-        /* console.log(driver) */
-        await addDriver(driver)
-        navigation.navigate('DriverScreen')
-    }
+        /* console.log(driver) 
+        await addDriver(driver);
+        navigation.navigate('DriverScreen'); */
+        if (!editing) {
+            await addDriver(driver);
+        } else {
+            await updateDriver(route.params.rut, driver);
+        }
+        navigation.navigate('DriverScreen');
+    };
+
+    useEffect(()=>{
+        if (route.params && route.params.rut){
+            navigation.setOptions({headerTitle: 'Update driver'});
+            setEditing(true);
+
+            (async () => {
+                const driver = await getDriver(route.params.rut);
+                setDriver({
+                    rut: driver.rut,
+                    name: driver.name,
+                    lastname: driver.lastname,
+                    phone: driver.phone
+                })
+            })();
+
+        }
+    },[]);
 
     return (
         <Layout>
@@ -29,28 +55,40 @@ const driverForm = ({navigation}) => {
                     placeholder = 'Name driver'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('name', driver)}
+                    value = {driver.name}
                 />
                 <TextInput
                     style = {style.input}
                     placeholder = 'Lastname driver'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('lastname', driver)}
+                    value = {driver.lastname}
                 />
                 <TextInput
                     style = {style.input}
                     placeholder = 'RUT driver'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('rut', driver)}
+                    value = {driver.rut}
                 />
                 <TextInput
                     style = {style.input}
                     placeholder = 'Phone driver'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('phone', driver)}
+                    value = {driver.phone.toString()}
                 />
-                <TouchableOpacity style={style.button} onPress={handleSubmit}>
-                    <Text style={style.buttonText}>Add driver</Text>
-                </TouchableOpacity>
+                {
+                    !editing ? (
+                        <TouchableOpacity style={style.button} onPress={handleSubmit}>
+                            <Text style={style.buttonText}>Add driver</Text>
+                        </TouchableOpacity>
+                    ): (
+                        <TouchableOpacity style={style.button} onPress={handleSubmit}>
+                            <Text style={style.buttonText}>Update driver</Text>
+                        </TouchableOpacity>
+                    )
+                }
             </View>
         </Layout>
     )
@@ -70,7 +108,7 @@ const style = StyleSheet.create({
         padding: 4,
         textAlign: 'center',
         borderRadius: 5,
-        opacity: 1
+        /* opacity: 1 */
     },
     button: {
         paddingTop: 10,
