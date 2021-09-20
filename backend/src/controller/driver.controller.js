@@ -52,19 +52,22 @@ module.exports = {
     },
     
     update_driver: (req, res) => {
+        console.log(req.body);
         const {rut} = req.params;
-        try {
+        console.log(rut);
+        /* try {
             Driver.update({
                 name: req.body.name,
                 lastname: req.body.lastname,
-                phone: req.body.phone
+                phone: req.body.phone,
+                total_load: 100
             },{
-                where: {rut}
+                where: {rut:rut}
             }).then(result => {
                 res.status(200).json(result);
             })
         } catch (error) {
             res.status(400).json(error);
-        }
+        } */
     }
 };

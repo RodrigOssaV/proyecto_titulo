@@ -9,7 +9,7 @@ require('./database/sequelize.relations');
 app.set('port', process.env.PORT || 3000);
 
 app.use(cors());
-app.use(morgan('dev'));
+/* app.use(morgan('dev')); */ /* console: PUT, POST, DELETE, GET /route/ - - ms - - */
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
