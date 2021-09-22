@@ -8,6 +8,7 @@ import  LoginScreen from "./screens/login";
 import  HomeScreen  from "./screens/home";
 import DriverScreen from "./screens/driver";
 import SupplierScreen from "./screens/supplier";
+import LoadScreen from "./screens/load";
 
 /* import only src/forms */
 import driverForm from "./forms/driverForm";
@@ -81,11 +82,30 @@ const App = () => {
         <Stack.Screen
           name = "DriverFormScreen"
           component = {driverForm}
-          options={{
+          options = {{
             title: 'Create driver',
             headerStyle: {backgroundColor: '#6F0876'}, 
             headerTitleStyle: {color: '#ffffff'},
             headerTintColor: '#ffffff'
+          }}
+        />
+        <Stack.Screen 
+          name = "LoadScreen"
+          component = {LoadScreen}
+          options = {{
+            title: 'Assing load',
+            headerStyle: {backgroundColor: '#6F0876'}, 
+            headerTitleStyle: {color: '#ffffff'},
+            headerTintColor: '#ffffff',
+            headerRight: () => (
+              <TouchableOpacity onPress = {() => console.log('loads')}>
+                <Text style={{
+                  color: '#ffffff',
+                  marginRight: 20,
+                  fontSize: 15
+                }}>New load</Text>
+              </TouchableOpacity>
+            )
           }}
         />
       </Stack.Navigator>
