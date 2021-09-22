@@ -16,6 +16,9 @@ const home = () => {
             <TouchableOpacity onPress = {() => navigation.navigate("SupplierScreen")}>
                 <Text style = {style.button}>Suppliers</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress = {() => navigation.navigate("LoadScreen")}>
+                <Text style = {style.button}>Assing Loads</Text>
+            </TouchableOpacity>
         </Layout>
     )
 }
