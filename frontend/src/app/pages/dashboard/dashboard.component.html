@@ -1,148 +1,42 @@
-<!-- <div class="columns is-gapless is-multiline is-mobile">
-    <div class="column is-half">
-        <div class="box  mt-1">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-header-title">
-                        Título de la web app
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="content">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus provident repudiandae eveniet, temporibus maiores ad, 
-                        aliquid iusto, nulla minima dignissimos ratione quod sit? Deleniti alias corporis autem optio, eius quos.
-                    </div>
-                </div>
-            </div>
+<!-- container-grid -->
+<div class="container-grid">
+    
+    <!-- container-navbar -->
+    <section class="hero is-small container-navbar">
+
+        <!-- section-navbar -->
+        <app-navbar></app-navbar>    
+    </section>
+
+    <!-- container-principal -->
+    <div class="columns is-gapless is-multiline is-mobile container-principal">
+
+        <!-- container-title and subtitle -->
+        <div class="column is-half">
+            <app-dash-title></app-dash-title>
         </div>
-    </div>
-    <div class="column mt-1">
+
+        <!-- container-description -->
         <div class="column">
-            <div class="box is-half">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit in, magnam nam repellendus cum, ex, commodi dicta soluta dolorum illum odio. 
-                    Est voluptatem repudiandae provident atque veniam tempore aspernatur. Quaerat?</p>
-            </div>
-        </div>
-    </div>
-    <div class="column is-full mt-1">
-        <div class="box ">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas animi ducimus quo facere magnam quis sit corporis. Assumenda error maxime ipsa, explicabo voluptate sapiente ea ipsum similique hic molestiae illo!</p>
-        </div>
-    </div>
-    <div class="column is-half mt-1">
-        <app-gra-driver></app-gra-driver>
-    </div>
-    <div class="column is-half mt-1">
-        <app-gra-supplier></app-gra-supplier>
-    </div>
-    <div class="column is-full mt-1">
-        <div class="box">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, ipsum cupiditate. Ullam saepe earum facilis voluptatem, explicabo aliquam nulla architecto at accusantium excepturi assumenda cum aperiam consequatur quaerat dicta! Mollitia!
-                
-            </p>
-        </div>
-    </div>
-</div>   -->
-<section class="hero is-small">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <div class="hero-body">
-                <p class="title">
-                    Dashboard
-                </p>
-            </div>            
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        Settings
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" routerLink="/Driver">
-                            Driver
-                        </a>
-                        <a class="navbar-item" routerLink="/Supplier">
-                            Supplier
-                        </a>
-                        <a class="navbar-item" routerLink="/Load">
-                            Assing Load 
-                        </a>
-                        <a class="navbar-item" routerLink="/Status">
-                            Status Load 
-                        </a>
-                    </div> 
-                </div>
-            </div>
-        </div>
-        <app-navbar></app-navbar>
-    </nav>    
-</section>
-<div class="columns is-gapless is-multiline is-mobile">
-    <div class="column is-half">
-        <div class="box  mt-1">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-header-title">
-                        Título de la web app
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="content">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus provident repudiandae eveniet, temporibus maiores ad, 
-                        aliquid iusto, nulla minima dignissimos ratione quod sit? Deleniti alias corporis autem optio, eius quos.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="column">
-        <div class="box">
-
-        </div>
-    </div>
-    <div class="column is-half">
-        <app-grafic></app-grafic>
-    </div>
-    <div class="column is-half">
-        <app-grafic-supplier></app-grafic-supplier>
-    </div>
-
-    <div class="columns is-gapless is-multiline">
-        <!-- <div class="column is-full">
-            <div class="tabnav tabs is-centered">
-                <ul>
-                    <li>
-                        <button class="button" [ngClass]="{ active: isActive(1) }" (click)="openTab(1)">
-                            Drivers
-                        </button>
-                    </li>
-                    <li>
-                        <button class="button" [ngClass]="{ active: isActive(2) }" (click)="openTab(2)">
-                            Suppliers
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div> 
-        <div class="column is-full">
             <div class="box">
-                <div [hidden]="!isActive(1)">
-                    <app-driver-table></app-driver-table>
-                </div>
-                <div [hidden]="!isActive(2)">
-                    <app-supplier-table></app-supplier-table>
-                </div>
+                <app-dash-description></app-dash-description>
             </div>
         </div>
-    </div> -->
 
-    <div class="column">
-        <div class="box"></div>
+        <!-- graphic-driver -->
+        <div class="column is-half">
+            <app-graphic-driver></app-graphic-driver>
+        </div>
+
+        <!-- graphic-suplier -->
+        <div class="column is-half">
+            <app-graphic-supplier></app-graphic-supplier>
+        </div>
     </div>
+
+    <!-- container final -->
+    <div class="column container-final">
+        <label for="" class="label">Software de Inventario y Generación de Reportes para Distribución y Reparto de Encomiendas. WareSoffan™</label>
+    </div>
+    
 </div>

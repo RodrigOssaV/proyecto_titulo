@@ -1,25 +1,42 @@
 <div class="card">
+    
+    <!-- title -->
+    <div class="card-content container-title">
+        WareSoffan WebApp
+    </div>
+
+    <!-- sub-title -->
+    <div class="card-content container-subtitle">
+        Hi, Welcome back!
+    </div>
+
+    <!-- container-form-login -->
     <div class="card-content">
-        <label for="" class="label">Iniciar sesión</label>
         <form #inicioSessionFormUsuario="ngForm" (submit)="inicioSesion()">
+            <!-- input email -->
             <div class="field">
-                <label class="label">Email</label>
+                <label class="label input-email">Correo electrónico</label>
                 <div class="control">
-                    <input [(ngModel)]="userTemplate.email" type="text" name="email" id="email" class="input">
-                </div>
-                <div class="field">
-                    <label class="label">Password</label>
-                    <div class="control">
-                        <input [(ngModel)]="userTemplate.password" type="password" name="password" id="password" class="input">
-                    </div>
+                    <input [(ngModel)]="userTemplate.email" type="text" name="email" id="email" class="input" placeholder="Ej: usuario@gmail.com" required>
                 </div>
             </div>
+
+            <!-- input contraseña -->
             <div class="field">
+                <label class="label input-password">Contraseña</label>
+                <div class="control">
+                    <input [(ngModel)]="userTemplate.password" type="password" name="password" id="password" class="input">
+                </div>
+            </div>
+
+            <!-- button submit -->
+            <div class="field button-submit">
                 <button type="submit" class="button is-primary">
-                    LogIn
+                    Iniciar sesión
                 </button>
             </div>
         </form>
     </div>
+
 </div>
     

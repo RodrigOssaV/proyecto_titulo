@@ -8,12 +8,14 @@ import { DriverPanelComponent } from './driver-panel/driver-panel.component';
 import { DriverTableComponent } from './driver-table/driver-table.component';
 import { DriverProfileComponent } from './driver-profile/driver-profile.component';
 import { SharedModule } from "../../../shared/shared.module";
+import { DriverTopfiveComponent } from './driver-topfive/driver-topfive.component';
 
 @NgModule({
   declarations: [
     DriverPanelComponent,
     DriverTableComponent,
-    DriverProfileComponent
+    DriverProfileComponent,
+    DriverTopfiveComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SharedModule } from "../../../shared/shared.module";
   exports: [
     DriverPanelComponent,
     DriverTableComponent,
-    DriverProfileComponent
+    DriverProfileComponent,
+    DriverTopfiveComponent
   ]
 })
 export class DriverPagesModule { }

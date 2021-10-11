@@ -4,11 +4,11 @@ import { Label } from "ng2-charts";
 import { DriverService } from "../../../../service/driver/driver.service";
 
 @Component({
-  selector: 'app-grafic',
-  templateUrl: './grafic.component.html',
-  styleUrls: ['./grafic.component.css']
+  selector: 'app-graphic-driver',
+  templateUrl: './graphic-driver.component.html',
+  styleUrls: ['./graphic-driver.component.css']
 })
-export class GraficComponent implements OnInit {
+export class GraphicDriverComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -32,7 +32,7 @@ export class GraficComponent implements OnInit {
   private dato: any;
   private datos: any = [];
   private name:any = [];
-
+  
   constructor(private apiDriver: DriverService) { }
 
   ngOnInit(): void {

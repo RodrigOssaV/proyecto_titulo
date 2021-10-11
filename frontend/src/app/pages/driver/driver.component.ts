@@ -9,7 +9,7 @@ export class DriverComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
 }
