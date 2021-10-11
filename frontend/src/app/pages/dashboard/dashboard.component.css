@@ -1,7 +1,14 @@
-/* .hero{
-    background: #2B7A78;
+.container-navbar {
+    height: 20%;
 }
 
-p {
-    color: #FFFFFF;
-} */
+.container-principal {
+    height: 80vh;
+}
+
+.container-final {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}

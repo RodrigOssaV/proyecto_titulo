@@ -1,3 +1,28 @@
-/* .hero{
-    background: #2B7A78;
-} */
+.container-grid{
+    margin: 0px;
+    display: grid;
+    max-height: 3fr;
+    grid-template-columns: [x0] 0.5fr [x1] 0.5fr [x2]; 
+    grid-template-rows: [y0] 0.2fr [y1] 1.1fr [y2] 1.7fr [y3];
+}
+
+.container-navbar{
+    grid-column: x0 / x2;
+}
+
+.container-panel-control{
+    grid-column: x0 / x1;
+    grid-row: y1 / y2;
+    background-color: darkgreen;
+}
+
+.container-topfive{
+    grid-column: x1 / x2;
+    background-color: darkorange;
+}
+
+.container-final{
+    grid-row: y2 / y3;
+    grid-column: x0 / x2;
+    background-color: darkred;
+}
