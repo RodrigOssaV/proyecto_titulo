@@ -1,0 +1,35 @@
+.container-title {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blueviolet; */
+    font-size: 20px;
+}
+
+.container-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: brown; */
+    height: 200px;
+    font-size: 40px;
+}
+
+label.input-email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label.input-password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

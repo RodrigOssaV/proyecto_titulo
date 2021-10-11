@@ -1,0 +1,15 @@
+.container-img {
+    background-color: blue;
+}
+
+.container-login {
+    height: 85vh;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-container-login {
+    width: 60%;
+}
