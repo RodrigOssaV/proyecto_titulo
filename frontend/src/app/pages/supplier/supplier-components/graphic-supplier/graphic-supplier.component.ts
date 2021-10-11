@@ -4,11 +4,11 @@ import { Label } from "ng2-charts";
 import { SupplierService } from "../../../../service/supplier/supplier.service";
 
 @Component({
-  selector: 'app-grafic-supplier',
-  templateUrl: './grafic-supplier.component.html',
-  styleUrls: ['./grafic-supplier.component.css']
+  selector: 'app-graphic-supplier',
+  templateUrl: './graphic-supplier.component.html',
+  styleUrls: ['./graphic-supplier.component.css']
 })
-export class GraficSupplierComponent implements OnInit {
+export class GraphicSupplierComponent implements OnInit {
 
   public pieChartOptions: ChartOptions = {
     responsive: true,

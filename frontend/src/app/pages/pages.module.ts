@@ -24,6 +24,7 @@ import { StatusComponentsModule } from "./status-load/status-components/status-c
 import { StatusPagesModule } from "./status-load/status-pages/status-pages.module";
 
 import { UsuarioComponentsModule } from "./usuario/usuario-components/usuario-components.module";
+import { DashboardComponentsModule } from "./dashboard/dashboard-components/dashboard-components.module";
 
 import { SharedModule } from "../shared/shared.module";
 
@@ -49,7 +50,8 @@ import { SharedModule } from "../shared/shared.module";
     StatusComponentsModule,
     StatusPagesModule,
     UsuarioComponentsModule,
-    SharedModule
+    SharedModule,
+    DashboardComponentsModule
   ],
   exports: [
     DashboardComponent,
