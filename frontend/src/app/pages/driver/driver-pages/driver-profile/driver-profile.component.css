@@ -1,0 +1,34 @@
+.container-grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 50% auto 10%;
+    grid-template-rows: 10% 40% 5% auto;
+}
+
+.container-navbar {
+    grid-column: 1/4;
+}
+
+.container-panel-control {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.container-topfive{
+    grid-column: 2/4;
+    grid-row: 2/3;
+    height: 100%;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+
+.container-table {
+    grid-column: 1/3;
+    grid-row: 4/5;
+}
+
+.container-buttons{
+    grid-column: 3/4;
+    grid-row: 4/5;
+}

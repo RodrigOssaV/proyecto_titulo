@@ -9,7 +9,7 @@ module.exports = {
         const { password } = req.body;
         const newPassword = await helpers.encryptPassword(password);
         const user = await Usuario.create({
-            email: req.body.email,
+            nickname: req.body.nickname,
             password: newPassword
         })
         const token = await jwt.sign({_id: user.id}, 'secretkey');
@@ -18,8 +18,8 @@ module.exports = {
 
     loguearUsuario: async (req, res) => {
         /* TODO validate user and password */
-        const { email, password } = req.body;
-        const user = await Usuario.findOne({where: {email: email}});
+        const { nickname, password } = req.body;
+        const user = await Usuario.findOne({where: {nickname: nickname}});
         if(!user) return res.status(401).json({message: "Usuario no encontrado"});
         const validPassword = await helpers.matchPassword(password, user.password);
         if(validPassword){

@@ -2,40 +2,34 @@
 <div class="container-grid">
     
     <!-- container-navbar -->
-    <section class="hero is-small container-navbar">
+    <div class="container-navbar">
+        <app-navbar></app-navbar> 
+    </div>
 
-        <!-- section-navbar -->
-        <app-navbar></app-navbar>    
-    </section>
+    <!-- container-title and subtitle -->
+    <div class="container-title">
+        <app-dash-title></app-dash-title>
+    </div>
 
-    <!-- container-principal -->
-    <div class="columns is-gapless is-multiline is-mobile container-principal">
-
-        <!-- container-title and subtitle -->
-        <div class="column is-half">
-            <app-dash-title></app-dash-title>
-        </div>
-
-        <!-- container-description -->
-        <div class="column">
-            <div class="box">
-                <app-dash-description></app-dash-description>
-            </div>
-        </div>
-
-        <!-- graphic-driver -->
-        <div class="column is-half">
-            <app-graphic-driver></app-graphic-driver>
-        </div>
-
-        <!-- graphic-suplier -->
-        <div class="column is-half">
-            <app-graphic-supplier></app-graphic-supplier>
+    <!-- container-description -->
+    <div class="column container-description">
+        <div class="box">
+            <app-dash-description></app-dash-description>
         </div>
     </div>
 
+    <!-- graphic-driver -->
+    <div class="container-graphic-driver">
+        <app-graphic-driver></app-graphic-driver>
+    </div>
+
+    <!-- graphic-suplier -->
+    <div class="container-graphic-supplier">
+        <app-graphic-supplier></app-graphic-supplier>
+    </div>
+
     <!-- container final -->
-    <div class="column container-final">
+    <div class="container-final">
         <label for="" class="label">Software de Inventario y Generación de Reportes para Distribución y Reparto de Encomiendas. WareSoffan™</label>
     </div>
     

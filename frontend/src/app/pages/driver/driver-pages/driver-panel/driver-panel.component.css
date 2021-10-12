@@ -1,3 +1,7 @@
 .container-figure {
     background-image: url('../../../../public/img/driver-avatar.png');
 }
+
+.container-card {
+    height: 100%;
+}

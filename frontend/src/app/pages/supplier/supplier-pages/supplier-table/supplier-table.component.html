@@ -2,17 +2,17 @@
     <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
         <thead>
             <tr>
+                <th>Identificador</th>
                 <th>Nombre</th>
-                <th>ID</th>
-                <th>Tipo</th>
+                <th>Tipo proveedor</th>
                 <th>Total asignado</th>
                 <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let supplier of listSupplier">
-                <td>{{ supplier.name_supplier }}</td>
                 <td>{{ supplier.id_supplier }}</td>
+                <td>{{ supplier.name_supplier }}</td>
                 <td>{{ supplier.type_supplier }}</td>
                 <td>{{ supplier.total_amount }}</td>
                 <td>

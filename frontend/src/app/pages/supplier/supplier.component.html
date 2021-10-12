@@ -1,64 +1,42 @@
-<section class="hero is-small">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <div class="hero-body">
-                <p class="title">
-                    Supplier
-                </p>
-            </div>            
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        Settings
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" routerLink="/Driver">
-                            Driver
-                        </a>
-                        <a class="navbar-item" routerLink="/Dashboard">
-                            Dashboard
-                        </a>
-                        <a class="navbar-item" routerLink="/Load">
-                            Assing Load 
-                        </a>
-                        <a class="navbar-item" routerLink="/Status">
-                            Status Load 
-                        </a>
-                    </div> 
-                </div>
-            </div>
-        </div>
-        <app-navbar></app-navbar>
-    </nav>
-</section>
-<div class="columns m-0">
-    <div class="column is-half">
-        <!-- <div class="box">
-            <app-driver-panel></app-driver-panel>
-        </div> -->
+<div class="container-grid">
+    
+    <!-- container-navbar -->
+    <div class="container-navbar">
+        <app-navbar></app-navbar> 
+    </div>
+
+    <!-- container-panel-control -->
+    <div class="container-panel-control">
         <app-supplier-panel></app-supplier-panel>
     </div>
-    <div class="column"></div>
-    <div class="column is-two-fifths">
-        <div class="box">        
-        </div>
-    </div>
-</div>
 
-<div class="columns m-0">
-    <div class="column is-four-fifths">
+    <!-- container-topfive -->
+    <div class="container-topfive">
+        
+        <!-- <div class="card">
+            container-title
+            <header class="card-header">
+                <p class="card-header-title">
+                    Top five drivers
+                </p>
+            </header>
+
+            <div class="card-content">
+                <app-driver-topfive></app-driver-topfive>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- container-table -->
+    <div class="container-table">
         <div class="box">
             <app-supplier-table></app-supplier-table>
         </div>
     </div>
-    <div class="column">
+
+    <!-- container-buttons-exports -->
+    <div class="container-buttons">
         <div class="box"></div>
-    </div>
+    </div>    
+
 </div>
