@@ -1,9 +1,9 @@
 <div class="container-grid">
     
     <!-- container-navbar -->
-    <section class="hero is-small container-navbar">
-        <app-navbar></app-navbar>
-    </section>
+    <div class="container-navbar">
+        <app-navbar></app-navbar> 
+    </div>
 
     <!-- container-panel-control -->
     <div class="container-panel-control">
@@ -12,24 +12,31 @@
 
     <!-- container-topfive -->
     <div class="container-topfive">
-        <app-driver-topfive></app-driver-topfive>
-    </div>
+        
+        <!-- <div class="card">
+            container-title
+            <header class="card-header">
+                <p class="card-header-title">
+                    Top five drivers
+                </p>
+            </header>
 
-    <!-- container-back -->
-    <div class="columns container-final">
-
-        <!-- container-table -->
-        <div class="column is-four-fifths container-table">
-            <div class="box">
-                <app-driver-table></app-driver-table>
+            <div class="card-content">
+                <app-driver-topfive></app-driver-topfive>
             </div>
-        </div>
-
-        <!-- container-buttons-exports -->
-        <div class="column container-buttons">
-            <div class="box"></div>
-        </div>
-
+        </div> -->
     </div>
+
+    <!-- container-table -->
+    <div class="container-table">
+        <div class="box">
+            <app-driver-table></app-driver-table>
+        </div>
+    </div>
+
+    <!-- container-buttons-exports -->
+    <div class="container-buttons">
+        <div class="box"></div>
+    </div>    
 
 </div>
