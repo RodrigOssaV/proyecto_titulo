@@ -10,7 +10,7 @@ Usuario.init({
         autoIncrement: true,
         allowNull: false
     },
-    email: {
+    nickname: {
         type: DataTypes.STRING,
         allowNull: false
     },

@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class LoginFormComponent implements OnInit {
 
   userTemplate = {
-    email: '',
+    nickname: '',
     password: '',
   };
 

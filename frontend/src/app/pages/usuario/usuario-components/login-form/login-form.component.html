@@ -15,9 +15,9 @@
         <form #inicioSessionFormUsuario="ngForm" (submit)="inicioSesion()">
             <!-- input email -->
             <div class="field">
-                <label class="label input-email">Correo electrónico</label>
+                <label class="label input-nickname">Usuario</label>
                 <div class="control">
-                    <input [(ngModel)]="userTemplate.email" type="text" name="email" id="email" class="input" placeholder="Ej: usuario@gmail.com" required>
+                    <input [(ngModel)]="userTemplate.nickname" type="text" name="nickname" id="nickname" class="input" required>
                 </div>
             </div>
 

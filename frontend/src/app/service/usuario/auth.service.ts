@@ -11,11 +11,11 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  inicioSessionUser(data: { email: string; password: string; }) {
+  inicioSessionUser(data: { nickname: string; password: string; }) {
     return this.http.post<any>(this.URL+'/login', data);
   }
 
-  registroUser(data: { email: string; password: string; }){
+  registroUser(data: { nickname: string; password: string; }){
     return this.http.post<any>(this.URL+'/register', data);
   }
 
