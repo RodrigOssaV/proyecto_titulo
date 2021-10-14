@@ -14,8 +14,8 @@ import { UsuarioComponent } from "./pages/usuario/usuario.component";
 const routes: Routes = [
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
   { path: 'Login', component: UsuarioComponent },
-  { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: {title: 'Dashboard'} },
-  { path: 'Driver', component: DriverComponent, canActivate: [AuthGuard], data: {title: 'Driver'} },
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'Driver', component: DriverComponent, canActivate: [AuthGuard] },
   { path: 'Supplier', component: SupplierComponent, canActivate: [AuthGuard] },
   { path: 'Load', component: LoadComponent, canActivate: [AuthGuard] },
   { path: 'Status', component: StatusLoadComponent, canActivate: [AuthGuard] },
