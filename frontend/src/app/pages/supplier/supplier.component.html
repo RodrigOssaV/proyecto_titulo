@@ -1,23 +1,16 @@
-<div class="container-grid">
-    
-    <!-- container-navbar -->
-    <div class="container-navbar">
-        <app-navbar></app-navbar> 
+<div class="columns is-multiline container-columns">
+    <div class="column is-full">
+        <app-navbar></app-navbar>
     </div>
-
-    <!-- container-panel-control -->
-    <div class="container-panel-control">
+    <div class="column is-two-fifths">
         <app-supplier-panel></app-supplier-panel>
     </div>
-
-    <!-- container-topfive -->
-    <div class="container-topfive">
-        
-        <div class="card container-card">
-            container-title
+    <div class="column">
+        <div class="card">
+            <!-- container-title -->
             <header class="card-header">
                 <p class="card-header-title">
-                    Top five drivers
+                    Top five supplier
                 </p>
             </header>
 
@@ -26,17 +19,12 @@
             </div>
         </div>
     </div>
-
-    <!-- container-table -->
-    <div class="container-table">
+    <div class="column is-full">
         <div class="box">
             <app-supplier-table></app-supplier-table>
         </div>
-
-        <div class="container-buttons">
-            <label for="" class="label">Software de Inventario y Generación de Reportes para Distribución y Reparto de Encomiendas. WareSoffan™</label>
-        </div>
-
-    </div>   
-
+    </div>
+    <div class="column is-full has-text-centered">
+        <label class="label">Software de Inventario y Generación de Reportes para Distribución y Reparto de Encomiendas. WareSoffan™</label>
+    </div>
 </div>
