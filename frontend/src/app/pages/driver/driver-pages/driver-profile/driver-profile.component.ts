@@ -43,7 +43,7 @@ export class DriverProfileComponent implements OnInit {
     this.apiLoad.get_load(this.rutParametro).subscribe(
       res => {
         this.detalleConductor = res;
-        console.log(this.detalleConductor);
+        /* console.log(this.detalleConductor); */
       },
       err => {
         console.log(err);
