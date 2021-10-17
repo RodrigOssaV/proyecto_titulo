@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { DriverService } from "../../../../service/driver/driver.service";
 import { LoadService } from "src/app/service/load/load.service";
-import * as XLSX from 'xlsx';
+import { ExcelService } from "src/app/service/component/excel.service";
 
 @Component({
   selector: 'app-driver-profile',
@@ -19,7 +19,8 @@ export class DriverProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private apiDriver: DriverService,
-    private apiLoad: LoadService
+    private apiLoad: LoadService,
+    private excelService: ExcelService
     ) { }
 
   ngOnInit(): void {
@@ -52,21 +53,9 @@ export class DriverProfileComponent implements OnInit {
     );
   }
 
-  /* TODO Excel Service  */
-  exportAsXLSX(): void {
-    let elementTable = document.getElementById('table-driver')
-    let nameDriver = this.datos.name;
-    let nameFile = nameDriver + '.xlsx';
-    
-    /* generate worksheet */
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(elementTable)
-
-    /* generate workbook and add the worksheet */
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-    /* save to file */
-    XLSX.writeFile(wb, nameFile);
+  exportAsXLSX(): void{
+    let nameDriver = this.datos.name;    
+    this.excelService.exportAsExcelFile(this.detalleConductor, nameDriver);
   }
 
 }
