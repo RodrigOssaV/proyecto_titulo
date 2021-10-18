@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { DriverService } from "../../../../service/driver/driver.service";
 import { LoadService } from "src/app/service/load/load.service";
 import { ExcelService } from "src/app/service/component/excel.service";
+import { PdfService } from "src/app/service/component/pdf.service";
 
 @Component({
   selector: 'app-driver-profile',
@@ -20,7 +21,8 @@ export class DriverProfileComponent implements OnInit {
     private route: ActivatedRoute, 
     private apiDriver: DriverService,
     private apiLoad: LoadService,
-    private excelService: ExcelService
+    private excelService: ExcelService,
+    private pdfService: PdfService
     ) { }
 
   ngOnInit(): void {
@@ -56,6 +58,11 @@ export class DriverProfileComponent implements OnInit {
   exportAsXLSX(): void{
     let nameDriver = this.datos.name;    
     this.excelService.exportAsExcelFile(this.detalleConductor, nameDriver);
+  }
+
+  exportAsPDF(){
+    var data = document.getElementById('tableToConvert');
+    this.pdfService.createPDF(data);
   }
 
 }
