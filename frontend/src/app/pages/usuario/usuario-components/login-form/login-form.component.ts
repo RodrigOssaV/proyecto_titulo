@@ -22,7 +22,7 @@ export class LoginFormComponent implements OnInit {
   inicioSesion(){
     this.authServices.inicioSessionUser(this.userTemplate).subscribe(
       res => {
-        console.log(res);
+        /* console.log(res); */
         localStorage.setItem('token', res.token);
         this.router.navigate(['/Dashboard']);
       },
