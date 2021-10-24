@@ -2,26 +2,29 @@
     <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
         <thead>
             <tr>
-                <th>id_load</th>
-                <th>amount_load</th>
-                <th>date_load</th>
-                <th>rut_driver</th>
-                <th>id_supplier</th>
-                <th>Opciones</th>
+                <th>Id Asignación</th>
+                <th>Fecha recepción</th>
+                <th>Conductor asociado</th>
+                <th>Id proveedor</th>
+                <th>Carga recepcionada</th>
+                <th>Carga entregada</th>
+                <th>Carga no entregada</th>                
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let load of listLoads">
                 <td>{{ load.id_load }}</td>
-                <td>{{ load.amount_load }}</td>
                 <td>{{ load.date_load }}</td>
                 <td>{{ load.rut_driver }}</td>
                 <td>{{ load.id_supplier }}</td>
-                <td>
-                    <!-- <button class="button is-small" (click)="editDriver(driver)">Editar</button>
+                <td>{{ load.amount_load }}</td>
+                <td>{{ load.amount_delivery }}</td>
+                <td>{{ load.amount_not_delivery}}</td>
+                <!-- <td>
+                    <button class="button is-small" (click)="editDriver(driver)">Editar</button>
                     <button class="button is-small" (click)="deleteDriver(driver)">Delete</button>
-                    <button class="button is-small">Profile</button> -->
-                </td>
+                    <button class="button is-small">Profile</button> 
+                </td> -->
             </tr>
         </tbody>
     </table>

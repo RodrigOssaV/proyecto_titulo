@@ -2,18 +2,20 @@
     <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
         <thead>
             <tr>
-                <th>id_status_load</th>
-                <th>amount_delivery</th>
-                <th>amount_not_delivery</th>
-                <th>id_load</th>
+                <th>Identificador</th>
+                <th>Encomiendas entregadas</th>
+                <th>Encomiendas no entregadas</th>
+                <th>Cargas recibidas</th>
+                <th>Identificador carga</th>
                 <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let status of listStatusLoads">
                 <td>{{ status.id_status_load }}</td>
-                <td>{{ status.amount_delivery }}</td>
-                <td>{{ status.amount_not_delivery }}</td>
+                <td>{{ status.delivery }}</td>
+                <td>{{ status.not_delivery }}</td>
+                <td>{{ status.received }}</td>
                 <td>{{ status.id_load }}</td>
                 <td>
                     <button class="button is-small" (click)="editStatus(status)">Editar</button>

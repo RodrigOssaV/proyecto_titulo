@@ -9,11 +9,15 @@ Status_Load.init({
         autoIncrement: true,
         primaryKey: true
     },
-    amount_delivery: {
+    delivery: {
         type: DataTypes.INTEGER,
         defaultValue: 0
     },
-    amount_not_delivery: {
+    not_delivery: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+    },
+    received: {
         type: DataTypes.INTEGER,
         defaultValue: 0
     }

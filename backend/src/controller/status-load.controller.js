@@ -14,10 +14,11 @@ module.exports = {
 
     update_status: (req, res) => {
         const {id_status_load} = req.params;
-        console.log(id_status_load);
+        /* console.log(id_status_load); */
         try {
             Status_Load.update({
-                amount_delivery: req.body.amount_delivery
+                delivery: req.body.delivery,
+                not_delivery: req.body.not_delivery
             },{
                 where: {id_status_load}
             }).then(result => {
