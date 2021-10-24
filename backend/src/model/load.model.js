@@ -17,6 +17,14 @@ Load.init({
     date_load: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    amount_delivery: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+    },
+    amount_not_delivery: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
     }
 },{
     timestamps: false,

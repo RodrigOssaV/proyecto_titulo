@@ -18,13 +18,21 @@
                 </fieldset>
                 
                 <div class="field">
-                    <label for="" class="label">amount_delivery</label>
+                    <label for="" class="label">Encomiendas entregadas</label>
                     <input 
-                    type="number" class="input" name="id_load" 
-                    [value]="updateStatusLoad.amount_delivery" min="0" [max]="updateStatusLoad.amount_not_delivery"
+                    type="number" class="input" name="amount_delivery" 
+                    [(ngModel)]="updateStatusLoad.delivery"
+                    [value]="updateStatusLoad.delivery" min="0" [max]="updateStatusLoad.not_delivery"
                     onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57"
                     >
                 </div>
+                <fieldset disabled>
+                    <div class="field">
+                        <label for="" class="label">Encomiendas no entregas</label>
+                        <input type="text" class="input" name="amount_not_delivery"  
+                        [placeholder]="updateStatusLoad.not_delivery">
+                    </div>
+                </fieldset>
 
                 <button class="button is-primary mt5 is-fullwidth">Save load</button>
             </form>

@@ -27,7 +27,7 @@ export class StatusTableComponent implements OnInit {
     this.apiStatus.get_statusloads().subscribe(
       res => {
         this.listStatusLoads = res;
-        console.log(this.listStatusLoads);
+        /* console.log(this.listStatusLoads); */
       },
       err => {
         console.log(err);
@@ -37,7 +37,6 @@ export class StatusTableComponent implements OnInit {
 
   editStatus(status: Statusload){
     this.statusloadEdit = status;
-    /* console.log(this.statusloadEdit); */
     const editModal = document.querySelector('#updateStatusLoadModal')!;
     editModal.classList.toggle('is-active');
   }

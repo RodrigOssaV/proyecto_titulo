@@ -25,10 +25,11 @@ export class StatusService {
     );
   }
 
-  update_status(id_status:any, statusload: any){
-    return this.http.put(URIs.api+`/update_statusload/${id_status}`, statusload).pipe(
+  update_status(id_status_load:any, changeLoad: any){
+    return this.http.put(URIs.api+`/update_statusload/${id_status_load}`, changeLoad).pipe(
       map((res:any)=>{
-        return res;
+        this.turnLoad.next(true);
+        return res;        
       },
       (err:any) => {
         return err;
