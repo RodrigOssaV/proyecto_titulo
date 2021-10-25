@@ -32,7 +32,7 @@ module.exports = {
         
         try {
             let data =  await sequelize.query(`
-            select lo.date_load, lo.amount_load, sup.name_supplier
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
             from loads as lo
             left join drivers as dri on lo.rut_driver = dri.rut
             left join suppliers as sup on lo.id_supplier = sup.id_supplier

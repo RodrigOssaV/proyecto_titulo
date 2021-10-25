@@ -2,6 +2,9 @@
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
+    <div class="column is-full">
+        <app-subnavbar></app-subnavbar>
+    </div>
     <div class="column is-two-fifths">
         <div class="column">
             <div class="card">
@@ -31,15 +34,19 @@
                     <thead>
                         <tr>
                             <th>Fecha asignación</th>
-                            <th>Cantidad asignada</th>
                             <th>Proveedor</th>
+                            <th>Cantidad asignada</th>
+                            <th>Cantidad entregada</th>
+                            <th>Cantidad no entregada</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let detalle of detalleConductor">
                             <td>{{ detalle.date_load }}</td>
-                            <td>{{ detalle.amount_load }}</td>
                             <td>{{ detalle.name_supplier }}</td>
+                            <td>{{ detalle.amount_load }}</td>
+                            <td>{{ detalle.amount_delivery }}</td>
+                            <td>{{ detalle.amount_not_delivery }}</td>
                         </tr>
                     </tbody>
                 </table>
