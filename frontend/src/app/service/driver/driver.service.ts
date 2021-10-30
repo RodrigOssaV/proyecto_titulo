@@ -70,5 +70,16 @@ export class DriverService {
       })
     );
   }
+
+  best_driver(){
+    return this.http.get(URIs.api+'/best_driver').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
   
 }

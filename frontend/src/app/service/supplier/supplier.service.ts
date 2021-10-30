@@ -60,4 +60,15 @@ export class SupplierService {
     );
   } */
 
+  best_supplier(){
+    return this.http.get(URIs.api+'/best_supplier').pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
 }
