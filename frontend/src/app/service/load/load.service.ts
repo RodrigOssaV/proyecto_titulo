@@ -47,4 +47,16 @@ export class LoadService {
       })
     );
   }
+
+  get_sum_loads(){
+    return this.http.get(URIs.api+'/get_sum_loads').pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
 }

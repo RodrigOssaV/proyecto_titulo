@@ -32,13 +32,22 @@ module.exports = {
         
         try {
             let data =  await sequelize.query(`
-            select lo.date_load, lo.amount_load, sup.name_supplier
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
             from loads as lo
             left join drivers as dri on lo.rut_driver = dri.rut
             left join suppliers as sup on lo.id_supplier = sup.id_supplier
             where lo.rut_driver = '${req.params.rut}'`);
             
-            res.json(data[0]);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    get_sum_loads: async (req, res) => {
+        try {
+            let data = await sequelize.query(`select sum(amount_load) as sumLoads, sum(amount_delivery) as sumDeliverys from loads`);
+            res.status(200).json(data[0]);
         } catch (error) {
             res.status(400).json(error);
         }

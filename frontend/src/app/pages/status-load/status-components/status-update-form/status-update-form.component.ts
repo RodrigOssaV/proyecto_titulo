@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Statusload } from 'src/app/class/statusload';
+
+/* Services */
 import { StatusService } from "src/app/service/status/status.service";
+import { NotificationService } from "src/app/service/component/notification.service";
 
 @Component({
   selector: 'app-status-update-form',
@@ -13,25 +17,28 @@ export class StatusUpdateFormComponent implements OnInit {
   
   delivery: number = 0;
   not_delivery: number = 0;
-  resto: number = 0;
+  received: number = 0;
 
-  constructor(private apiStatus: StatusService) { }
+  constructor(private apiStatus: StatusService, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
   setAmount(){
+    /* TODO check this amount delivery */
+    this.received = this.updateStatusLoad.received;
     this.delivery = this.updateStatusLoad.delivery;
-    this.not_delivery = this.updateStatusLoad.not_delivery;
-    this.resto = this.delivery - this.not_delivery;
-    this.updateStatusLoad.not_delivery = this.resto;
+    this.not_delivery = this.received - this.delivery;
+    this.updateStatusLoad.not_delivery = this.not_delivery;
   }
 
   update_status_load(data:any){
-    /* this.setAmount();
-    data = this.updateStatusLoad; */
+    this.setAmount();
+    data = this.updateStatusLoad;
+    /* console.log(data); */
     this.apiStatus.update_status(this.updateStatusLoad.id_status_load, data).subscribe(
       res => {
+        this.notifyService.showSuccess("Update load success", "Notification");
         this.updateStatusLoadModal()
       },
       err => {
