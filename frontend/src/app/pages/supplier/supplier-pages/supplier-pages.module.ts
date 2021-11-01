@@ -6,11 +6,13 @@ import { SupplierComponentsModule } from "../supplier-components/supplier-compon
 
 import { SupplierTableComponent } from './supplier-table/supplier-table.component';
 import { SupplierPanelComponent } from './supplier-panel/supplier-panel.component';
+import { TopSupplierComponent } from './top-supplier/top-supplier.component';
 
 @NgModule({
   declarations: [
     SupplierTableComponent,
-    SupplierPanelComponent
+    SupplierPanelComponent,
+    TopSupplierComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { SupplierPanelComponent } from './supplier-panel/supplier-panel.componen
   ],
   exports: [
     SupplierTableComponent,
-    SupplierPanelComponent
+    SupplierPanelComponent,
+    TopSupplierComponent
   ]
 })
 export class SupplierPagesModule { }

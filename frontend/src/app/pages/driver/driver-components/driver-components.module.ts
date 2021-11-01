@@ -6,8 +6,8 @@ import { ChartsModule } from "ng2-charts";
 import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
-
 import { GraphicDriverComponent } from './graphic-driver/graphic-driver.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { GraphicDriverComponent } from './graphic-driver/graphic-driver.componen
   imports: [
     CommonModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
   ],
   exports: [
     AddFormComponent,
