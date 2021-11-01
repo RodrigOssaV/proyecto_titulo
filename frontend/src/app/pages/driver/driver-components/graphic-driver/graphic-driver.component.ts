@@ -21,7 +21,7 @@ export class GraphicDriverComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['Driver'];
+  public barChartLabels: Label[] = ['Conductores'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];

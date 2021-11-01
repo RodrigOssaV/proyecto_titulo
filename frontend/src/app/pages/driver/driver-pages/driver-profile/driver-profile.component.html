@@ -6,6 +6,14 @@
         <app-subnavbar></app-subnavbar>
     </div>
     <div class="column is-two-fifths">
+
+        <span class="icon-text ml-4">
+            <span class="icon">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span routerLink="/Driver" class="hand-pointer">Back</span>
+        </span>
+        
         <div class="column">
             <div class="card">
                 <div class="card-content">
@@ -48,12 +56,19 @@
                             <td>{{ detalle.amount_delivery }}</td>
                             <td>{{ detalle.amount_not_delivery }}</td>
                         </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="column is-full has-text-centered">
-        <label class="label">Software de Inventario y Generación de Reportes para Distribución y Reparto de Encomiendas. WareSoffan™</label>
+    <div class="column is-full">
+        <app-footer></app-footer>
     </div>
 </div>

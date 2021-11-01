@@ -1,3 +1,7 @@
 .container-figure {
     background-image: url('../../../../public/img/profile-avatar.png');
 }
+
+.hand-pointer{
+    cursor: pointer;
+}

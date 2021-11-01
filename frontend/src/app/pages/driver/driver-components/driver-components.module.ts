@@ -8,13 +8,16 @@ import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
 
 import { GraphicDriverComponent } from './graphic-driver/graphic-driver.component';
+import { TopDriverComponent } from './top-driver/top-driver.component';
+
 
 @NgModule({
   declarations: [
     AddFormComponent,
     UpdateFormComponent,
     DeleteFormComponent,
-    GraphicDriverComponent
+    GraphicDriverComponent,
+    TopDriverComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { GraphicDriverComponent } from './graphic-driver/graphic-driver.componen
     AddFormComponent,
     UpdateFormComponent,
     DeleteFormComponent,
-    GraphicDriverComponent
+    GraphicDriverComponent,
+    TopDriverComponent
   ]
 })
 export class DriverComponentsModule { }

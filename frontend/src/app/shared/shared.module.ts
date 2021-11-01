@@ -4,11 +4,13 @@ import { AppRoutingModule } from "../app-routing.module";
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { SubnavbarComponent } from './subnavbar/subnavbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SubnavbarComponent
+    SubnavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { SubnavbarComponent } from './subnavbar/subnavbar.component';
   ],
   exports: [
     NavbarComponent,
-    SubnavbarComponent
+    SubnavbarComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
