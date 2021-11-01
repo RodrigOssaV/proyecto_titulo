@@ -81,5 +81,16 @@ export class DriverService {
       })
     );
   }
+
+  top_drivers(){
+    return this.http.get(URIs.api+'/top_drivers').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
   
 }

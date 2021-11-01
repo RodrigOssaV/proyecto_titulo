@@ -1,3 +1,7 @@
 .container-card{
     height: 100%;
 }
+
+.container-figure{
+    background-image: url('../../../../public/img/supplier-avatar.png');
+}

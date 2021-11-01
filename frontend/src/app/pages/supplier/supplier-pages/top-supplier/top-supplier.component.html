@@ -1,0 +1,29 @@
+<div class="card">
+
+    <header class="card-header">
+        <p class="card-header-title">
+            Top three suppliers
+        </p>
+    </header>
+    
+    <div class="card-content">
+
+        <div class="content">
+
+            <div class="box" *ngFor="let supplier of listTopSuppliers">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-32x32 container-figure"></figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>{{supplier.name_supplier}} {{supplier.total_amount}}</p>
+                        </div>
+                    </div>                        
+                </article>
+
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,29 @@
+<div class="card">
+
+    <header class="card-header">
+        <p class="card-header-title">
+            Top three drivers
+        </p>
+    </header>
+    
+    <div class="card-content">
+
+        <div class="content">
+
+            <div class="box" *ngFor="let driver of listTopDrivers">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-32x32 container-figure"></figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>{{driver.name}} {{driver.lastname}} {{driver.total_load}}</p>
+                        </div>
+                    </div>                        
+                </article>
+
+            </div>
+        </div>
+    </div>
+    
+</div>

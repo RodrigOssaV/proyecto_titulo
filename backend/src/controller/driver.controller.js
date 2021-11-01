@@ -52,9 +52,7 @@ module.exports = {
     },
     
     update_driver: (req, res) => {
-        /* console.log(req.body); */
         const {rut} = req.params;
-        /* console.log(rut); */
         try {
             Driver.update({
                 rut: req.body.rut,
@@ -83,5 +81,20 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error);
         }
+    },
+
+    top_drivers: (req, res) => {
+        try {
+            Driver.findAll({
+                attributes: ['name', 'lastname', 'total_load'],
+                limit: 3,
+                order: [['total_load', 'DESC']]
+            }).then(result => {
+                res.status(200).json(result);
+            })
+        } catch (error) {
+            res.status(400).json(error);
+        }
     }
+
 };

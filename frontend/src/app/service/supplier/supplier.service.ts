@@ -71,4 +71,15 @@ export class SupplierService {
     );
   }
 
+  top_suppliers(){
+    return this.http.get(URIs.api+'/top_suppliers').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
 }

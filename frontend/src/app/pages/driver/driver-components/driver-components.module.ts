@@ -6,9 +6,7 @@ import { ChartsModule } from "ng2-charts";
 import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
-
 import { GraphicDriverComponent } from './graphic-driver/graphic-driver.component';
-import { TopDriverComponent } from './top-driver/top-driver.component';
 
 
 @NgModule({
@@ -16,20 +14,18 @@ import { TopDriverComponent } from './top-driver/top-driver.component';
     AddFormComponent,
     UpdateFormComponent,
     DeleteFormComponent,
-    GraphicDriverComponent,
-    TopDriverComponent,
+    GraphicDriverComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
   ],
   exports: [
     AddFormComponent,
     UpdateFormComponent,
     DeleteFormComponent,
-    GraphicDriverComponent,
-    TopDriverComponent
+    GraphicDriverComponent
   ]
 })
 export class DriverComponentsModule { }
