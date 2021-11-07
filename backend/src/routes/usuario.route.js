@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const usuarioController = require('../controller/usuario.controller');
-const { verifyToken } = require('../auth/auth');
+const {verifySignUp} = require('../middleware');
+const controller = require('../controller/usuario.controller');
 
-router.post('/register', usuarioController.registrarUsuario);
-router.post('/login', usuarioController.loguearUsuario);
+router.post("/auth/signup",[verifySignUp.checkDuplicateUsernameOrEmail,verifySignUp.checkRolesExisted], controller.signup);
+router.post("/auth/signin", controller.signin);
 
 module.exports = router;

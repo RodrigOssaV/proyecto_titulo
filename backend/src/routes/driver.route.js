@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const driverController = require('../controller/driver.controller');
+const {authJwt} = require('../middleware');
 
 /* CRUD drivers */
-router.post('/add_driver', driverController.add_driver);
+router.post('/add_driver',[authJwt.verifyToken, authJwt.isAdmin], driverController.add_driver);
 router.get('/get_drivers', driverController.get_drivers);
 router.get('/get_driver/:rut', driverController.get_driver);
 router.delete('/delete_driver/:rut', driverController.delete_driver);
