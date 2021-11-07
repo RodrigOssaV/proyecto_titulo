@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { TokenInterceptorService } from "./service/usuario/token-interceptor.service";
 import { AuthGuard } from "./guard/auth.guard";
+import { TokenInterceptorService } from "src/app/service/usuario/token-interceptor.service";
 
 import { SharedModule } from "./shared/shared.module";
 import { PagesModule } from "./pages/pages.module";
@@ -26,8 +26,7 @@ import { PagesModule } from "./pages/pages.module";
     ToastrModule.forRoot()
   ],
   providers: [
-    AuthGuard,
-    {
+    AuthGuard, {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true

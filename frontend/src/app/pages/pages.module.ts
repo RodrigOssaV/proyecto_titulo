@@ -36,7 +36,7 @@ import { SharedModule } from "../shared/shared.module";
     SupplierComponent,
     LoadComponent,
     StatusLoadComponent,
-    UsuarioComponent
+    UsuarioComponent,
   ],
   imports: [
     CommonModule,

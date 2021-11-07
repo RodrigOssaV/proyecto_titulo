@@ -10,9 +10,13 @@ import { Router } from "@angular/router";
 export class LoginFormComponent implements OnInit {
 
   userTemplate = {
-    nickname: '',
+    username: '',
     password: '',
   };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
 
   constructor(private authServices: AuthService, private router: Router) { }
 
@@ -22,14 +26,24 @@ export class LoginFormComponent implements OnInit {
   inicioSesion(){
     this.authServices.inicioSessionUser(this.userTemplate).subscribe(
       res => {
-        /* console.log(res); */
-        localStorage.setItem('token', res.token);
+        localStorage.setItem('accessToken', res.accessToken)
+        this.authServices.saveToken(res.accessToken)
+        this.authServices.saveUser(res)
+
+        this.isLoginFailed = false
+        this.isLoggedIn = true
+        this.roles = this.authServices.getUser().roles
         this.router.navigate(['/Dashboard']);
       },
       err => {
         console.log(err);
+        this.isLoginFailed = true;
       }
     )
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }
