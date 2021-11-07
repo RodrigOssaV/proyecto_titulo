@@ -6,25 +6,25 @@
                 <span routerLink="/Dashboard">Dashboard</span>
             </a>
         </li>
-        <li>
+        <li *ngIf="showAdminBoard">
             <a>
                 <span class="icon"><i class="fas fa-truck"></i></span>
                 <span routerLink="/Driver">Conductores</span>
             </a>
         </li>
-        <li>
+        <li *ngIf="showAdminBoard">
             <a>
                 <span class="icon"><i class="fas fa-dolly"></i></span>
                 <span routerLink="/Supplier">Proveedores</span>
             </a>
         </li>
-        <li>
+        <li *ngIf="showAdminBoard">
             <a>
                 <span class="icon"><i class="fas fa-boxes"></i></span>
                 <span routerLink="/Load">Asignar cargas</span>
             </a>
         </li>
-        <li>
+        <li *ngIf="showAdminBoard">
             <a>
                 <span class="icon"><i class="fas fa-dolly-flatbed"></i></span>
                 <span routerLink="/Status">Status cargas</span>

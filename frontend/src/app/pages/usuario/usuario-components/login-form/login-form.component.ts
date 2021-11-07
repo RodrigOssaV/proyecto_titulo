@@ -27,12 +27,12 @@ export class LoginFormComponent implements OnInit {
     this.authServices.inicioSessionUser(this.userTemplate).subscribe(
       res => {
         localStorage.setItem('accessToken', res.accessToken)
-        /* this.tokenStorage.saveToken(res.accessToken)
-        this.tokenStorage.saveUser(res)
+        this.authServices.saveToken(res.accessToken)
+        this.authServices.saveUser(res)
 
         this.isLoginFailed = false
         this.isLoggedIn = true
-        this.roles = this.tokenStorage.getUser().roles */
+        this.roles = this.authServices.getUser().roles
         this.router.navigate(['/Dashboard']);
       },
       err => {

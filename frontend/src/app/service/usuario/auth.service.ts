@@ -3,6 +3,8 @@ import { HttpClient} from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 
+const TOKEN_KEY = 'accessToken';
+const USER_KEY = 'username';
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +24,32 @@ export class AuthService {
   }
 
   usuarioLogueado(){
-    return !!localStorage.getItem('accessToken')
+    return !!localStorage.getItem(TOKEN_KEY)
   }
 
-  getToken(){
-    return localStorage.getItem('accessToken')
+  saveToken(token: string):void{
+    localStorage.removeItem(TOKEN_KEY)
+    localStorage.setItem(TOKEN_KEY, token)
+  }
+
+  getToken():string | null{
+    return localStorage.getItem(TOKEN_KEY)
+  }
+
+  saveUser(user:any):void {
+    localStorage.removeItem(USER_KEY)
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+  }
+
+  getUser():any{
+    const user = localStorage.getItem(USER_KEY);
+    if(user){
+      return JSON.parse(user);
+    }
   }
 
   logout(){
-    localStorage.removeItem('accessToken')
+    localStorage.removeItem(TOKEN_KEY)
     this.router.navigate(['/Login'])
   }
 
