@@ -1,34 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from "@angular/common/http";
-import { Router } from "@angular/router";
+import { HttpClient, HttpHeaders} from "@angular/common/http";
+import { Observable } from "rxjs";
+
+const AUTH_API = 'http://localhost:3000/api/auth'
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'content-type': 'application/json'})
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private URL = 'http://localhost:3000/api'
+  constructor(private http: HttpClient){}
 
-  constructor(private http: HttpClient, private router: Router) { }
-
-  inicioSessionUser(data: { nickname: string; password: string; }) {
-    return this.http.post<any>(this.URL+'/login', data);
+  login(username: string, password: string): Observable<any>{
+    return this.http.post(AUTH_API+'/signin', {
+      username,
+      password
+    }, httpOptions)
   }
 
-  registroUser(data: { nickname: string; password: string; }){
-    return this.http.post<any>(this.URL+'/register', data);
-  }
-
-  usuarioLogueado() {
-    return !!localStorage.getItem('token');
-  }
-
-  getToken(){
-    return localStorage.getItem('token');
-  }
-
-  logout(){
-    localStorage.removeItem('token');
-    this.router.navigate(['/Login']);
+  register(username: string, email: string, password: string): Observable<any>{
+    return this.http.post(AUTH_API+'/signup', {
+      username,
+      email,
+      password
+    }, httpOptions)
   }
 }

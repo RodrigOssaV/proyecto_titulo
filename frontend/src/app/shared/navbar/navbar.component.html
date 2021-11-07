@@ -35,17 +35,19 @@
             </div>
         </div> -->
     
-        <ng-container *ngIf="authService.usuarioLogueado()">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="navbar is-right">
-                        <a class="navbar-item" (click)="authService.logout()">
-                        Cerrar sesión
-                        </a>
-                    </div>
+        <!-- <ng-container >
+            
+        </ng-container> -->
+
+        <div class="navbar-end" *ngIf="isLoggedIn">
+            <div class="navbar-item">
+                <div class="navbar is-right">
+                    <a class="navbar-item" (click)="logout()">
+                    Cerrar sesión
+                    </a>
                 </div>
             </div>
-        </ng-container>
+        </div>
 
     </div>
 
