@@ -1,44 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Router } from "@angular/router";
+import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http";
+import { AuthService } from "./auth.service";
 
-const TOKEN_KEY = 'auth-token';
-const USER_KEY = 'auth-user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenInterceptorService {
 
-  constructor(private router: Router) { }
+  constructor(private _authService: AuthService) { }
 
-  signOut(): void {
-    localStorage.clear();
-    this.router.navigate(['/Login'])
-  }
+  intercept(req: HttpRequest<any>, next: HttpHandler){
+    const token = this._authService.getToken();
 
-  public saveToken(token: string): void {
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.setItem(TOKEN_KEY, token);
-  }
+    let request = req;
 
-  public getToken(): string | null {
-    return localStorage.getItem(TOKEN_KEY);
-  }
-
-  public saveUser(user: any): void {
-    localStorage.removeItem(USER_KEY);
-    localStorage.setItem(USER_KEY, JSON.stringify(user));
-  }
-
-  public getUser(): any {
-    const user = localStorage.getItem(USER_KEY);
-    if (user) {
-      return JSON.parse(user);
+    if(token){
+      request = req.clone({
+        setHeaders: {
+          authorization: `${token}`
+        }
+      });
     }
-    return {};
+    return next.handle(request);
   }
 
-  public userLogIn(){
-    return !!localStorage.getItem(TOKEN_KEY);
-  }
+  
 }

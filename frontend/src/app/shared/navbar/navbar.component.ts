@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenInterceptorService } from "src/app/service/usuario/token-interceptor.service";
+import { AuthService } from "src/app/service/usuario/auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -14,10 +14,10 @@ export class NavbarComponent implements OnInit {
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenInterceptorService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    /* this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -27,11 +27,7 @@ export class NavbarComponent implements OnInit {
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
-    }
-  }
-
-  logout(): void {
-    this.tokenStorageService.signOut();
+    } */
   }
 
   toggleBurger(){

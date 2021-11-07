@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../../../service/usuario/auth.service";
-import { TokenInterceptorService } from "src/app/service/usuario/token-interceptor.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -19,24 +18,21 @@ export class LoginFormComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authServices: AuthService, private tokenStorage: TokenInterceptorService, private router: Router) { }
+  constructor(private authServices: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
-    }
   }
 
   inicioSesion(){
-    this.authServices.login(this.userTemplate.username, this.userTemplate.password).subscribe(
+    this.authServices.inicioSessionUser(this.userTemplate).subscribe(
       res => {
-        this.tokenStorage.saveToken(res.accessToken)
+        localStorage.setItem('accessToken', res.accessToken)
+        /* this.tokenStorage.saveToken(res.accessToken)
         this.tokenStorage.saveUser(res)
 
         this.isLoginFailed = false
         this.isLoggedIn = true
-        this.roles = this.tokenStorage.getUser().roles
+        this.roles = this.tokenStorage.getUser().roles */
         this.router.navigate(['/Dashboard']);
       },
       err => {

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AuthInterceptor } from "src/app/_helpers/auth.interceptor";
+import { AuthGuard } from "./guard/auth.guard";
+import { TokenInterceptorService } from "src/app/service/usuario/token-interceptor.service";
 
 import { SharedModule } from "./shared/shared.module";
 import { PagesModule } from "./pages/pages.module";
@@ -24,7 +25,13 @@ import { PagesModule } from "./pages/pages.module";
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthInterceptor],
+  providers: [
+    AuthGuard, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
