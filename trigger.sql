@@ -33,3 +33,7 @@ for each row begin
 	update drivers set total_load = varAmount where drivers.rut = old.rut_driver;
 end;
 $$ DELIMITER ;
+
+INSERT INTO roles VALUES (1, 'user',now(), now());
+INSERT INTO roles VALUES (2, 'moderator',now(), now());
+INSERT INTO roles VALUES (3, 'admin',now(), now());
