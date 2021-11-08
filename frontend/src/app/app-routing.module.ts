@@ -8,20 +8,20 @@ import { LoadComponent } from './pages/load/load.component';
 import { StatusLoadComponent } from './pages/status-load/status-load.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
 import { UsuarioComponent } from "./pages/usuario/usuario.component";
-import { UsersPagesComponent } from "./pages/usuario/usuario-pages/users-pages/users-pages.component";
+import { LoginComponent } from "./pages/login/login.component";
 
 import { AuthGuard } from "./guard/auth.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
-  { path: 'Login', component: UsuarioComponent },
+  { path: 'Login', component: LoginComponent },
   { path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'Driver', component: DriverComponent, canActivate: [AuthGuard] },
   { path: 'Supplier', component: SupplierComponent, canActivate: [AuthGuard] },
   { path: 'Load', component: LoadComponent, canActivate: [AuthGuard] },
   { path: 'Status', component: StatusLoadComponent, canActivate: [AuthGuard] },
   { path: 'Profile/:rut', component: DriverProfileComponent, canActivate: [AuthGuard] },
-  { path: 'Users', component: UsersPagesComponent, canActivate: [AuthGuard] }
+  { path: 'Users', component: UsuarioComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

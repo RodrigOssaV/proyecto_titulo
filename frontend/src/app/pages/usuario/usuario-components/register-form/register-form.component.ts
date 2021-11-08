@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterFormComponent implements OnInit {
 
+  userTemplate = {
+    username: '',
+    password: '',
+    roles: [],
+  }
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  registroUsuario(form:any){
+    console.log(form.value);
+  }
+
+  launchModal(){
+    const modal = document.querySelector('.modal');
+    modal?.classList.toggle('is-active');
   }
 
 }

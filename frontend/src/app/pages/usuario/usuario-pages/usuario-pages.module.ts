@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UsersPagesComponent } from './users-pages/users-pages.component';
 import { SharedModule } from "src/app/shared/shared.module";
+import { UsuarioComponentsModule } from "../usuario-components/usuario-components.module";
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import { UserTableComponent } from './user-table/user-table.component';
 
 @NgModule({
   declarations: [
-    UsersPagesComponent
+    UserPanelComponent,
+    UserTableComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    UsuarioComponentsModule
   ],
   exports: [
-    UsersPagesComponent
+    UserPanelComponent,
+    UserTableComponent
   ]
 })
 export class UsuarioPagesModule { }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from "src/app/service/usuario/auth.service";
 
 
@@ -17,13 +16,20 @@ export class UsuarioComponent implements OnInit {
   showUserBoard = false;
   username?: string;
 
-  constructor(private _authService: AuthService, private router: Router) { }
+  constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this._authService.getToken();
-
+    
     if (this.isLoggedIn) {
-      this.router.navigate(['/Dashboard']);
+      const user = this._authService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+      this.username = user.username;
     }    
   }
 

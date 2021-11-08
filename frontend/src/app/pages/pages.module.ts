@@ -30,6 +30,7 @@ import { DashboardComponentsModule } from "./dashboard/dashboard-components/dash
 import { DashboardPagesModule } from "./dashboard/dashboard-pages/dashboard-pages.module";
 
 import { SharedModule } from "../shared/shared.module";
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { SharedModule } from "../shared/shared.module";
     LoadComponent,
     StatusLoadComponent,
     UsuarioComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import { SharedModule } from "../shared/shared.module";
     SupplierComponent,
     LoadComponent,
     StatusLoadComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    LoginComponent
   ]
 })
 export class PagesModule { }
