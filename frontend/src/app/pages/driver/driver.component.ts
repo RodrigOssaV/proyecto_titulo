@@ -18,10 +18,8 @@ export class DriverComponent implements OnInit {
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
-    console.log(this.isLoggedIn)
     this.isLoggedIn = !!this._authService.getToken();
-    console.log(this.isLoggedIn)
-
+    
     if (this.isLoggedIn) {
       const user = this._authService.getUser();
       this.roles = user.roles;

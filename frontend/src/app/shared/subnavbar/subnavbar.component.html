@@ -6,7 +6,7 @@
                 <span routerLink="/Dashboard">Dashboard</span>
             </a>
         </li>
-        <li *ngIf="showAdminBoard">
+        <li *ngIf="showAdminBoard || showModeratorBoard">
             <a>
                 <span class="icon"><i class="fas fa-truck"></i></span>
                 <span routerLink="/Driver">Conductores</span>
@@ -18,13 +18,13 @@
                 <span routerLink="/Supplier">Proveedores</span>
             </a>
         </li>
-        <li *ngIf="showAdminBoard">
+        <li *ngIf="showAdminBoard || showModeratorBoard">
             <a>
                 <span class="icon"><i class="fas fa-boxes"></i></span>
                 <span routerLink="/Load">Asignar cargas</span>
             </a>
         </li>
-        <li *ngIf="showAdminBoard">
+        <li *ngIf="showAdminBoard || showModeratorBoard">
             <a>
                 <span class="icon"><i class="fas fa-dolly-flatbed"></i></span>
                 <span routerLink="/Status">Status cargas</span>

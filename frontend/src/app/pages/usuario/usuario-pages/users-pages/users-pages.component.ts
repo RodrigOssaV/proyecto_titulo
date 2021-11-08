@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "src/app/service/usuario/auth.service";
+import { AuthService } from 'src/app/service/usuario/auth.service';
 
 @Component({
-  selector: 'app-load',
-  templateUrl: './load.component.html',
-  styleUrls: ['./load.component.css']
+  selector: 'app-users-pages',
+  templateUrl: './users-pages.component.html',
+  styleUrls: ['./users-pages.component.css']
 })
-export class LoadComponent implements OnInit {
+export class UsersPagesComponent implements OnInit {
 
   private roles: string[] = [];
   isLoggedIn = false;
@@ -29,7 +29,7 @@ export class LoadComponent implements OnInit {
       this.showUserBoard = this.roles.includes('ROLE_USER');
 
       this.username = user.username;
-    }    
+    } 
   }
 
 }

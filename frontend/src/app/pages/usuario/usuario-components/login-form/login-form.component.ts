@@ -42,8 +42,4 @@ export class LoginFormComponent implements OnInit {
     )
   }
 
-  reloadPage(): void {
-    window.location.reload();
-  }
-
 }

@@ -8,6 +8,7 @@ import { LoadComponent } from './pages/load/load.component';
 import { StatusLoadComponent } from './pages/status-load/status-load.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
 import { UsuarioComponent } from "./pages/usuario/usuario.component";
+import { UsersPagesComponent } from "./pages/usuario/usuario-pages/users-pages/users-pages.component";
 
 import { AuthGuard } from "./guard/auth.guard";
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'Supplier', component: SupplierComponent, canActivate: [AuthGuard] },
   { path: 'Load', component: LoadComponent, canActivate: [AuthGuard] },
   { path: 'Status', component: StatusLoadComponent, canActivate: [AuthGuard] },
-  { path: 'Profile/:rut', component: DriverProfileComponent, canActivate: [AuthGuard] }
+  { path: 'Profile/:rut', component: DriverProfileComponent, canActivate: [AuthGuard] },
+  { path: 'Users', component: UsersPagesComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
