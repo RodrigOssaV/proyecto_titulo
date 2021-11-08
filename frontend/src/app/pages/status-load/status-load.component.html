@@ -1,4 +1,4 @@
-<ng-container *ngIf=showAdminBoard>
+<ng-container *ngIf="showAdminBoard || showModeratorBoard">
     <div class="columns is-multiline container-columns">
         <div class="column is-full">
             <app-navbar></app-navbar>
@@ -6,23 +6,10 @@
         <div class="column is-full">
             <app-subnavbar></app-subnavbar>
         </div>
-        <div class="column is-two-fifths">
+        <div class="column is-half is-offset-one-quarter">
             <app-status-panel></app-status-panel>
         </div>
-        <div class="column">
-            <div class="card">
-                <!-- container-title -->
-                <header class="card-header">
-                    <p class="card-header-title">
-                        Card-title
-                    </p>
-                </header>
-    
-                <div class="card-content">
-                    <!-- <app-driver-topfive></app-driver-topfive> -->
-                </div>
-            </div>
-        </div>
+        
         <div class="column is-full">
             <div class="box">
                 <app-status-table></app-status-table>

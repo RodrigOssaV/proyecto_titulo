@@ -29,7 +29,6 @@ export class LoadComponent implements OnInit {
       this.showUserBoard = this.roles.includes('ROLE_USER');
 
       this.username = user.username;
-      console.log(user);
     }    
   }
 

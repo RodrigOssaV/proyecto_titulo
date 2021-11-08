@@ -24,7 +24,6 @@ export class NavbarComponent implements OnInit {
       const user = this.authService.getUser();
       this.roles = user.roles;
       this.typeRole = this.roles[0];
-      console.log(this.typeRole)
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');

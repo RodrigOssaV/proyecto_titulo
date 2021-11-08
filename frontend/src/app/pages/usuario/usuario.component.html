@@ -1,29 +1,37 @@
-<ng-container *ngIf=isLoggedIn; else isNotLogged>
-    <section class="section">
-        <div class="columns is-gapless is-multiline is-mobile">
-            <div class="column is-half container-img">
-                
-            </div>
-            <div class="column is-half container-login">
-                <div class="sub-container-login">
-                    <app-login-form></app-login-form>
-                </div>
+<ng-container *ngIf="showAdminBoard">
+    <div class="columns is-multiline container-columns">
+        <div class="column is-full">
+            <app-navbar></app-navbar>
+        </div>
+        <div class="column is-full">
+            <app-subnavbar></app-subnavbar>
+        </div>
+        <div class="column is-two-fifths">
+            <app-user-panel></app-user-panel>
+        </div>
+        <div class="column">
+            
+        </div>
+        <div class="column is-full">
+            <div class="box">
+                <app-user-table></app-user-table>
             </div>
         </div>
-    </section>
+        <div class="column is-full">
+            <app-footer></app-footer>
+        </div>
+    </div>
 </ng-container>
-<ng-container #isNotLogged>
-    <section class="section">
-        <div class="columns is-gapless is-multiline is-mobile">
-            <div class="column is-half container-img">
-                
-            </div>
-            <div class="column is-half container-login">
-                <div class="sub-container-login">
-                    <app-login-form></app-login-form>
-                </div>
-            </div>
-        </div>
-    </section>
+
+<ng-container *ngIf="showUserBoard || showModeratorBoard">
+    <div class="column is-full">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="column is-full">
+        <app-require-rol></app-require-rol>
+    </div>
+    <div class="column is-full">
+        <app-footer></app-footer>
+    </div>
 </ng-container>
 
