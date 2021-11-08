@@ -5,12 +5,14 @@ import { AppRoutingModule } from "../app-routing.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import { SubnavbarComponent } from './subnavbar/subnavbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { RequireRolComponent } from './require-rol/require-rol.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SubnavbarComponent,
-    FooterComponent
+    FooterComponent,
+    RequireRolComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
   exports: [
     NavbarComponent,
     SubnavbarComponent,
-    FooterComponent
+    FooterComponent,
+    RequireRolComponent
   ]
 })
 export class SharedModule { }

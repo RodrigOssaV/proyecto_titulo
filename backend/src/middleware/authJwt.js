@@ -23,6 +23,7 @@ verifyToken = (req, res, next) => {
     });
 };
 
+/* ROLE_ADMIN */
 isAdmin = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
         user.getRoles().then(roles => {
@@ -40,6 +41,7 @@ isAdmin = (req, res, next) => {
     });
 };
 
+/* ROL_MODERATOR */
 isModerator = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
         user.getRoles().then(roles => {
@@ -56,6 +58,7 @@ isModerator = (req, res, next) => {
     });
 };
 
+/* ROL_USER */
 isModeratorOrAdmin = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
         user.getRoles().then(roles => {

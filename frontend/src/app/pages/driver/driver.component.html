@@ -1,22 +1,37 @@
-<div class="columns is-multiline container-columns">
+
+<ng-container *ngIf=showAdminBoard>
+    <div class="columns is-multiline container-columns">
+        <div class="column is-full">
+            <app-navbar></app-navbar>
+        </div>
+        <div class="column is-full">
+            <app-subnavbar></app-subnavbar>
+        </div>
+        <div class="column is-two-fifths">
+            <app-driver-panel></app-driver-panel>
+        </div>
+        <div class="column">
+            <app-top-driver></app-top-driver>
+        </div>
+        <div class="column is-full">
+            <div class="box">
+                <app-driver-table></app-driver-table>
+            </div>
+        </div>
+        <div class="column is-full">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf=showUserBoard>
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
     <div class="column is-full">
-        <app-subnavbar></app-subnavbar>
-    </div>
-    <div class="column is-two-fifths">
-        <app-driver-panel></app-driver-panel>
-    </div>
-    <div class="column">
-        <app-top-driver></app-top-driver>
-    </div>
-    <div class="column is-full">
-        <div class="box">
-            <app-driver-table></app-driver-table>
-        </div>
+        <app-require-rol></app-require-rol>
     </div>
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</div>
+</ng-container>

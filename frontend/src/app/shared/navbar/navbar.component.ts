@@ -9,6 +9,7 @@ import { AuthService } from "src/app/service/usuario/auth.service";
 export class NavbarComponent implements OnInit {
 
   private roles: string[] = [];
+  public typeRole: string = "";
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
@@ -17,17 +18,19 @@ export class NavbarComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-    /* this.isLoggedIn = !!this.tokenStorageService.getToken();
+    this.isLoggedIn = !!this.authService.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
+      const user = this.authService.getUser();
       this.roles = user.roles;
+      this.typeRole = this.roles[0];
+      console.log(this.typeRole)
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
-    } */
+    }
   }
 
   toggleBurger(){

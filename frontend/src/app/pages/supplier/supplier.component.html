@@ -1,22 +1,36 @@
-<div class="columns is-multiline container-columns">
+<ng-container *ngIf=showAdminBoard>
+    <div class="columns is-multiline container-columns">
+        <div class="column is-full">
+            <app-navbar></app-navbar>
+        </div>
+        <div class="column is-full">
+            <app-subnavbar></app-subnavbar>
+        </div>
+        <div class="column is-two-fifths">
+            <app-supplier-panel></app-supplier-panel>
+        </div>
+        <div class="column">
+            <app-top-supplier></app-top-supplier>
+        </div>
+        <div class="column is-full">
+            <div class="box">
+                <app-supplier-table></app-supplier-table>
+            </div>
+        </div>
+        <div class="column is-full">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf=showUserBoard>
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
     <div class="column is-full">
-        <app-subnavbar></app-subnavbar>
-    </div>
-    <div class="column is-two-fifths">
-        <app-supplier-panel></app-supplier-panel>
-    </div>
-    <div class="column">
-        <app-top-supplier></app-top-supplier>
-    </div>
-    <div class="column is-full">
-        <div class="box">
-            <app-supplier-table></app-supplier-table>
-        </div>
+        <app-require-rol></app-require-rol>
     </div>
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</div>
+</ng-container>

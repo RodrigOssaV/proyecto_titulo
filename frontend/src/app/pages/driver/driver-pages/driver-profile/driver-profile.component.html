@@ -1,74 +1,89 @@
-<div class="columns is-multiline container-columns">
-    <div class="column is-full">
-        <app-navbar></app-navbar>
-    </div>
-    <div class="column is-full">
-        <app-subnavbar></app-subnavbar>
-    </div>
-    <div class="column is-two-fifths">
-
-        <span class="icon-text ml-4">
-            <span class="icon">
-                <i class="fas fa-arrow-left"></i>
+<ng-container *ngIf=showAdminBoard>
+    <div class="columns is-multiline container-columns">
+        <div class="column is-full">
+            <app-navbar></app-navbar>
+        </div>
+        <div class="column is-full">
+            <app-subnavbar></app-subnavbar>
+        </div>
+        <div class="column is-two-fifths">
+    
+            <span class="icon-text ml-4">
+                <span class="icon">
+                    <i class="fas fa-arrow-left"></i>
+                </span>
+                <span routerLink="/Driver" class="hand-pointer">Back</span>
             </span>
-            <span routerLink="/Driver" class="hand-pointer">Back</span>
-        </span>
-        
-        <div class="column">
-            <div class="card">
-                <div class="card-content">
-                    <div class="media">
-                        <div class="card-image media-left">
-                            <figure class="image is-128x128 container-figure"></figure>
-                        </div>
-                        <div class="card-content media-content">
-                            <p><strong>RUT:</strong> {{datos.rut}}</p> 
-                            <p><strong>Nombre:</strong> {{datos.name}}</p>
-                            <p><strong>Apellidos:</strong> {{datos.lastname}}</p>
-                            <p><strong>Teléfono:</strong> {{datos.phone}}</p>
+            
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="card-image media-left">
+                                <figure class="image is-128x128 container-figure"></figure>
+                            </div>
+                            <div class="card-content media-content">
+                                <p><strong>RUT:</strong> {{datos.rut}}</p> 
+                                <p><strong>Nombre:</strong> {{datos.name}}</p>
+                                <p><strong>Apellidos:</strong> {{datos.lastname}}</p>
+                                <p><strong>Teléfono:</strong> {{datos.phone}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="column has-background-info">
-        <button class="button" (click)="exportAsXLSX()">Export to Excel</button>
-    </div>
-    <div class="column is-full">
-        <div class="box">
+        <div class="column has-background-info">
+            <button class="button" (click)="exportAsXLSX()">Export to Excel</button>
+        </div>
+        <div class="column is-full">
             <div class="box">
-                <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
-                    <thead>
-                        <tr>
-                            <th>Fecha asignación</th>
-                            <th>Proveedor</th>
-                            <th>Cantidad asignada</th>
-                            <th>Cantidad entregada</th>
-                            <th>Cantidad no entregada</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let detalle of detalleConductor">
-                            <td>{{ detalle.date_load }}</td>
-                            <td>{{ detalle.name_supplier }}</td>
-                            <td>{{ detalle.amount_load }}</td>
-                            <td>{{ detalle.amount_delivery }}</td>
-                            <td>{{ detalle.amount_not_delivery }}</td>
-                        </tr>
-                        <tr>
-                            <th>Total</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="box">
+                    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+                        <thead>
+                            <tr>
+                                <th>Fecha asignación</th>
+                                <th>Proveedor</th>
+                                <th>Cantidad asignada</th>
+                                <th>Cantidad entregada</th>
+                                <th>Cantidad no entregada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detalle of detalleConductor">
+                                <td>{{ detalle.date_load }}</td>
+                                <td>{{ detalle.name_supplier }}</td>
+                                <td>{{ detalle.amount_load }}</td>
+                                <td>{{ detalle.amount_delivery }}</td>
+                                <td>{{ detalle.amount_not_delivery }}</td>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+        <div class="column is-full">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf=showUserBoard>
+    <div class="column is-full">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="column is-full">
+        <app-require-rol></app-require-rol>
     </div>
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</div>
+</ng-container>
+

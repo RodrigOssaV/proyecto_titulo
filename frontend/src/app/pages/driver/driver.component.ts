@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "src/app/service/usuario/auth.service";
 
 @Component({
   selector: 'app-driver',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverComponent implements OnInit {
 
-  constructor() { }
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  showUserBoard = false;
+  username?: string;
 
-  ngOnInit(): void {    
+  constructor(private _authService: AuthService) { }
+
+  ngOnInit(): void {
+    console.log(this.isLoggedIn)
+    this.isLoggedIn = !!this._authService.getToken();
+    console.log(this.isLoggedIn)
+
+    if (this.isLoggedIn) {
+      const user = this._authService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+      this.username = user.username;
+    }    
   }
 
 }
