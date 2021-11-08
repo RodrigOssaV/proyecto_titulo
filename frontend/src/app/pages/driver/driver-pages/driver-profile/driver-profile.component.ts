@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { DriverService } from "../../../../service/driver/driver.service";
 import { LoadService } from "src/app/service/load/load.service";
 import { ExcelService } from "src/app/service/component/excel.service";
+import { AuthService } from 'src/app/service/usuario/auth.service';
 
 @Component({
   selector: 'app-driver-profile',
@@ -11,6 +12,13 @@ import { ExcelService } from "src/app/service/component/excel.service";
   styleUrls: ['./driver-profile.component.css']
 })
 export class DriverProfileComponent implements OnInit {
+
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  showUserBoard = false;
+  username?: string;
 
   rutParametro: any;
   datos:any = [];
@@ -20,13 +28,27 @@ export class DriverProfileComponent implements OnInit {
     private route: ActivatedRoute, 
     private apiDriver: DriverService,
     private apiLoad: LoadService,
-    private excelService: ExcelService
+    private excelService: ExcelService,
+    private _authService: AuthService
     ) { }
 
   ngOnInit(): void {
     this.rutParametro = this.route.snapshot.paramMap.get('rut');
     this.obtenerConductor();
     this.obtenerDetalleConductor();
+
+    this.isLoggedIn = !!this._authService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this._authService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+
+      this.username = user.username;
+    }
   }
 
   obtenerConductor(){

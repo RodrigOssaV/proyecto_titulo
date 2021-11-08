@@ -24,20 +24,20 @@ export class AuthService {
   }
 
   usuarioLogueado(){
-    return !!localStorage.getItem(TOKEN_KEY)
+    return !!localStorage.getItem(TOKEN_KEY);
   }
 
   saveToken(token: string):void{
-    localStorage.removeItem(TOKEN_KEY)
-    localStorage.setItem(TOKEN_KEY, token)
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.setItem(TOKEN_KEY, token);
   }
 
   getToken():string | null{
-    return localStorage.getItem(TOKEN_KEY)
+    return localStorage.getItem(TOKEN_KEY);
   }
 
   saveUser(user:any):void {
-    localStorage.removeItem(USER_KEY)
+    localStorage.removeItem(USER_KEY);
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
@@ -49,9 +49,7 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem(TOKEN_KEY)
-    this.router.navigate(['/Login'])
+    localStorage.removeItem(TOKEN_KEY);
+    this.router.navigate(['/Login']);
   }
-
-
 }

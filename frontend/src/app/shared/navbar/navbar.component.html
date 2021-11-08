@@ -13,39 +13,40 @@
 
     <div id="navMenu" class="navbar-menu navMenu">
 
-        <!-- <div class="navbar-start">    
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    Opciones
-                </a>        
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" routerLink="/Driver">
-                        Conductores
-                    </a>
-                    <a class="navbar-item" routerLink="/Supplier">
-                        Proveedores
-                    </a>
-                    <a class="navbar-item" routerLink="/Load">
-                        Asignar cargas 
-                    </a>
-                    <a class="navbar-item" routerLink="/Status">
-                        Status cargas
-                    </a>
-                </div>
-            </div>
-        </div> -->
-    
+            
         <ng-container *ngIf="authService.usuarioLogueado()">
             <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="navbar is-right">
-                        <a class="navbar-item" (click)="authService.logout()">
-                        Cerrar sesión
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        PROFILE {{username | uppercase}}
+                    </a>
+            
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            ROL: {{typeRole}}
                         </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Preferences
+                        </a>
+                        <ng-container *ngIf=showAdminBoard>
+                            <a class="navbar-item">
+                                Add Users
+                            </a>
+                        </ng-container>
+                        <a class="navbar-item">
+                            Last move
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" (click)="authService.logout()">
+                            Cerrar sesión
+                            </a>
                     </div>
                 </div>
             </div>
         </ng-container>
+
     </div>
 
 </nav>
