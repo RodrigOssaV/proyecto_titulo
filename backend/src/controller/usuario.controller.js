@@ -33,6 +33,7 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 const db = require('../database/sequelize.relations');
 const {auth} = require('../database/config');
+const sequelize = require('../database/db');
 const User = db.user;
 const Role = db.role;
 const Op = db.Sequelize.Op;
@@ -45,11 +46,10 @@ exports.signup = (req, res) => {
         password: bcrypt.hashSync(req.body.password, 8)
     }).then(user => {
         if (req.body.roles) {
+            console.log(req.body.roles)
             Role.findAll({
                 where: {
-                name: {
-                    [Op.or]: req.body.roles
-                }
+                name: req.body.roles
                 }
             }).then(roles => {
                 user.setRoles(roles).then(() => {
@@ -106,4 +106,17 @@ exports.signin = (req, res) => {
     }).catch(err => {
         res.status(500).send({ message: err.message });
     });
+};
+
+exports.getAllUsers = async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select rls.name, us.username, us.email 
+            from roles as rls
+            right join user_roles as usRol on rls.id = usRol.roleId
+            right join users as us on usRol.userId = us.id`);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            console.log(error)
+        }
 };

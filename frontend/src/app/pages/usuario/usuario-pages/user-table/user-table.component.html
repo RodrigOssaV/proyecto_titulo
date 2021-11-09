@@ -1,1 +1,18 @@
-<p>user-table works!</p>
+<div class="columns is-fullwidth">
+    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Type Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

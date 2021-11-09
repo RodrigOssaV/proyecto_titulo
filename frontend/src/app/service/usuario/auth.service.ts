@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from "@angular/common/http";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
+import { map } from "rxjs/operators";
 
 const TOKEN_KEY = 'accessToken';
 const USER_KEY = 'username';
@@ -12,6 +13,8 @@ const USER_KEY = 'username';
 export class AuthService {
 
   private AUTH_API = 'http://localhost:3000/api/auth'
+  turnLoad = new BehaviorSubject<boolean>(false);
+  loadList = this.turnLoad.asObservable();
 
   constructor(private http: HttpClient, private router: Router){}
 
@@ -20,7 +23,15 @@ export class AuthService {
   }
 
   registroUser(data: {username: string, email: string, password: string}){
-    return this.http.post<any>(this.AUTH_API+'/signup', data);
+    return this.http.post<any>(this.AUTH_API+'/signup', data).pipe(
+      map((res:any) => {
+        this.turnLoad.next(true);
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );;
   }
 
   usuarioLogueado(){
