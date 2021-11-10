@@ -12,6 +12,11 @@ export class StatusTableComponent implements OnInit {
   listStatusLoads: any;
   statusloadEdit: Statusload = new Statusload();
 
+  currentIndex = -1;
+  page = 1;
+  pageSize = 15;
+  pageSizes = [15, 20, 35];
+
   constructor(private apiStatus: StatusService) { }
 
   ngOnInit(): void {
@@ -39,6 +44,15 @@ export class StatusTableComponent implements OnInit {
     this.statusloadEdit = status;
     const editModal = document.querySelector('#updateStatusLoadModal')!;
     editModal.classList.toggle('is-active');
+  }
+
+  handlePageChange(event: number): void{
+    this.page = event;
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
   }
 
 }

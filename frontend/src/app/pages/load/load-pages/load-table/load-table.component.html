@@ -1,4 +1,4 @@
-<div class="columns is-fullwidth">
+<div class="box">
     <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
         <thead>
             <tr>
@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let load of listLoads">
+            <tr *ngFor="let load of listLoads | paginate: {itemsPerPage: pageSize, currentPage: page}">
                 <td>{{ load.id_load }}</td>
                 <td>{{ load.date_load }}</td>
                 <td>{{ load.rut_driver }}</td>
@@ -20,12 +20,17 @@
                 <td>{{ load.amount_load }}</td>
                 <td>{{ load.amount_delivery }}</td>
                 <td>{{ load.amount_not_delivery}}</td>
-                <!-- <td>
-                    <button class="button is-small" (click)="editDriver(driver)">Editar</button>
-                    <button class="button is-small" (click)="deleteDriver(driver)">Delete</button>
-                    <button class="button is-small">Profile</button> 
-                </td> -->
             </tr>
         </tbody>
     </table>
+</div>
+<div class="columns is-fullwidth is-justify-content-center">
+    <div class="box">
+        <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            [responsive]="true"
+            (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+    </div>
 </div>

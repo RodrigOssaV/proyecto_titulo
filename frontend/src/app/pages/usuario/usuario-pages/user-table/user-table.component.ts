@@ -10,6 +10,10 @@ import { UserService } from 'src/app/service/usuario/user.service';
 export class UserTableComponent implements OnInit {
 
   users:any;
+  currentIndex = -1;
+  page = 1;
+  pageSize = 8;
+  pageSizes = [8, 12, 16];
 
   constructor(private authService: AuthService, private userService: UserService) { }
 
@@ -28,6 +32,15 @@ export class UserTableComponent implements OnInit {
         this.users = res;
       }
     )
+  }
+
+  handlePageChange(event: number): void{
+    this.page = event;
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
   }
 
 }

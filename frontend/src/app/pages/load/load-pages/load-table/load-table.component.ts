@@ -10,6 +10,11 @@ export class LoadTableComponent implements OnInit {
 
   listLoads:any;
 
+  currentIndex = -1;
+  page = 1;
+  pageSize = 15;
+  pageSizes = [15, 20, 35];
+
   constructor(private apiLoad: LoadService) { }
 
   ngOnInit(): void {
@@ -30,6 +35,15 @@ export class LoadTableComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  handlePageChange(event: number): void{
+    this.page = event;
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
   }
 
 }
