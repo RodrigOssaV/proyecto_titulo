@@ -1,1 +1,32 @@
-<p>user-table works!</p>
+<div class="box">
+    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Type Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | paginate: {itemsPerPage: pageSize, currentPage: page}">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="columns is-fullwidth is-justify-content-center">
+    <div class="box">
+        <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            [responsive]="true"
+            (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+    </div>
+</div>
+
+
+
+

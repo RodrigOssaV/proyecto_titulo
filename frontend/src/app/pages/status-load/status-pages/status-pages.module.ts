@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from "../../../app-routing.module";
+import { NgxPaginationModule } from "ngx-pagination";
 
 import { StatusComponentsModule } from "../status-components/status-components.module";
 
@@ -15,7 +16,8 @@ import { StatusTableComponent } from './status-table/status-table.component';
   imports: [
     CommonModule,
     AppRoutingModule,
-    StatusComponentsModule
+    StatusComponentsModule,
+    NgxPaginationModule
   ],
   exports: [
     StatusPanelComponent,

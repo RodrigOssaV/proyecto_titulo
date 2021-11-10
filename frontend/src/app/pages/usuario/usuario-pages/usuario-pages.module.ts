@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from "ngx-pagination";
 
 import { SharedModule } from "src/app/shared/shared.module";
 import { UsuarioComponentsModule } from "../usuario-components/usuario-components.module";
@@ -14,7 +15,8 @@ import { UserTableComponent } from './user-table/user-table.component';
   imports: [
     CommonModule,
     SharedModule,
-    UsuarioComponentsModule
+    UsuarioComponentsModule,
+    NgxPaginationModule
   ],
   exports: [
     UserPanelComponent,
