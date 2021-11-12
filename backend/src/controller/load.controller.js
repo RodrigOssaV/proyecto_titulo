@@ -46,7 +46,9 @@ module.exports = {
 
     get_sum_loads: async (req, res) => {
         try {
-            let data = await sequelize.query(`select sum(amount_load) as sumLoads, sum(amount_delivery) as sumDeliverys from loads`);
+            let data = await sequelize.query(`
+            select sum(amount_load) as sumLoads, sum(amount_delivery) as sumDeliverys, sum(amount_not_delivery) as sumNotDelivery 
+            from loads`);
             res.status(200).json(data[0]);
         } catch (error) {
             res.status(400).json(error);
