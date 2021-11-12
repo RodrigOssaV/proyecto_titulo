@@ -9,6 +9,7 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { DashboardComponentsModule } from "../dashboard-components/dashboard-components.module";
 import { DriverComponentsModule } from "../../driver/driver-components/driver-components.module";
 import { SupplierComponentsModule } from "../../supplier/supplier-components/supplier-components.module";
+import { LoadComponentsModule } from "../../load/load-components/load-components.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SupplierComponentsModule } from "../../supplier/supplier-components/sup
     SharedModule,
     DashboardComponentsModule,
     DriverComponentsModule,
-    SupplierComponentsModule
+    SupplierComponentsModule,
+    LoadComponentsModule
   ],
   exports: [
     DashAdminComponent,

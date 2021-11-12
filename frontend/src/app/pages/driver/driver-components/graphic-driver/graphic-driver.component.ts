@@ -18,8 +18,8 @@ export class GraphicDriverComponent implements OnInit {
       datalabels: {
         anchor: 'end',
         align: 'end'
-      }
-    }
+      },
+    }  
   };
   public barChartLabels: Label[] = ['Conductores'];
   public barChartType: ChartType = 'bar';
