@@ -29,12 +29,23 @@ export class SupplierService {
   get_suppliers(){
     return this.http.get(URIs.api+'/get_suppliers').pipe(
       map((res:any) => {
-        return res;
+        return res;        
       },
       (err:any) => {
         return err;
       })
     );
+  }
+
+  update_Status(id:any){
+    /* return this.http.put(URIs.api+`/update_status/${id}`).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    ); */
   }
 
   /* update_supplier(rut:any, driver:any){

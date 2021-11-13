@@ -31,6 +31,7 @@ import { DashboardPagesModule } from "./dashboard/dashboard-pages/dashboard-page
 
 import { SharedModule } from "../shared/shared.module";
 import { LoginComponent } from './login/login.component';
+import { FinancesComponent } from './finances/finances.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { LoginComponent } from './login/login.component';
     StatusLoadComponent,
     UsuarioComponent,
     LoginComponent,
+    FinancesComponent,
   ],
   imports: [
     CommonModule,

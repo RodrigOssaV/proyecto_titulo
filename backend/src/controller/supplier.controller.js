@@ -66,6 +66,21 @@ module.exports = {
         }
     },
 
+    update_status: (req, res) => {
+        const {id_supplier} = req.params;
+        try {
+            Supplier.update({
+                status: true
+            },{
+                where: {id_supplier}
+            }).then(result => {
+                res.status(200).json({message: 'Update Status Supplier'});
+            });
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
     best_supplier: (req, res) => {
         try {
             Supplier.findAll({

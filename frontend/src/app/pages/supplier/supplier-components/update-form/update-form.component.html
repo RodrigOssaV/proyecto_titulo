@@ -1,0 +1,59 @@
+<div id="updateStatusSupplierModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Status change</p>
+            <button class="delete" aria-label="close" (click)="toggleEditarModal()"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <div class="card-content">
+                Do you wish change your status to Online?
+            </div>
+
+            <form #formUpdateStatusSupplier="ngForm" (ngSubmit)="update_StatusSupplier(formUpdateStatusSupplier)">
+
+                <div class="field">
+                    <label for="" class="label">Name Supplier</label>
+                    <input type="text" class="input" [value]="updateStatusSupplier.name_supplier" name="name_supplier" disabled>
+                </div>
+
+                <div class="field">
+                    <label for="" class="label">Cost Empresa</label>
+                    <input type="text" class="input" placeholder="$$$" name="costEmpresa" [(ngModel)]="newFinancesSupplier.costEmpresa">
+                </div>
+
+                <!-- <div class="columns is-fullwidth">
+                    <div class="column is-8">
+                        <div class="field">
+                            <label for="" class="label">Rol único nacional</label>
+                            <input type="text" class="input" name="rut" [value]="oldRut.rut">
+                        </div>
+                    </div>
+                    <div class="column is-2">
+                        <div class="field">
+                            <label for="" class="label">Digito</label>
+                            <input type="text" class="input" placeholder="5" name="digito_driver" [value]="oldRut.digito">
+                        </div>
+                    </div>                        
+                </div> -->
+
+                <!-- <div class="columns is-fullwidth">
+                    <div class="column">
+                        <label for="" class="label">Teléfono</label> 
+                        <div class="field has-addons">                                                               
+                                <p class="button is-static">
+                                    +56 9
+                                </p>
+                                <input type="text" class="input" [value]="updateDriver.phone" name="phone" [(ngModel)]="updateDriver.phone">
+                        </div>                            
+                    </div>
+                </div> -->
+
+                <button class="button is-primary mt5 is-fullwidth">Change status supplier</button>
+            </form>
+            <button class="button is-danger is-fullwidth mt-5" (click)="toggleEditarModal()">Cancelar</button>
+        </section>
+    </div>
+
+</div>

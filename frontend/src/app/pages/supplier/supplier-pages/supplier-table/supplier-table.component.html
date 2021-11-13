@@ -6,7 +6,7 @@
                 <th>Nombre</th>
                 <th>Tipo proveedor</th>
                 <th>Total entregado</th>
-                <th>Opciones</th>
+                <th>Estado</th>
             </tr>
         </thead>
         <tbody>
@@ -15,15 +15,18 @@
                 <td>{{ supplier.name_supplier }}</td>
                 <td>{{ supplier.type_supplier }}</td>
                 <td>{{ supplier.total_amount }}</td>
-                <td>
-                    <!-- <button class="button is-small" (click)="editDriver(driver)">Editar</button>
-                    <button class="button is-small" (click)="deleteDriver(driver)">Delete</button> -->
-                    <button class="button is-small">Profile</button>
+                <td *ngIf="supplier.statusSupplier == true; else _statusFalse">
+                    <button class="button is-success is-light is-rounded is-small" (click)="editStatusSupplier(supplier)">Online</button>
                 </td>
+                <ng-template #_statusFalse>
+                    <td>
+                        <button class="button is-danger is-light is-rounded is-small" (click)="editStatusSupplier(supplier)">Offline</button>
+                    </td>
+                </ng-template>
             </tr>
         </tbody>
     </table>
 </div>
 
-<!-- <app-update-form [updateDriver]="driverEdit"></app-update-form>
-<app-delete-form [deleteDriver]="driverDelete"></app-delete-form> -->
+<app-update-form [updateStatusSupplier]="statusSupplier"></app-update-form>
+<!-- <app-delete-form [deleteDriver]="driverDelete"></app-delete-form> -->

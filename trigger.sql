@@ -34,6 +34,24 @@ for each row begin
 end;
 $$ DELIMITER ;
 
+DELIMITER $$
+create trigger finances_to_statusSupplier
+after insert on financessuppliers
+for each row begin
+	update suppliers set statusSupplier=true where suppliers.id_supplier = new.id_supplier;
+end;
+$$ DELIMITER ;
+
+DELIMITER $$
+create trigger load_to_financesSupplier
+after update on loads
+for each row begin
+declare varAmount integer;
+    select sum(amount_delivery) into varAmount from loads where id_supplier = old.id_supplier;
+	update financessuppliers set benefitEmpresa = (financessuppliers.costEmpresa*varAmount) where financessuppliers.id_supplier = old.id_supplier;
+end;
+$$ DELIMITER ;
+
 INSERT INTO roles VALUES (1, 'user',now(), now());
 INSERT INTO roles VALUES (2, 'moderator',now(), now());
 INSERT INTO roles VALUES (3, 'admin',now(), now());
