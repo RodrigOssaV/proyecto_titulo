@@ -21,6 +21,10 @@ Supplier.init({
     total_amount: {
         type: DataTypes.INTEGER,
         defaultValue: 0
+    },
+    statusSupplier: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 },{
     timestamps: false,

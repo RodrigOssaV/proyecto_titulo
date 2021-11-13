@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Supplier } from "../../../../class/supplier";
+
+import { Supplier } from "src/app/class/supplier";
 import { SupplierService } from "../../../../service/supplier/supplier.service";
+import { FinancesService } from "src/app/service/finances/finances.service";
+
 
 @Component({
   selector: 'app-supplier-table',
@@ -10,16 +13,28 @@ import { SupplierService } from "../../../../service/supplier/supplier.service";
 export class SupplierTableComponent implements OnInit {
 
   listSupplier:any;
+  statusSupplier: Supplier = new Supplier();
 
-  constructor(private apiSupplier: SupplierService) {}
+  constructor(private apiSupplier: SupplierService, private finances: FinancesService) {}
 
   ngOnInit(): void {
     this.apiSupplier.loadList.subscribe(isLoaded => {
       if(isLoaded === true){
         this.loadSupplier();
       }
-    })
+    });
+    this.finances.loadList.subscribe(isLoaded => {
+      if(isLoaded === true){
+        this.loadSupplier();
+      }
+    });
     this.loadSupplier();
+  }
+
+  editStatusSupplier(supplier: Supplier){
+    this.statusSupplier = supplier;
+    const editModal = document.querySelector('#updateStatusSupplierModal')!;
+    editModal.classList.toggle('is-active');
   }
 
   loadSupplier(){

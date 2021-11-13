@@ -5,11 +5,13 @@ import { ChartsModule } from "ng2-charts";
 
 import { AddFormComponent } from './add-form/add-form.component';
 import { GraphicSupplierComponent } from "./graphic-supplier/graphic-supplier.component";
+import { UpdateFormComponent } from './update-form/update-form.component';
 
 @NgModule({
   declarations: [
     AddFormComponent,
-    GraphicSupplierComponent
+    GraphicSupplierComponent,
+    UpdateFormComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { GraphicSupplierComponent } from "./graphic-supplier/graphic-supplier.co
   ],
   exports: [
     AddFormComponent,
-    GraphicSupplierComponent
+    GraphicSupplierComponent,
+    UpdateFormComponent
   ]
 })
 export class SupplierComponentsModule { }

@@ -26,14 +26,12 @@ export class DriverTableComponent implements OnInit {
 
   editDriver(driver: Driver){
     this.driverEdit = driver;
-    /* console.log(this.driverEdit); */
     const editModal = document.querySelector('#updateDriverModal')!;
     editModal.classList.toggle('is-active');
   }
 
   deleteDriver(driver:any){
     this.driverDelete = driver;
-    /* console.log(this.driverDelete); */
     const editModal = document.querySelector('#deleteDriverModal')!;
     editModal.classList.toggle('is-active');
   }
