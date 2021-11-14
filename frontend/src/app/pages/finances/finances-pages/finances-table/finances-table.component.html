@@ -1,0 +1,18 @@
+<div class="columns is-fullwidth">
+    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+        <thead>
+            <tr>
+                <th>ID Supplier</th>
+                <th>Cost Empresa</th>
+                <th>Benefit Empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let finance of listFinances">
+                <td>{{ finance.id_supplier }}</td>
+                <td>${{ finance.costEmpresa }}</td>
+                <td>${{ finance.benefitEmpresa }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
