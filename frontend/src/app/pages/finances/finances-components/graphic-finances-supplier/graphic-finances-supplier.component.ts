@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, ChartOptions, ChartDataSets} from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 import { FinancesService } from "src/app/service/finances/finances.service";
 
@@ -10,18 +10,33 @@ import { FinancesService } from "src/app/service/finances/finances.service";
 })
 export class GraphicFinancesSupplierComponent implements OnInit {
 
-  public barChartData: ChartDataSets[] = [{ data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }];
+  public barChartData: ChartDataSets[] = [];
 
-  public barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+  public barChartLabels: Label[] = [];
 
   public barChartOptions: ChartOptions = {
     responsive: true,
-    maintainAspectRatio: true,
-    scales: { xAxes:[{}], yAxes:[{}] },
+    scales: { 
+      xAxes: [{
+        ticks: {
+          beginAtZero: true
+        } 
+      }],
+      yAxes: [{
+        stacked: true
+      }]
+    },
+    plugins: {
+      title: {
+        display: true,
+      }
+    }
   };
   public barChartType: ChartType = 'horizontalBar';
 
-  public barChartLegend = true;
+  public barChartLegend = false;
+
+  public barChartColors: Color[] = [/* {backgroundColor:['rgba(75, 192, 192, 0.2)']} */]
 
   listFinances:any = [];
   private dato: any; /* Dato a cargar */
@@ -38,15 +53,15 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     this.finance.get_all_finances().subscribe(
       res => {
         this.listFinances = res;
-        console.log(this.listFinances)
-        /* for(const finance_ of this.listFinances){
-          this.dato = finance_.benefitEmpresa.split(',');
+        /* console.log(this.listFinances) */
+        for(const finance_ of this.listFinances){
           this.dato = finance_.benefitEmpresa;
-          this.datos.push(this.dato);          
-          this.name.push(finance_.id)
-        } */
-        /* console.log(this.datos, this.name); */
-        /* this.cargarDatos(this.datos, this.name); */
+          this.datos.push(this.dato);
+          this.name.push(finance_.id_supplier);
+        }
+        /* console.log(this.barChartData) // first barChartData
+        console.log(this.datos) */
+        this.cargarDatos(this.datos, this.name);
       },
       (err) => {
         console.log(err);
@@ -55,13 +70,12 @@ export class GraphicFinancesSupplierComponent implements OnInit {
   }
 
   cargarDatos(datos:any, name:any){
-    this.barChartData = [{data: []}];
+    this.barChartData = [];
+    this.barChartLabels = [];
+    this.barChartData.push({data: datos , label: 'Benefit Empresa'});    
     for(const index in datos){
-      this.barChartData.push({ data: [datos[index]], label: 'prueba' });
-      this.barChartLabels.push()
-      console.log(this.barChartData)
+      this.barChartLabels.push(name[index]);
     };
-    
   }
 
 }

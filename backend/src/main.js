@@ -24,7 +24,7 @@ app.listen(app.get('port'), async () => {
     console.log('Server on port: ', app.get('port'));
     try {
         await sequelize.authenticate();
-        await sequelize.sync({force:true});
+        await sequelize.sync({force:false});
         console.log('Connection has been established successfully.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);

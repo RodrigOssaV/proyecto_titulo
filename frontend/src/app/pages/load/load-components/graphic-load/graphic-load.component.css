@@ -2,7 +2,7 @@
 .percent {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
     font-size: 50px;
     bottom: 0;
 }
