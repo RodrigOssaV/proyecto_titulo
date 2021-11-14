@@ -18,9 +18,9 @@ module.exports = {
     get_All_Finances: (req, res) => {
         try {
             FinancesSupplier.findAll({
-                attributes: ['costEmpresa', 'benefitEmpresa', 'id_supplier'],
+                /* attributes: ['costEmpresa', 'benefitEmpresa', 'id_supplier'],
                 limit: 3,
-                order: [['benefitEmpresa', 'DESC']]
+                order: [['benefitEmpresa', 'DESC']] */
             }).then(result => {
                 res.status(200).json(result);
             });
