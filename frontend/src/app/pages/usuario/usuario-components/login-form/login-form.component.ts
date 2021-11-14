@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../../../service/usuario/auth.service";
 import { Router } from "@angular/router";
+import { NotificationService } from "src/app/service/component/notification.service";
 
 @Component({
   selector: 'app-login-form',
@@ -18,7 +19,11 @@ export class LoginFormComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authServices: AuthService, private router: Router) { }
+  constructor(
+    private authServices: AuthService, 
+    private router: Router, 
+    private notifyService: NotificationService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +42,7 @@ export class LoginFormComponent implements OnInit {
       },
       err => {
         console.log(err);
+        this.notifyService.showError('Error', 'Error login');
         this.isLoginFailed = true;
       }
     )

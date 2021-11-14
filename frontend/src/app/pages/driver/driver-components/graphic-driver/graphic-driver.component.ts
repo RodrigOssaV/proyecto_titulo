@@ -13,7 +13,16 @@ export class GraphicDriverComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: true,
-    scales: { xAxes:[{}], yAxes:[{}] },
+    scales: { 
+      xAxes: [{
+        ticks: {
+          beginAtZero: true
+        } 
+      }],
+      yAxes: [{
+        stacked: true
+      }]
+    },
     plugins: {
       datalabels: {
         anchor: 'end',
