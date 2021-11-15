@@ -55,7 +55,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
         this.listFinances = res;
         /* console.log(this.listFinances) */
         for(const finance_ of this.listFinances){
-          this.dato = finance_.benefitEmpresa;
+          this.dato = finance_.benefit_empresa;
           this.datos.push(this.dato);
           this.name.push(finance_.id_supplier);
         }

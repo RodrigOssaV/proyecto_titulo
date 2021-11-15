@@ -16,7 +16,7 @@ FinancesDriver.init({
     }
 },{
     sequelize,
-    modelName: 'FinancesDriver'
+    modelName: 'Finances_driver'
 });
 
 module.exports = FinancesDriver;

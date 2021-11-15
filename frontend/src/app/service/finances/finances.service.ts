@@ -38,6 +38,17 @@ export class FinancesService {
       })
     );
   }
+
+  get_total_benefit_supplier(){
+    return this.http.get(URIs.api+'/get_total_benefit_supplier').pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
   /* -------------------------------------------------------------------- */
 
   /* FINANCES DRIVERS */
@@ -48,6 +59,17 @@ export class FinancesService {
         return res;
       },(error:any) => {
         return error;
+      })
+    );
+  }
+
+  get_total_benefit_driver(){
+    return this.http.get(URIs.api+'/get_total_benefit_driver').pipe(
+      map((res:any) => {
+        return res;
+      }, 
+      (err:any) => {
+        return err;
       })
     );
   }

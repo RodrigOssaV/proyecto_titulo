@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PipesModule } from "src/app/pipes/pipes.module";
 
 import { FinancesTableComponent } from './finances-table/finances-table.component';
 
@@ -8,7 +9,8 @@ import { FinancesTableComponent } from './finances-table/finances-table.componen
     FinancesTableComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PipesModule
   ],
   exports: [
     FinancesTableComponent

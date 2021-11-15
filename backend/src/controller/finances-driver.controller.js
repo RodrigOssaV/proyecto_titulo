@@ -11,4 +11,14 @@ module.exports = {
             console.log(error);
         };
     },
+
+    get_total_benefit_driver: (req, res) => {
+        try {
+            FinancesDriver.sum('benefit_driver').then(result => {
+                res.status(200).json({total_benefit_driver: result});
+            });
+        } catch (error) {
+            console.log(error)
+        }
+    }
 };

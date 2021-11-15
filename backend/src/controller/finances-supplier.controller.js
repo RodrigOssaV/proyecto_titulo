@@ -1,11 +1,12 @@
 const FinancesSupplier = require('../model/finances-supplier.model');
+const sequelize = require('../database/db');
 
 module.exports = {
     
     add_finances_supplier: (req, res) => {
         try {
             FinancesSupplier.create({
-                costEmpresa: req.body.costEmpresa,
+                cost_empresa: req.body.costEmpresa,
                 id_supplier: req.body.id_supplier
             }).then(result => {
                 res.status(200).json(result);
@@ -28,4 +29,14 @@ module.exports = {
             console.log(error);
         };
     },
+
+    get_total_benefit_supplier: (req, res) => {
+        try {
+            FinancesSupplier.sum('benefit_empresa').then(result => {
+                res.status(200).json({total_benefit_supplier: result});
+            });
+        } catch (error) {
+            console.log(error)
+        }
+    }
 };
