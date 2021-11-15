@@ -1,27 +1,25 @@
-<ng-container *ngIf="showAdminBoard">
-    <div class="columns is-multiline container-columns">
-        <div class="column is-full">
-            <app-navbar></app-navbar>
-        </div>
-        <div class="column is-full">
-            <app-subnavbar></app-subnavbar>
-        </div>
-        <div class="column is-two-fifths">
-            <app-user-panel></app-user-panel>
-        </div>
-        <div class="column is-three-fifths">
-            
-        </div>
-        <div class="column is-half">
-            <app-user-table></app-user-table>
-        </div>
-        <div class="column is-full">
-            <app-footer></app-footer>
-        </div>
+<div class="columns is-multiline container-columns" *ngIf="showAdminBoard">
+    <div class="column is-full">
+        <app-navbar></app-navbar>
     </div>
-</ng-container>
+    <div class="column is-full">
+        <app-subnavbar></app-subnavbar>
+    </div>
+    <div class="column is-two-fifths">
+        <app-user-panel></app-user-panel>
+    </div>
+    <div class="column is-three-fifths">
+        
+    </div>
+    <div class="column is-half">
+        <app-user-table></app-user-table>
+    </div>
+    <div class="column is-full">
+        <app-footer></app-footer>
+    </div>
+</div>
 
-<ng-container *ngIf="showUserBoard || showModeratorBoard">
+<div class="columns is-multiline" *ngIf="showUserBoard || showModeratorBoard">
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -31,5 +29,5 @@
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</ng-container>
+</div>
 
