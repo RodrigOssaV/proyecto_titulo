@@ -10,17 +10,17 @@ FinancesSupplier.init({
         allowNull: false,
         autoIncrement: true
     },
-    costEmpresa: {
+    cost_empresa: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    benefitEmpresa: {
+    benefit_empresa: {
         type: DataTypes.INTEGER,
         defaultValue: 0
     }
 },{
     sequelize,
-    modelName: 'FinancesSupplier'
+    modelName: 'Finances_supplier'
 });
 
 module.exports = FinancesSupplier;

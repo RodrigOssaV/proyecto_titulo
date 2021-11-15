@@ -11,8 +11,8 @@
             <tbody>
                 <tr *ngFor="let finance of listFinances">
                     <td>{{ finance.id_supplier }}</td>
-                    <td>${{ finance.costEmpresa }}</td>
-                    <td>${{ finance.benefitEmpresa }}</td>
+                    <td>{{ finance.cost_empresa | conversion}}</td>
+                    <td>{{ finance.benefit_empresa | conversion}}</td>
                 </tr>
             </tbody>
         </table>
@@ -30,8 +30,8 @@
             <tbody>
                 <tr *ngFor="let finance_driver of listFinancesDriver">
                     <td>{{ finance_driver.id }}</td>
-                    <td>${{ finance_driver.rut_driver }}</td>
-                    <td>${{ finance_driver.benefit_driver }}</td>
+                    <td>{{ finance_driver.rut_driver }}</td>
+                    <td>{{ finance_driver.benefit_driver | conversion }}</td>
                 </tr>
             </tbody>
         </table>

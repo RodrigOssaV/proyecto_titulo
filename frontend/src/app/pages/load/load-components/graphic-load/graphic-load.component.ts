@@ -29,7 +29,7 @@ export class GraphicLoadComponent implements OnInit {
   public doughnutChartColors: Color[] = [
     {
       // TODO ver tema colores velocimetro de encomiendas
-      backgroundColor: ['rgba(75, 192, 192, 0.8)','rgba(255, 99, 132, 0.2)'],
+      backgroundColor: ['rgba(40, 180, 99)','rgba(231, 76, 60, 0.8)'],
     },
   ];
 
