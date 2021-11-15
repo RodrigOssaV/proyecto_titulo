@@ -5,6 +5,7 @@ export class Load {
     date_load!: string;
     rut_driver!: string;
     id_supplier!: number;
+    cost_driver!: number;
 
     constructor(){}
 }

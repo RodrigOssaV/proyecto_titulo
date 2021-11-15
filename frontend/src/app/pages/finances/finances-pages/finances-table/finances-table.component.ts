@@ -11,13 +11,15 @@ export class FinancesTableComponent implements OnInit {
   constructor(private financeService: FinancesService) { }
 
   listFinances: any;
+  listFinancesDriver: any;
 
   ngOnInit(): void {
     this.loadListFinances();
+    this.loadListFinancesDriver();
   }
 
   loadListFinances(){
-    this.financeService.get_all_finances().subscribe(
+    this.financeService.get_all_finances_supplier().subscribe(
       res => {
         this.listFinances = res;
         console.log(this.listFinances);
@@ -25,7 +27,19 @@ export class FinancesTableComponent implements OnInit {
       (err) => {
         console.log(err);
       }
-    )
+    );
+  }
+
+  loadListFinancesDriver(){
+    this.financeService.get_all_finances_driver().subscribe(
+      res => {
+        this.listFinancesDriver = res;
+        console.log(this.listFinancesDriver);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
 }

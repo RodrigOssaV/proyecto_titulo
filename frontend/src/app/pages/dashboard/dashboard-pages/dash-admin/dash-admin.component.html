@@ -1,12 +1,26 @@
-<div class="columns is-multiline container-columns">
+<div class="columns is-multiline">
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
     <div class="column is-full">
         <app-subnavbar></app-subnavbar>
     </div>
-    <div class="column is-full is-align-items-center has-background-primary">
-        <app-dash-description></app-dash-description>        
+    <div class="column is-full">
+        <div class="columns">
+    
+            <div class="column is-one-third">
+                <app-graphic-load></app-graphic-load>
+            </div>
+        
+            <div class="column is-one-third">
+                <app-graphic-finances-supplier></app-graphic-finances-supplier>
+            </div>
+        
+            <div class="column is-one-third">
+                <app-graphic-finances></app-graphic-finances>
+            </div>
+            
+        </div>    
     </div>
     <div class="column is-half">
         <app-graphic-driver></app-graphic-driver>

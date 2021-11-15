@@ -29,7 +29,7 @@ export class UpdateFormComponent implements OnInit {
   update_StatusSupplier(form:any){
     this.newFinancesSupplier.costEmpresa = form.value.costEmpresa
     this.newFinancesSupplier.id_supplier = this.updateStatusSupplier.id_supplier
-    this.financesService.add_finances(this.newFinancesSupplier).subscribe(
+    this.financesService.add_finances_supplier(this.newFinancesSupplier).subscribe(
       res => {
         this.notifyService.showSuccess('Update status!', "Success Update");
         form.reset();

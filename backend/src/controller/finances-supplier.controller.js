@@ -1,8 +1,8 @@
-const FinancesSupplier = require('../model/financesSupplier.model');
+const FinancesSupplier = require('../model/finances-supplier.model');
 
 module.exports = {
     
-    add_finances: (req, res) => {
+    add_finances_supplier: (req, res) => {
         try {
             FinancesSupplier.create({
                 costEmpresa: req.body.costEmpresa,
@@ -15,7 +15,7 @@ module.exports = {
         }
     },
 
-    get_All_Finances: (req, res) => {
+    get_all_finances_supplier: (req, res) => {
         try {
             FinancesSupplier.findAll({
                 /* attributes: ['costEmpresa', 'benefitEmpresa', 'id_supplier'],

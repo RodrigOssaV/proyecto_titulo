@@ -25,6 +25,10 @@ Load.init({
     amount_not_delivery: {
         type: DataTypes.INTEGER,
         defaultValue: 0
+    },
+    cost_driver: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 },{
     timestamps: false,

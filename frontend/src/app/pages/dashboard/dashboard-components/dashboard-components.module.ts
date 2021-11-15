@@ -7,15 +7,11 @@ import { FinancesComponentsModule } from "../../finances/finances-components/fin
 
 import { DashTitleComponent } from './dash-title/dash-title.component';
 import { DashDescriptionComponent } from './dash-description/dash-description.component';
-import { ThirdCardComponent } from './dash-description/third-card/third-card.component';
-import { FourthCardComponent } from './dash-description/fourth-card/fourth-card.component';
 
 @NgModule({
   declarations: [
     DashTitleComponent,
-    DashDescriptionComponent,
-    ThirdCardComponent,
-    FourthCardComponent
+    DashDescriptionComponent
   ],
   imports: [
     CommonModule,

@@ -1,18 +1,39 @@
-<div class="columns is-fullwidth">
-    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
-        <thead>
-            <tr>
-                <th>ID Supplier</th>
-                <th>Cost Empresa</th>
-                <th>Benefit Empresa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let finance of listFinances">
-                <td>{{ finance.id_supplier }}</td>
-                <td>${{ finance.costEmpresa }}</td>
-                <td>${{ finance.benefitEmpresa }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="columns">
+    <div class="column">
+        <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+            <thead>
+                <tr>
+                    <th>ID Supplier</th>
+                    <th>Cost Empresa</th>
+                    <th>Benefit Empresa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let finance of listFinances">
+                    <td>{{ finance.id_supplier }}</td>
+                    <td>${{ finance.costEmpresa }}</td>
+                    <td>${{ finance.benefitEmpresa }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="column is-9">
+        <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+            <thead>
+                <tr>
+                    <th>ID finance</th>
+                    <th>RUT driver</th>
+                    <th>Benefit driver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let finance_driver of listFinancesDriver">
+                    <td>{{ finance_driver.id }}</td>
+                    <td>${{ finance_driver.rut_driver }}</td>
+                    <td>${{ finance_driver.benefit_driver }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

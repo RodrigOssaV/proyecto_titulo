@@ -50,7 +50,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
   }
 
   getDato(){
-    this.finance.get_all_finances().subscribe(
+    this.finance.get_all_finances_supplier().subscribe(
       res => {
         this.listFinances = res;
         /* console.log(this.listFinances) */
