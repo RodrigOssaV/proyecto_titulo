@@ -8,7 +8,8 @@
                 <th>Id proveedor</th>
                 <th>Carga recepcionada</th>
                 <th>Carga entregada</th>
-                <th>Carga no entregada</th>                
+                <th>Carga no entregada</th> 
+                <th>Costo conductores</th>               
             </tr>
         </thead>
         <tbody>
@@ -19,7 +20,8 @@
                 <td>{{ load.id_supplier }}</td>
                 <td>{{ load.amount_load }}</td>
                 <td>{{ load.amount_delivery }}</td>
-                <td>{{ load.amount_not_delivery}}</td>
+                <td>{{ load.amount_not_delivery }}</td>
+                <td>{{ load.cost_driver }}</td>
             </tr>
         </tbody>
     </table>

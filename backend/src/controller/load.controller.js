@@ -9,7 +9,8 @@ module.exports = {
                 amount_load: req.body.amount_load,
                 date_load: req.body.date_load,
                 rut_driver: req.body.rut_driver,
-                id_supplier: req.body.id_supplier
+                id_supplier: req.body.id_supplier,
+                cost_driver: req.body.cost_driver
             }).then(result => {
                 res.status(200).json(result);
             })

@@ -19,9 +19,7 @@ export class GraphicDriverComponent implements OnInit {
           beginAtZero: true
         } 
       }],
-      yAxes: [{
-        stacked: true
-      }]
+      yAxes: [{}]
     },
     plugins: {
       datalabels: {

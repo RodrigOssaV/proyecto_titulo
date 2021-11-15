@@ -10,6 +10,7 @@ import { DashboardComponentsModule } from "../dashboard-components/dashboard-com
 import { DriverComponentsModule } from "../../driver/driver-components/driver-components.module";
 import { SupplierComponentsModule } from "../../supplier/supplier-components/supplier-components.module";
 import { LoadComponentsModule } from "../../load/load-components/load-components.module";
+import { FinancesComponentsModule } from "../../finances/finances-components/finances-components.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoadComponentsModule } from "../../load/load-components/load-components
     DashboardComponentsModule,
     DriverComponentsModule,
     SupplierComponentsModule,
-    LoadComponentsModule
+    LoadComponentsModule,
+    FinancesComponentsModule
   ],
   exports: [
     DashAdminComponent,

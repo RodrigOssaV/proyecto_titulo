@@ -18,14 +18,17 @@ app.use('/api', require('./routes/driver.route'));
 app.use('/api', require('./routes/supplier.route'));
 app.use('/api', require('./routes/status-load.route'));
 app.use('/api', require('./routes/usuario.route'));
-app.use('/api', require('./routes/financesSupplier.route'));
+app.use('/api', require('./routes/finances-supplier.route'));
+app.use('/api', require('./routes/finances-driver.route'));
 
 app.listen(app.get('port'), async () => {
     console.log('Server on port: ', app.get('port'));
     try {
         await sequelize.authenticate();
-        await sequelize.sync({force:false});
-        console.log('Connection has been established successfully.');
+        await sequelize.sync({force:false}).then(() => {
+            console.log('Connection has been established successfully.');
+        });
+        
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

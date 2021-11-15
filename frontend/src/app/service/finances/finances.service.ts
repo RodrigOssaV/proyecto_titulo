@@ -14,8 +14,10 @@ export class FinancesService {
 
   constructor(private http: HttpClient) { }
 
-  add_finances(data:any){
-    return this.http.post(URIs.api+'/add_finances', data).pipe(
+  /* FINANCES SUPPLIERS */
+  /* -------------------------------------------------------------------- */
+  add_finances_supplier(data:any){
+    return this.http.post(URIs.api+'/add_finances_supplier', data).pipe(
       map((res:any) => {
         this.turnLoad.next(true);
         return res
@@ -26,13 +28,26 @@ export class FinancesService {
     );
   }
 
-  get_all_finances(){
-    return this.http.get(URIs.api+'/get_all_finances').pipe(
+  get_all_finances_supplier(){
+    return this.http.get(URIs.api+'/get_all_finances_supplier').pipe(
       map((res:any) => {
         return res
       },
       (err:any) => {
         return err
+      })
+    );
+  }
+  /* -------------------------------------------------------------------- */
+
+  /* FINANCES DRIVERS */
+  /* -------------------------------------------------------------------- */
+  get_all_finances_driver(){
+    return this.http.get(URIs.api+'/get_all_finances_driver').pipe(
+      map((res:any) => {
+        return res;
+      },(error:any) => {
+        return error;
       })
     );
   }

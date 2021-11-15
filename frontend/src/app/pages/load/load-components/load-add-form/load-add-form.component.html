@@ -50,6 +50,12 @@
                         onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57">
                     </div>
 
+                    <div class="field">
+                        <label for="" class="label">Cost driver</label>
+                        <input type="number" class="input" name="cost_driver" min="0" [(ngModel)]="load.cost_driver"
+                        onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57">
+                    </div>
+
                     <button class="button is-primary mt5 is-fullwidth">Save assigment</button>
                 </form>
 
