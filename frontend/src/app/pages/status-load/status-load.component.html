@@ -1,25 +1,23 @@
-<ng-container *ngIf="showAdminBoard || showModeratorBoard">
-    <div class="columns is-multiline container-columns">
-        <div class="column is-full">
-            <app-navbar></app-navbar>
-        </div>
-        <div class="column is-full">
-            <app-subnavbar></app-subnavbar>
-        </div>
-        <div class="column is-half is-offset-one-quarter">
-            <app-status-panel></app-status-panel>
-        </div>
-        
-        <div class="column is-full">
-            <app-status-table></app-status-table>
-        </div>
-        <div class="column is-full">
-            <app-footer></app-footer>
-        </div>
+<div class="columns is-multiline container-columns" *ngIf="showAdminBoard || showModeratorBoard">
+    <div class="column is-full">
+        <app-navbar></app-navbar>
     </div>
-</ng-container>
+    <div class="column is-full">
+        <app-subnavbar></app-subnavbar>
+    </div>
+    <div class="column is-half is-offset-one-quarter">
+        <app-status-panel></app-status-panel>
+    </div>
+    
+    <div class="column is-full">
+        <app-status-table></app-status-table>
+    </div>
+    <div class="column is-full">
+        <app-footer></app-footer>
+    </div>
+</div>
 
-<ng-container *ngIf=showUserBoard>
+<div class="columns is-multiline" *ngIf=showUserBoard>
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -29,4 +27,4 @@
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</ng-container>
+</div>

@@ -1,38 +1,36 @@
-<ng-container *ngIf="showAdminBoard || showModeratorBoard">
-    <div class="columns is-multiline container-columns">
-        <div class="column is-full">
-            <app-navbar></app-navbar>
-        </div>
-        <div class="column is-full">
-            <app-subnavbar></app-subnavbar>
-        </div>
-        <div class="column is-two-fifths">
-            <app-load-panel></app-load-panel>
-        </div>
-        <div class="column">
-            <div class="card">
-                <!-- container-title -->
-                <header class="card-header">
-                    <p class="card-header-title">
-                        Card-title
-                    </p>
-                </header>
-    
-                <div class="card-content">
-                    <!-- <app-driver-topfive></app-driver-topfive> -->
-                </div>
+<div class="columns is-multiline container-columns" *ngIf="showAdminBoard || showModeratorBoard">
+    <div class="column is-full">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="column is-full">
+        <app-subnavbar></app-subnavbar>
+    </div>
+    <div class="column is-two-fifths">
+        <app-load-panel></app-load-panel>
+    </div>
+    <div class="column">
+        <div class="card">
+            <!-- container-title -->
+            <header class="card-header">
+                <p class="card-header-title">
+                    Card-title
+                </p>
+            </header>
+
+            <div class="card-content">
+                <!-- <app-driver-topfive></app-driver-topfive> -->
             </div>
         </div>
-        <div class="column is-full">
-            <app-load-table></app-load-table>
-        </div>
-        <div class="column is-full">
-            <app-footer></app-footer>
-        </div>
     </div>
-</ng-container>
+    <div class="column is-full">
+        <app-load-table></app-load-table>
+    </div>
+    <div class="column is-full">
+        <app-footer></app-footer>
+    </div>
+</div>
 
-<ng-container *ngIf=showUserBoard>
+<div class="columns is-multiline" *ngIf=showUserBoard>
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -42,4 +40,4 @@
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</ng-container>
+</div>
