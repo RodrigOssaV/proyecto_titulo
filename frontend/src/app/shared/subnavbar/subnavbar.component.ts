@@ -29,4 +29,11 @@ export class SubnavbarComponent implements OnInit {
     }
   }
 
+  toggleBurger(){
+    var burgerIcon = document.querySelector('.burger')
+    var dropMenu = document.querySelector('.navMenu')
+    burgerIcon?.classList.toggle('is-active')
+    dropMenu?.classList.toggle('is-active')    
+  }
+
 }

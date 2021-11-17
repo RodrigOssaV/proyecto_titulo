@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from "ng2-charts";
+import { PipesModule } from "src/app/pipes/pipes.module";
 
 import { GraphicFinancesSupplierComponent } from './graphic-finances-supplier/graphic-finances-supplier.component';
 import { GraphicFinancesComponent } from './graphic-finances/graphic-finances.component';
-import { PipesModule } from "src/app/pipes/pipes.module";
+import { GraphicFinancesResultComponent } from "./graphic-finances-result/graphic-finances-result.component";
 
 @NgModule({
   declarations: [
     GraphicFinancesSupplierComponent,
-    GraphicFinancesComponent
+    GraphicFinancesComponent,
+    GraphicFinancesResultComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { PipesModule } from "src/app/pipes/pipes.module";
   ],
   exports: [
     GraphicFinancesSupplierComponent,
-    GraphicFinancesComponent
+    GraphicFinancesComponent,
+    GraphicFinancesResultComponent
   ]
 })
 export class FinancesComponentsModule { }
