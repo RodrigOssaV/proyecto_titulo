@@ -14,17 +14,17 @@ export class GraphicDriverComponent implements OnInit {
     responsive: true,
     maintainAspectRatio: true,
     scales: { 
-      xAxes: [{
+      xAxes: [{}],
+      yAxes: [{
         ticks: {
-          beginAtZero: false
+          beginAtZero: true
         } 
-      }],
-      yAxes: [{}]
+      }]
     },
     plugins: {
       datalabels: {
         anchor: 'end',
-        align: 'end'
+        align: 'top'
       },
     }  
   };
