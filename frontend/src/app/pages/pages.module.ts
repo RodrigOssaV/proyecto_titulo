@@ -65,7 +65,8 @@ import { SharedModule } from "../shared/shared.module";
     LoadComponent,
     StatusLoadComponent,
     UsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    FinancesComponent,
   ]
 })
 export class PagesModule { }

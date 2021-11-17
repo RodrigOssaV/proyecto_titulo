@@ -16,7 +16,7 @@ export class GraphicDriverComponent implements OnInit {
     scales: { 
       xAxes: [{
         ticks: {
-          beginAtZero: true
+          beginAtZero: false
         } 
       }],
       yAxes: [{}]

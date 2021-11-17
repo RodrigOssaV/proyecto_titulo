@@ -10,22 +10,35 @@ import { SupplierService } from "../../../../service/supplier/supplier.service";
 })
 export class GraphicSupplierComponent implements OnInit {
 
-  public pieChartOptions: ChartOptions = {
+  public barChartOptions: ChartOptions = {
     responsive: true,
-    legend: {
-      position: 'top'
-    }
+    maintainAspectRatio: true,
+    scales: { 
+      xAxes: [{
+        ticks: {
+          beginAtZero: false
+        } 
+      }],
+      yAxes: [{}]
+    },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end'
+      },
+    }  
   };
-  public pieChartColors = [
-    {
-      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
-    }
-  ];
-  public pieChartLabels: Label[] = [];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
-  public pieChartData: number[] = [];
+  public barChartLabels: Label[] = ['Proveedores'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartPlugins = [];
+  // datos que vamos a cargar en las graficas
+  public barChartData: ChartDataSets[] = [];
+
+  listDrivers:any = [];
+  private dato: any;
+  private datos: any = [];
+  private name:any = [];
 
   listSupplier:any = [];
 
@@ -39,16 +52,25 @@ export class GraphicSupplierComponent implements OnInit {
     this.apiSupplier.get_suppliers().subscribe(
       res => {
         this.listSupplier = res;
-        /* console.log(this.listSupplier); */
+        console.log(this.listSupplier);
         for (const supplier of this.listSupplier){
-          this.pieChartData.push(supplier.total_amount);
-          this.pieChartLabels.push([supplier.name_supplier]);
-        }
+          this.dato = supplier.total_amount;
+          this.datos.push(this.dato);
+          this.name.push(supplier.name_supplier);
+        };
+        this.cargarDatos(this.datos, this.name);
       },
       (err) => {
         console.log(err);
       }
     );    
+  }
+
+  cargarDatos(datos:any, name:any){
+    this.barChartData = [];
+    for(const index in datos){
+      this.barChartData.push({ data: [datos[index]], label: name[index]});
+    };
   }
 
 }
