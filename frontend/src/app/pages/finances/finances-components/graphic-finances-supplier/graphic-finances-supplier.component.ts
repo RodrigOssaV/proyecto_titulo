@@ -27,10 +27,12 @@ export class GraphicFinancesSupplierComponent implements OnInit {
       }]
     },
     plugins: {
-      title: {
-        display: true,
-      }
-    }
+      legend: false
+    },
+    title: {
+      display: true,
+      text: 'Results'
+    },
   };
   public barChartType: ChartType = 'horizontalBar';
 
@@ -53,14 +55,11 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     this.finance.get_all_finances_supplier().subscribe(
       res => {
         this.listFinances = res;
-        /* console.log(this.listFinances) */
         for(const finance_ of this.listFinances){
           this.dato = finance_.benefit_empresa;
           this.datos.push(this.dato);
           this.name.push(finance_.id_supplier);
         }
-        /* console.log(this.barChartData) // first barChartData
-        console.log(this.datos) */
         this.cargarDatos(this.datos, this.name);
       },
       (err) => {
@@ -72,7 +71,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
   cargarDatos(datos:any, name:any){
     this.barChartData = [];
     this.barChartLabels = [];
-    this.barChartData.push({data: datos , label: 'Benefit Empresa'});    
+    this.barChartData.push({data: datos});    
     for(const index in datos){
       this.barChartLabels.push(name[index]);
     };

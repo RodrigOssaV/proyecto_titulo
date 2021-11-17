@@ -1,10 +1,5 @@
-<div class="card">
-    <div class="card-header">
-        <div class="card-header-title">
-            Total loads
-        </div>
-    </div>
-    <div class="card-content">
+<div class="card-content">
+    <div class="content">
         <canvas baseChart
                 [data]="doughnutChartData"
                 [labels]="doughnutChartLabels"
@@ -13,6 +8,5 @@
                 [colors]="doughnutChartColors"      
         >
         </canvas>
-        <p class="percent">{{totalPorcentage}}%</p>
-    </div>        
+    </div>
 </div>

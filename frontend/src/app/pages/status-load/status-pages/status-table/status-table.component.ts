@@ -16,6 +16,8 @@ export class StatusTableComponent implements OnInit {
   page = 1;
   pageSize = 15;
   pageSizes = [15, 20, 35];
+  
+  filterTerm!: string;
 
   constructor(private apiStatus: StatusService) { }
 

@@ -1,14 +1,10 @@
-<div class="columns is-multiline container-columns" *ngIf="showAdminBoard || showModeratorBoard">
+<div class="columns is-gapless is-multiline is-mobile" *ngIf="showAdminBoard || showModeratorBoard">
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
     <div class="column is-full">
         <app-subnavbar></app-subnavbar>
-    </div>
-    <div class="column is-half is-offset-one-quarter">
-        <app-status-panel></app-status-panel>
-    </div>
-    
+    </div>    
     <div class="column is-full">
         <app-status-table></app-status-table>
     </div>
