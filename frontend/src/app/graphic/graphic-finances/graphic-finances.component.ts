@@ -10,12 +10,9 @@ import { FinancesService } from "src/app/service/finances/finances.service";
 })
 export class GraphicFinancesComponent implements OnInit {
 
-  public doughnutChartLabels: Label[] = ['Profit', 'Losings'];
-  
+  public doughnutChartLabels: Label[] = ['Profit', 'Losings'];  
   public doughnutChartData: MultiDataSet = [];
-
   public doughnutChartType: ChartType = 'doughnut';
-
   public doughnytChartOptions: ChartOptions = {
     responsive: true,
     legend: {
@@ -29,7 +26,6 @@ export class GraphicFinancesComponent implements OnInit {
       backgroundColor: ['rgba(40, 180, 99)','rgba(231, 76, 60, 0.8)'],
     },
   ];
-
   valueEmpresa:any = [];
   valueDriver:any = [];
   private dato: any;

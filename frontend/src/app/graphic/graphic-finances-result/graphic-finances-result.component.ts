@@ -49,7 +49,7 @@ export class GraphicFinancesResultComponent implements OnInit {
         for(const load of this.listload){
           this.totalPorcentageSuccess = Math.round((((load.sumDeliverys)/(load.sumLoads))*100));
           this.totalPorcentageFailured = Math.round((((load.sumNotDelivery)/(load.sumLoads))*100));
-          console.log(this.datos);
+          /* console.log(this.datos); */
           /* this.cargarDatos(this.datos); */
         }
       }, (err) => {
@@ -64,6 +64,5 @@ export class GraphicFinancesResultComponent implements OnInit {
       this.barChartData.push({ data: datos[index], stack: 'a'});
     };
   }
-
 
 }

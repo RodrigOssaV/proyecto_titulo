@@ -31,9 +31,9 @@
                             <div class="select is-fullwidth">
                                 <select name="id_supplier" [(ngModel)]="load.id_supplier">
                                     <option value="" selected>Supplier</option>
-                                    <option [value]="supplier.id_supplier" *ngFor="let supplier of listSuppliers" >
+                                    <option [value]="supplier.id_supplier" *ngFor="let supplier of listSuppliers">
                                         <!-- TODO bloquear proveedor que no tenga check precio -->
-                                        <ng-container *ngIf="supplier.statusSupplier===true">
+                                        <ng-container *ngIf="supplier.status_supplier===true">
                                             {{ supplier.name_supplier }} - {{ supplier.type_supplier }}
                                         </ng-container>
                                     </option>

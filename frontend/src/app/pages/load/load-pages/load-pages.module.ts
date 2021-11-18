@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from "../../../app-routing.module";
 import { NgxPaginationModule } from "ngx-pagination";
+import { PipesModule } from "src/app/pipes/pipes.module";
 
 import { LoadComponentsModule } from "../load-components/load-components.module";
 
@@ -17,7 +18,8 @@ import { LoadTableComponent } from './load-table/load-table.component';
     CommonModule,
     AppRoutingModule,
     LoadComponentsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    PipesModule
   ],
   exports: [
     LoadPanelComponent,

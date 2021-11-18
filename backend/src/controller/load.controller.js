@@ -1,11 +1,16 @@
 const Load = require('../model/load.model');
 const sequelize = require('../database/db');
+const { v4: uuid } = require('uuid');
 
 module.exports = {
 
     add_load: (req, res) => {
+
+        let codex = uuid().slice(1,8).toUpperCase();
+
         try {
             Load.create({
+                orden: codex,
                 amount_load: req.body.amount_load,
                 date_load: req.body.date_load,
                 rut_driver: req.body.rut_driver,

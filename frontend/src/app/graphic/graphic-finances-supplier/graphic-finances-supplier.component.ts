@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
-import { MultiDataSet, Label, Color } from 'ng2-charts';
+import { Label, Color } from 'ng2-charts';
 import { FinancesService } from "src/app/service/finances/finances.service";
 
 @Component({
@@ -11,9 +11,7 @@ import { FinancesService } from "src/app/service/finances/finances.service";
 export class GraphicFinancesSupplierComponent implements OnInit {
 
   public barChartData: ChartDataSets[] = [];
-
   public barChartLabels: Label[] = [];
-
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: { 
@@ -35,11 +33,8 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     },
   };
   public barChartType: ChartType = 'horizontalBar';
-
   public barChartLegend = false;
-
   public barChartColors: Color[] = [/* {backgroundColor:['rgba(75, 192, 192, 0.2)']} */]
-
   listFinances:any = [];
   private dato: any; /* Dato a cargar */
   private datos: any = []; /* array datos */
