@@ -12,7 +12,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { FinancesComponent } from './finances/finances.component';
 import { LoginComponent } from './login/login.component';
 
-/* Modulos */
+/* Pages Modulos */
 import { DriverPagesModule } from "./driver/driver-pages/driver-pages.module";
 import { SupplierPagesModule } from "./supplier/supplier-pages/supplier-pages.module";
 import { LoadPagesModule } from "./load/load-pages/load-pages.module";
@@ -21,6 +21,7 @@ import { UsuarioPagesModule } from "./usuario/usuario-pages/usuario-pages.module
 import { DashboardPagesModule } from "./dashboard/dashboard-pages/dashboard-pages.module";
 import { FinancesPagesModule } from "./finances/finances-pages/finances-pages.module";
 
+/* Components Modulos */
 import { DriverComponentsModule } from "./driver/driver-components/driver-components.module";
 import { SupplierComponentsModule } from "./supplier/supplier-components/supplier-components.module";
 import { LoadComponentsModule } from "./load/load-components/load-components.module";
