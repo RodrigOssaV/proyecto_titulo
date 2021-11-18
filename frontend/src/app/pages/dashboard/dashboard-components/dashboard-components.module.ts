@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from "ng2-charts";
+import { GraphicModule } from "src/app/graphic/graphic.module";
 
 import { LoadComponentsModule } from "../../load/load-components/load-components.module";
-import { FinancesComponentsModule } from "../../finances/finances-components/finances-components.module";
 
 import { DashTitleComponent } from './dash-title/dash-title.component';
 import { DashDescriptionComponent } from './dash-description/dash-description.component';
@@ -17,7 +17,7 @@ import { DashDescriptionComponent } from './dash-description/dash-description.co
     CommonModule,
     ChartsModule,
     LoadComponentsModule,
-    FinancesComponentsModule
+    GraphicModule
   ],
   exports: [
     DashTitleComponent,

@@ -15,7 +15,7 @@
                 <td>{{ supplier.name_supplier }}</td>
                 <td>{{ supplier.type_supplier }}</td>
                 <td>{{ supplier.total_amount }}</td>
-                <td *ngIf="supplier.statusSupplier == true; else _statusFalse">
+                <td *ngIf="supplier.status_supplier == true; else _statusFalse">
                     <button class="button is-success is-light is-rounded is-small" (click)="editStatusSupplier(supplier)">Online</button>
                 </td>
                 <ng-template #_statusFalse>

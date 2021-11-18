@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
 import { Label } from "ng2-charts";
-import { SupplierService } from "../../../../service/supplier/supplier.service";
+import { DriverService } from "src/app/service/driver/driver.service";
 
 @Component({
-  selector: 'app-graphic-supplier',
-  templateUrl: './graphic-supplier.component.html',
-  styleUrls: ['./graphic-supplier.component.css']
+  selector: 'app-graphic-driver',
+  templateUrl: './graphic-driver.component.html',
+  styleUrls: ['./graphic-driver.component.css']
 })
-export class GraphicSupplierComponent implements OnInit {
+export class GraphicDriverComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -24,11 +24,11 @@ export class GraphicSupplierComponent implements OnInit {
     plugins: {
       datalabels: {
         anchor: 'end',
-        align: 'end'
+        align: 'top'
       },
     }  
   };
-  public barChartLabels: Label[] = ['Proveedores'];
+  public barChartLabels: Label[] = ['Conductores'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
@@ -39,31 +39,28 @@ export class GraphicSupplierComponent implements OnInit {
   private dato: any;
   private datos: any = [];
   private name:any = [];
-
-  listSupplier:any = [];
-
-  constructor(private apiSupplier: SupplierService) { }
+  
+  constructor(private apiDriver: DriverService) { }
 
   ngOnInit(): void {
-    this.getDatosProveedor();
+    this.getDato();
   }
 
-  getDatosProveedor(){
-    this.apiSupplier.get_suppliers().subscribe(
+  getDato(){
+    this.apiDriver.get_drivers().subscribe(
       res => {
-        this.listSupplier = res;
-        console.log(this.listSupplier);
-        for (const supplier of this.listSupplier){
-          this.dato = supplier.total_amount;
+        this.listDrivers = res;
+        for (const driver of this.listDrivers) {
+          this.dato = driver.total_load;
           this.datos.push(this.dato);
-          this.name.push(supplier.name_supplier);
+          this.name.push(driver.name);
         };
         this.cargarDatos(this.datos, this.name);
       },
       (err) => {
         console.log(err);
       }
-    );    
+    );
   }
 
   cargarDatos(datos:any, name:any){

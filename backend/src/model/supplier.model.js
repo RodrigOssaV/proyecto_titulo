@@ -22,7 +22,7 @@ Supplier.init({
         type: DataTypes.INTEGER,
         defaultValue: 0
     },
-    statusSupplier: {
+    status_supplier: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     }

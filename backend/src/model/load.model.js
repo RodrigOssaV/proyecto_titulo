@@ -10,6 +10,11 @@ Load.init({
         allowNull: false,
         autoIncrement: true
     },
+    orden: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true 
+    },
     amount_load: {
         type: DataTypes.INTEGER,
         allowNull: false

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
-import { Label } from "ng2-charts";
-import { DriverService } from "../../../../service/driver/driver.service";
+import { Label, Color } from "ng2-charts";
+import { SupplierService } from "src/app/service/supplier/supplier.service";
 
 @Component({
-  selector: 'app-graphic-driver',
-  templateUrl: './graphic-driver.component.html',
-  styleUrls: ['./graphic-driver.component.css']
+  selector: 'app-graphic-supplier',
+  templateUrl: './graphic-supplier.component.html',
+  styleUrls: ['./graphic-supplier.component.css']
 })
-export class GraphicDriverComponent implements OnInit {
+export class GraphicSupplierComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -24,43 +24,46 @@ export class GraphicDriverComponent implements OnInit {
     plugins: {
       datalabels: {
         anchor: 'end',
-        align: 'top'
+        align: 'end'
       },
     }  
   };
-  public barChartLabels: Label[] = ['Conductores'];
+  public barChartLabels: Label[] = ['Proveedores'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
   // datos que vamos a cargar en las graficas
   public barChartData: ChartDataSets[] = [];
+  public barChartColors: Color[] = [];
 
   listDrivers:any = [];
   private dato: any;
   private datos: any = [];
   private name:any = [];
-  
-  constructor(private apiDriver: DriverService) { }
+
+  listSupplier:any = [];
+
+  constructor(private apiSupplier: SupplierService) { }
 
   ngOnInit(): void {
-    this.getDato();
+    this.getDatosProveedor();
   }
 
-  getDato(){
-    this.apiDriver.get_drivers().subscribe(
+  getDatosProveedor(){
+    this.apiSupplier.get_suppliers().subscribe(
       res => {
-        this.listDrivers = res;
-        for (const driver of this.listDrivers) {
-          this.dato = driver.total_load;
+        this.listSupplier = res;
+        for (const supplier of this.listSupplier){
+          this.dato = supplier.total_amount;
           this.datos.push(this.dato);
-          this.name.push(driver.name);
+          this.name.push(supplier.name_supplier);
         };
         this.cargarDatos(this.datos, this.name);
       },
       (err) => {
         console.log(err);
       }
-    );
+    );    
   }
 
   cargarDatos(datos:any, name:any){

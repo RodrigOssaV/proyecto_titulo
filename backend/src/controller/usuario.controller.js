@@ -5,7 +5,6 @@ const {auth} = require('../database/config');
 const sequelize = require('../database/db');
 const User = db.user;
 const Role = db.role;
-const Op = db.Sequelize.Op;
 
 exports.signup = (req, res) => {
     // Save User to Database
@@ -15,7 +14,6 @@ exports.signup = (req, res) => {
         password: bcrypt.hashSync(req.body.password, 8)
     }).then(user => {
         if (req.body.roles) {
-            console.log(req.body.roles)
             Role.findAll({
                 where: {
                 name: req.body.roles
@@ -57,7 +55,7 @@ exports.signin = (req, res) => {
             });
         }
         var token = jwt.sign({ id: user.id }, auth.secret, {
-          expiresIn: 86400 // 24 hours
+          expiresIn: 28800 // 8 hours
         });
         var authorities = [];
         user.getRoles().then(roles => {
