@@ -14,15 +14,21 @@ export class GraphicProfileMonthComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: true,
     scales: { 
       xAxes: [{}],
       yAxes: [{
-        stacked: true,
         ticks: {
-          beginAtZero: true,
+          beginAtZero: true
         } 
       }]
     },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'top'
+      },
+    } 
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
@@ -36,10 +42,11 @@ export class GraphicProfileMonthComponent implements OnInit {
   rutParametro: any;
   private dato: any;
   private datos: any = [];
-  private dateLoad:any = [];
   private numLoad: any;
   private numLoads: any = [];
   private name: any = [];
+  private notdelivery: any;
+  private notdeliverys: any = [];
 
   constructor(
     private loadService: LoadService,
@@ -55,16 +62,18 @@ export class GraphicProfileMonthComponent implements OnInit {
     this.loadService.get_loads_monthly(this.rutParametro).subscribe(
       res => {
         this.detalleConductor = res;
-        console.log(this.detalleConductor);
+        /* console.log(this.detalleConductor); */
         for (const driver of this.detalleConductor) {
-          this.dato = driver.totalDeliveryMonthly;
-          this.numLoad = driver.totalLoadsMonthly;
+          this.dato = driver.total_delivery_monthly;
+          this.numLoad = driver.total_loads_monthly;
+          this.notdelivery = driver.total_not_delivery;
           this.datos.push(this.dato);
           this.numLoads.push(this.numLoad);
+          this.notdeliverys.push(this.notdelivery);
           this.name.push(driver.nameMonth);          
         };
         const reversed = this.name.reverse();
-        this.cargarDatos(this.datos, reversed, this.numLoads);
+        this.cargarDatos(this.datos, reversed, this.numLoads, this.notdeliverys);
       },
       err => {
         console.log(err);;
@@ -72,26 +81,33 @@ export class GraphicProfileMonthComponent implements OnInit {
     );
   }
 
-  cargarDatos(datos:any, dateLoad: any, numLoads: any){
+  cargarDatos(datos:any, dateLoad: any, numLoads: any, notDeliverys: any){
     this.barChartLabels = [];
     this.barChartData = [];
     this.barChartData.push({ 
-      data: datos, 
-      label: 'Total delivery', 
+      data: numLoads, 
+      label: 'Total loads', 
       type: 'bar', 
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
-      borderColor: 'rgb(255, 159, 64)',
+      borderColor: 'rgba(255, 159, 64, 0.2)',
       borderWidth: 1,
       fill: false,
       hoverBackgroundColor: 'rgba(255, 159, 64, 0.2)'
+    });      
+    this.barChartData.push({ 
+      data: notDeliverys, 
+      label: 'Total not delivery', 
+      type: 'line', 
+      borderColor: 'rgba(255, 99, 132)',
+      fill: false 
     });
     this.barChartData.push({ 
-      data: numLoads, 
-      label: 'Total loads', 
+      data: datos, 
+      label: 'Total delivery', 
       type: 'line', 
       borderColor: 'rgb(75, 192, 192)', 
       fill: false 
-    });
+    });  
     for(const index in dateLoad){
       this.barChartLabels.push(dateLoad[index]);
     };    

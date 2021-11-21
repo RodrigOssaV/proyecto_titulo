@@ -73,4 +73,37 @@ export class FinancesService {
       })
     );
   }
+
+  results_all_drivers(){
+    return this.http.get(URIs.api+'/results_all_drivers').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  results_drivers_monthly(){
+    return this.http.get(URIs.api+'/results_drivers_monthly').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  results_drivers_by_suppliers(){
+    return this.http.get(URIs.api+'/results_drivers_by_suppliers').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
 }

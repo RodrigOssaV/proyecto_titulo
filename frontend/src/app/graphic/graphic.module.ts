@@ -12,6 +12,8 @@ import { GraphicFinancesResultComponent } from './graphic-finances-result/graphi
 import { GraphicFinancesComponent } from './graphic-finances/graphic-finances.component';
 import { GraphicProfileDriverComponent } from './graphic-profile-driver/graphic-profile-driver.component';
 import { GraphicProfileMonthComponent } from './graphic-profile-month/graphic-profile-month.component';
+import { GraphicDriverMonthlyComponent } from './graphic-driver-monthly/graphic-driver-monthly.component';
+import { GraphicDriverBysupplierComponent } from './graphic-driver-bysupplier/graphic-driver-bysupplier.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { GraphicProfileMonthComponent } from './graphic-profile-month/graphic-pr
     GraphicFinancesResultComponent,
     GraphicFinancesComponent,
     GraphicProfileDriverComponent,
-    GraphicProfileMonthComponent
+    GraphicProfileMonthComponent,
+    GraphicDriverMonthlyComponent,
+    GraphicDriverBysupplierComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,9 @@ import { GraphicProfileMonthComponent } from './graphic-profile-month/graphic-pr
     GraphicFinancesComponent,
     GraphicFinancesResultComponent,
     GraphicProfileDriverComponent,
-    GraphicProfileMonthComponent
+    GraphicProfileMonthComponent,
+    GraphicDriverMonthlyComponent,
+    GraphicDriverBysupplierComponent
   ]
 })
 export class GraphicModule { }

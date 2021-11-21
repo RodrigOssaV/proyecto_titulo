@@ -5,13 +5,14 @@ import { Label } from "ng2-charts";
 import { FinancesService } from "src/app/service/finances/finances.service";
 
 @Component({
-  selector: 'app-graphic-driver',
-  templateUrl: './graphic-driver.component.html',
-  styleUrls: ['./graphic-driver.component.css']
+  selector: 'app-graphic-driver-monthly',
+  templateUrl: './graphic-driver-monthly.component.html',
+  styleUrls: ['./graphic-driver-monthly.component.css']
 })
-export class GraphicDriverComponent implements OnInit {
+export class GraphicDriverMonthlyComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
+    responsive: true,
     maintainAspectRatio: true,
     scales: { 
       xAxes: [{}],
@@ -26,7 +27,7 @@ export class GraphicDriverComponent implements OnInit {
         anchor: 'end',
         align: 'top'
       },
-    } 
+    }  
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
@@ -35,7 +36,7 @@ export class GraphicDriverComponent implements OnInit {
   // datos que vamos a cargar en las graficas
   public barChartData: ChartDataSets[] = [];
 
-  listResultDrivers:any = [];
+  listResultMonthly: any;
   private dato_amount: any;
   private datos_amounts: any = [];
   private dato_delivery: any;
@@ -43,31 +44,29 @@ export class GraphicDriverComponent implements OnInit {
   private dato_not_delivery: any;
   private datos_not_deliverys: any = [];
   private name:any = [];
-  
+
   constructor(private finance: FinancesService) { }
 
   ngOnInit(): void {
-    this.getDato();
+    this.getMonthly();
   }
 
-  getDato(){
-    this.finance.results_all_drivers().subscribe(
+  getMonthly(){
+    this.finance.results_drivers_monthly().subscribe(
       res => {
-        this.listResultDrivers = res;
-        for (const result of this.listResultDrivers) {
-          /* array to personal data */
-          this.dato_amount = result.total_amount_loads;
-          this.dato_delivery = result.total_amount_delivery;
-          this.dato_not_delivery = result.total_not_deliverys;
-          /* personal data to personal arrays */
+        this.listResultMonthly = res;
+        for(const result of this.listResultMonthly){
+          this.dato_amount = result.total_loads_monthly;
+          this.dato_delivery = result.total_delivery_monthly;
+          this.dato_not_delivery = result.total_not_delivery;
           this.datos_amounts.push(this.dato_amount);
           this.datos_deliverys.push(this.dato_delivery);
           this.datos_not_deliverys.push(this.dato_not_delivery);
-          this.name.push(result.rut_driver);
-        };
-        this.cargarDatos(this.datos_amounts, this.name, this.datos_deliverys, this.datos_not_deliverys);
-      },
-      (err) => {
+          this.name.push(result.nameMonth);
+        }
+        const reversed = this.name.reverse();
+        this.cargarDatos(this.datos_amounts, reversed, this.datos_deliverys, this.datos_not_deliverys);
+      }, (err) => {
         console.log(err);
       }
     );
