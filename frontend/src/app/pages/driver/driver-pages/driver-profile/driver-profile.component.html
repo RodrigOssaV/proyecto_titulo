@@ -1,21 +1,31 @@
-<ng-container *ngIf="showAdminBoard || showModeratorBoard">
-    <div class="columns is-multiline container-columns">
-        <div class="column is-full">
-            <app-navbar></app-navbar>
+<div class="columns is-gapless is-multiline is-mobile" *ngIf="showAdminBoard || showModeratorBoard">
+
+    <div class="column is-full">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="column is-full">
+        <app-subnavbar></app-subnavbar>
+    </div>
+
+    <div class="column is-half is-mobile">
+
+        <div class="column is-full is-mobile">
+            <div class="box">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li>
+                            <a href="" routerLink="/Driver" class="hand-pointer">Drivers</a>
+                        </li>
+                        <li class="is-active">
+                            <a href="#" aria-current="page">{{datos.name}}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <div class="column is-full">
-            <app-subnavbar></app-subnavbar>
-        </div>
-        <div class="column is-two-fifths">
-    
-            <span class="icon-text ml-4">
-                <span class="icon">
-                    <i class="fas fa-arrow-left"></i>
-                </span>
-                <span routerLink="/Driver" class="hand-pointer">Back</span>
-            </span>
-            
-            <div class="column">
+
+        <div class="column is-mobile">
+            <div class="box">
                 <div class="card">
                     <div class="card-content">
                         <div class="media">
@@ -33,49 +43,75 @@
                 </div>
             </div>
         </div>
-        <div class="column has-background-info">
-            <button class="button" (click)="exportAsXLSX()">Export to Excel</button>
-        </div>
-        <div class="column is-full">
-            <div class="box">
-                <div class="box">
-                    <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
-                        <thead>
-                            <tr>
-                                <th>Fecha asignación</th>
-                                <th>Proveedor</th>
-                                <th>Cantidad asignada</th>
-                                <th>Cantidad entregada</th>
-                                <th>Cantidad no entregada</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let detalle of detalleConductor">
-                                <td>{{ detalle.date_load }}</td>
-                                <td>{{ detalle.name_supplier }}</td>
-                                <td>{{ detalle.amount_load }}</td>
-                                <td>{{ detalle.amount_delivery }}</td>
-                                <td>{{ detalle.amount_not_delivery }}</td>
-                            </tr>
-                            <tr>
-                                <th>Total</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+    </div>
+
+    <div class="column is-half">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="select is-fullwidth">
+                    <select [(ngModel)]="num">
+                        <option value="0">Mostrar x fechas</option>
+                        <option value="1">Mostrar x mes</option>
+                    </select>
                 </div>
+                
             </div>
         </div>
-        <div class="column is-full">
-            <app-footer></app-footer>
+        
+        <div class="card" [ngSwitch]="num">
+            <ng-template [ngSwitchCase]="0">
+                <app-graphic-profile-driver></app-graphic-profile-driver>
+            </ng-template>
+            <ng-template [ngSwitchCase]="1">
+                <app-graphic-profile-month></app-graphic-profile-month>
+            </ng-template>
         </div>
     </div>
-</ng-container>
 
-<ng-container *ngIf=showUserBoard>
+    <div class="column is-full">        
+        <div class="box">
+            <div class="box">
+                <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+                    <thead>
+                        <tr>
+                            <th>Fecha asignación</th>
+                            <th>Proveedor</th>
+                            <th>Cantidad asignada</th>
+                            <th>Cantidad entregada</th>
+                            <th>Cantidad no entregada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detalle of detalleConductor">
+                            <td>{{ detalle.date_load | date:'mediumDate' }}</td>
+                            <td>{{ detalle.name_supplier }}</td>
+                            <td>{{ detalle.amount_load }}</td>
+                            <td>{{ detalle.amount_delivery }}</td>
+                            <td>{{ detalle.amount_not_delivery }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- <button class="button" (click)="exportAsXLSX()">Export to Excel</button> -->
+
+    <div class="column is-full">
+        <app-footer></app-footer>
+    </div>
+</div>
+
+<div class="columns is-gapless is-multiline is-mobile" *ngIf=showUserBoard>
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -85,5 +121,5 @@
     <div class="column is-full">
         <app-footer></app-footer>
     </div>
-</ng-container>
+</div>
 

@@ -1,0 +1,21 @@
+<div class="card-content">
+    <div class="level is-justify-content-center">
+        <div class="level-left">
+            <div class="buttons is-centered">
+                <button class="button is-small" (click)="changeThreeWeeks()">Last 3 weeks</button>
+                <button class="button is-small" (click)="changeTwoWeeks()">Last 2 week</button>
+                <button class="button is-small" (click)="obtenerDetalleConductor()">This week</button>
+            </div>
+        </div>
+    </div>
+    <canvas baseChart 
+            height="100%"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+    >
+    </canvas>
+</div>

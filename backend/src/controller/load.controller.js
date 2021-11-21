@@ -42,11 +42,76 @@ module.exports = {
             from loads as lo
             left join drivers as dri on lo.rut_driver = dri.rut
             left join suppliers as sup on lo.id_supplier = sup.id_supplier
-            where lo.rut_driver = '${req.params.rut}'`);
-            
+            where lo.rut_driver = '${req.params.rut}'
+            order by date_load desc`);            
             res.status(200).json(data[0]);
         } catch (error) {
             res.status(400).json(error);
+        }
+    },
+
+    get_loads_today: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
+            from loads as lo
+            left join drivers as dri on lo.rut_driver = dri.rut
+            left join suppliers as sup on lo.id_supplier = sup.id_supplier
+            where lo.rut_driver = '${req.params.rut}'
+            order by date_load desc
+            limit 5`);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    get_loads_lastweeks: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
+            from loads as lo
+            left join drivers as dri on lo.rut_driver = dri.rut
+            left join suppliers as sup on lo.id_supplier = sup.id_supplier
+            where lo.rut_driver = '${req.params.rut}'
+            order by date_load desc
+            limit 10`);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    get_loads_finalweeks: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
+            from loads as lo
+            left join drivers as dri on lo.rut_driver = dri.rut
+            left join suppliers as sup on lo.id_supplier = sup.id_supplier
+            where lo.rut_driver = '${req.params.rut}'
+            order by date_load desc
+            limit 15`);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    get_load_monthly: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select monthname(date_load) as nameMonth, sum(amount_load) as totalLoadsMonthly, sum(amount_delivery) as totalDeliveryMonthly
+            from loads as lo
+            left join drivers as dri on lo.rut_driver = dri.rut
+            left join suppliers as sup on lo.id_supplier = sup.id_supplier
+            where lo.rut_driver = '${req.params.rut}'
+            group by month(date_load)
+            order by date_load desc;
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.json(400).json(error);
         }
     },
 
