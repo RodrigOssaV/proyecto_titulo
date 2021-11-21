@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/service/usuario/auth.service';
 })
 export class DriverProfileComponent implements OnInit {
 
+
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -23,6 +24,8 @@ export class DriverProfileComponent implements OnInit {
   rutParametro: any;
   datos:any = [];
   detalleConductor:any = [];
+
+  num: number = 0;
 
   constructor(
     private route: ActivatedRoute, 

@@ -59,4 +59,48 @@ export class LoadService {
     );
   }
 
+  get_loads_today(rut:any){
+    return this.http.get(URIs.api+`/get_loads_today/${rut}`).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  get_loads_lastweeks(rut:any){
+    return this.http.get(URIs.api+`/get_loads_lastweeks/${rut}`).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  get_loads_final(rut:any){
+    return this.http.get(URIs.api+`/get_loads_final/${rut}`).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  get_loads_monthly(rut:any){
+    return this.http.get(URIs.api+`/get_loads_monthly/${rut}`).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
 }

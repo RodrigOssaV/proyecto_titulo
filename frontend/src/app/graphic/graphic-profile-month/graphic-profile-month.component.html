@@ -1,0 +1,20 @@
+<div class="card-content">
+    <div class="level is-justify-content-center">
+        <div class="level-left">
+            <div class="buttons is-centered">
+                <button class="button is-small is-static">Month</button>
+                
+            </div>
+        </div>
+    </div>
+    <canvas baseChart 
+            height="100%"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+    >
+    </canvas>
+</div>
