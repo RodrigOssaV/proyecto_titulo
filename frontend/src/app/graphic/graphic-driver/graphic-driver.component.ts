@@ -47,13 +47,44 @@ export class GraphicDriverComponent implements OnInit {
   constructor(private finance: FinancesService) { }
 
   ngOnInit(): void {
-    this.getDato();
+    this.getDatosLimit();
   }
 
-  getDato(){
+  getDatos(){
     this.finance.results_all_drivers().subscribe(
       res => {
         this.listResultDrivers = res;
+        this.datos_amounts = [];
+        this.datos_deliverys = [];
+        this.datos_not_deliverys = [];
+        this.name = [];
+        for (const result of this.listResultDrivers) {
+          /* array to personal data */
+          this.dato_amount = result.total_amount_loads;
+          this.dato_delivery = result.total_amount_delivery;
+          this.dato_not_delivery = result.total_not_deliverys;
+          /* personal data to personal arrays */
+          this.datos_amounts.push(this.dato_amount);
+          this.datos_deliverys.push(this.dato_delivery);
+          this.datos_not_deliverys.push(this.dato_not_delivery);
+          this.name.push(result.rut_driver);
+        };
+        this.cargarDatos(this.datos_amounts, this.name, this.datos_deliverys, this.datos_not_deliverys);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  getDatosLimit(){
+    this.finance.results_all_drivers_limit().subscribe(
+      res => {
+        this.listResultDrivers = res;
+        this.datos_amounts = [];
+        this.datos_deliverys = [];
+        this.datos_not_deliverys = [];
+        this.name = [];
         for (const result of this.listResultDrivers) {
           /* array to personal data */
           this.dato_amount = result.total_amount_loads;

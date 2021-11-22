@@ -37,33 +37,87 @@ export class GraphicDriverBysupplierComponent implements OnInit {
   public barChartData: ChartDataSets[] = [];
 
   listDrivers: any;
-  private nameDriver: any = [];
+  listSuppliers: any;
+  listDataBase: any;
+  private dato_base: any;
+  private datos_base: any = [];  
+  private name_driver: any = [];
+  private dato_max: any;
+  private datos_max: any = [];
+  private dato_min: any;
+  private datos_min: any = [];
+  private dato_percent = 0;
+  private datos_percent: any = [];
+  private dato_amount_delivery: any;
 
-  constructor(private finance: FinancesService) { }
+  constructor(
+    private finance: FinancesService,
+  ) { }
 
-  ngOnInit(): void {
-    this.getDriverbySuppliers();
+  ngOnInit(): void {    
+    this.getDataBaseLimit();
   }
 
-  getDriverbySuppliers(){
-    this.finance.results_drivers_by_suppliers().subscribe(
+  getDataBase(){
+    this.finance.results_all_drivers().subscribe(
       res => {
-        this.listDrivers = res;
-        console.log(this.listDrivers);
-        for(const driver of this.listDrivers){
-          this.nameDriver.push(driver.rut);
+        this.listDataBase = res;
+        this.datos_base = [];
+        this.name_driver = [];
+        this.datos_min = [];
+        this.datos_max = [];
+        this.datos_percent = [];
+        for(const data of this.listDataBase){
+          this.dato_base = data.total_amount_loads;
+          this.dato_max = data.max_delivery;
+          this.dato_min = data.min_delivery;
+          this.dato_amount_delivery = data.total_amount_delivery;
+          this.dato_percent = Math.round((this.dato_amount_delivery/this.dato_base)*100);
+          this.datos_base.push(this.dato_base);
+          this.datos_max.push(this.dato_max);
+          this.datos_min.push(this.dato_min);
+          this.datos_percent.push(this.dato_percent);
+          this.name_driver.push(data.rut_driver);
         }
-        this.cargarDatos(this.nameDriver);
+        this.cargarDatos(this.name_driver, this.datos_base, this.datos_max, this.datos_min, this.datos_percent);
       }, (err) => {
         console.log(err);
       }
     );
   }
 
-  cargarDatos(name:any){
+  getDataBaseLimit(){
+    this.finance.results_drivers_by_suppliers_limit().subscribe(
+      res => {
+        this.listDataBase = res;
+        this.datos_base = [];
+        this.name_driver = [];
+        this.datos_min = [];
+        this.datos_max = [];
+        this.datos_percent = [];
+        for(const data of this.listDataBase){
+          this.dato_base = data.total_amount_loads;
+          this.dato_max = data.max_delivery;
+          this.dato_min = data.min_delivery;
+          this.dato_amount_delivery = data.total_amount_delivery;
+          this.dato_percent = Math.round((this.dato_amount_delivery/this.dato_base)*100);
+          this.datos_base.push(this.dato_base);
+          this.datos_max.push(this.dato_max);
+          this.datos_min.push(this.dato_min);
+          this.datos_percent.push(this.dato_percent);
+          this.name_driver.push(data.rut_driver);
+        }
+        this.cargarDatos(this.name_driver, this.datos_base, this.datos_max, this.datos_min, this.datos_percent);
+      }, (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  cargarDatos(name:any, datos:any, max:any, min:any, percent:any){
     this.barChartData = [];
     this.barChartLabels = [];
-    /* this.barChartData.push({
+    this.barChartData.push({
       data: datos,
       type: 'bar',
       label: 'Total amount loads',
@@ -74,19 +128,26 @@ export class GraphicDriverBysupplierComponent implements OnInit {
       hoverBackgroundColor: 'rgba(255, 159, 64, 0.2)'
     });
     this.barChartData.push({
-      data: not_deliverys,
+      data: max,
       type: 'line',
-      label: 'Total not delivery',
-      borderColor: 'rgba(255, 99, 132)',
-      fill: false,
-    });
-    this.barChartData.push({
-      data: deliverys,
-      type: 'line',
-      label: 'Total delivery',
+      label: 'Max delivery',
       borderColor: 'rgb(75, 192, 192)',
       fill: false 
-    });   */    
+    });
+    this.barChartData.push({
+      data: min,
+      type: 'line',
+      label: 'Min delivery',
+      borderColor: 'rgb(255, 153, 255)',
+      fill: false 
+    });
+    this.barChartData.push({
+      data: percent,
+      type: 'line',
+      label: 'Percent',
+      borderColor: 'rgb(194, 42, 199)',
+      fill: false 
+    });
     for(const index in name){
       this.barChartLabels.push(name[index]);
     };

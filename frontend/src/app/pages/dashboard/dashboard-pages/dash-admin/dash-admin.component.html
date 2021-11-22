@@ -1,4 +1,4 @@
-<div class="columns is-gapless is-multiline is-mobile">
+<div class="columns is-multiline is-mobile">
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -31,10 +31,10 @@
         <div class="card">
             <div class="card-header">
                 <div class="select is-fullwidth">
-                    <select [(ngModel)]="numDrivers">
-                        <option value="0">All drivers</option>
-                        <option value="1">All drivers monthly</option>
-                        <option value="2">All drivers by suppliers</option>
+                    <select [(ngModel)]="numDrivers" class="has-text-centered">
+                        <option value="0">Drivers</option>
+                        <option value="1">Drivers Monthly</option>
+                        <option value="2">Drivers Stadistic</option>
                     </select>
                 </div>
                 
@@ -57,9 +57,10 @@
         <div class="card">
             <div class="card-header">
                 <div class="select is-fullwidth">
-                    <select [(ngModel)]="numSuppliers">
-                        <option value="0">All suppliers</option>
-                        <option value="1">Monthly</option>
+                    <select [(ngModel)]="numSuppliers" class="has-text-centered">
+                        <option value="0">Suppliers</option>
+                        <option value="1">Suppliers Monthly</option>
+                        <option value="2">Suppliers Stadistic</option>
                     </select>
                 </div>
                 
@@ -70,6 +71,9 @@
                 <app-graphic-supplier></app-graphic-supplier>
             </ng-template>
             <ng-template [ngSwitchCase]="1">
+                <!-- <app-graphic-profile-month></app-graphic-profile-month> -->
+            </ng-template>
+            <ng-template [ngSwitchCase]="2">
                 <!-- <app-graphic-profile-month></app-graphic-profile-month> -->
             </ng-template>
         </div>

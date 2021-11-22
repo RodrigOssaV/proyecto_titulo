@@ -85,6 +85,17 @@ export class FinancesService {
     );
   }
 
+  results_all_drivers_limit(){
+    return this.http.get(URIs.api+'/results_all_drivers_limit').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
   results_drivers_monthly(){
     return this.http.get(URIs.api+'/results_drivers_monthly').pipe(
       map((res:any)=>{
@@ -96,8 +107,19 @@ export class FinancesService {
     );
   }
 
-  results_drivers_by_suppliers(){
+  results_drivers_by_suppliers(){    
     return this.http.get(URIs.api+'/results_drivers_by_suppliers').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  results_drivers_by_suppliers_limit(){    
+    return this.http.get(URIs.api+'/results_drivers_by_suppliers_limit').pipe(
       map((res:any)=>{
         return res;
       },

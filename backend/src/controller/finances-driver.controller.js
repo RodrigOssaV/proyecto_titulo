@@ -26,10 +26,25 @@ module.exports = {
     results_all_drivers: async (req, res) => {
         try {
             let data = await sequelize.query(`
-            select rut_driver, sum(amount_load) as total_amount_loads, sum(amount_delivery) as total_amount_delivery, sum(amount_not_delivery) as total_not_deliverys 
+            select rut_driver, sum(amount_load) as total_amount_loads, sum(amount_delivery) as total_amount_delivery, sum(amount_not_delivery) as total_not_deliverys, 
+            max(amount_delivery) as max_delivery, min(amount_delivery) as min_delivery
+            from loads
+            group by (rut_driver);
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    results_all_drivers_limit: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select rut_driver, sum(amount_load) as total_amount_loads, sum(amount_delivery) as total_amount_delivery, sum(amount_not_delivery) as total_not_deliverys, 
+            max(amount_delivery) as max_delivery, min(amount_delivery) as min_delivery
             from loads
             group by (rut_driver)
-            `);
+            limit 5`);
             res.status(200).json(data[0]);
         } catch (error) {
             res.status(400).json(error);
@@ -60,6 +75,7 @@ module.exports = {
             left join drivers as dri on lo.rut_driver = dri.rut
             left join suppliers as sup on lo.id_supplier = sup.id_supplier
             group by dri.rut, sup.name_supplier
+            order by dri.rut
             `);
             res.status(200).json(data[0]);
         } catch (error) {
