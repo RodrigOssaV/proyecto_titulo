@@ -38,5 +38,34 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    results_all_suppliers: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select sum(amount_load) as total_amount_loads, sum(amount_delivery) as total_amount_delivery, sum(amount_not_delivery) as total_not_deliverys, sup.name_supplier,
+            max(amount_delivery) as max_delivery, min(amount_delivery) as min_delivery
+            from loads
+            left join suppliers sup on sup.id_supplier = loads.id_supplier
+            group by (sup.id_supplier);
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    get_global_benefits: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select distinct table_drivers.*, table_suppliers.*
+            from loads, 
+            (select sum(finances_drivers.benefit_driver) as benefits_drivers from finances_drivers) as table_drivers,
+            (select sum(finances_suppliers.benefit_empresa) as benefits_empresa from finances_suppliers) as table_suppliers;
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
     }
 };
