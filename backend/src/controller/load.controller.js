@@ -101,7 +101,7 @@ module.exports = {
     get_load_monthly: async (req, res) => {
         try {
             let data = await sequelize.query(`
-            select monthname(date_load) as nameMonth, sum(amount_load) as totalLoadsMonthly, sum(amount_delivery) as totalDeliveryMonthly
+            select monthname(date_load) as nameMonth, sum(amount_load) as total_loads_monthly, sum(amount_delivery) as total_delivery_monthly, sum(amount_not_delivery) as total_not_delivery
             from loads as lo
             left join drivers as dri on lo.rut_driver = dri.rut
             left join suppliers as sup on lo.id_supplier = sup.id_supplier

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
 
 import { DashAdminComponent } from './dash-admin/dash-admin.component';
 import { DashUserComponent } from './dash-user/dash-user.component';
@@ -19,7 +20,8 @@ import { GraphicModule } from "src/app/graphic/graphic.module";
     CommonModule,
     SharedModule,
     DashboardComponentsModule,
-    GraphicModule
+    GraphicModule,
+    FormsModule
   ],
   exports: [
     DashAdminComponent,

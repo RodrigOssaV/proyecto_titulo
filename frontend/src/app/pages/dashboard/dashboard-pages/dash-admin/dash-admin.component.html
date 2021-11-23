@@ -1,4 +1,4 @@
-<div class="columns is-gapless is-multiline is-mobile">
+<div class="columns is-multiline is-mobile">
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -28,13 +28,56 @@
         </div>
     </div>
     <div class="column is-half">
-        <app-graphic-driver></app-graphic-driver>
+        <div class="card">
+            <div class="card-header">
+                <div class="select is-fullwidth">
+                    <select [(ngModel)]="numDrivers" class="has-text-centered">
+                        <option value="0">Drivers</option>
+                        <option value="1">Drivers Monthly</option>
+                        <option value="2">Drivers Stadistic</option>
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="card" [ngSwitch]="numDrivers">
+            <ng-template [ngSwitchCase]="0">
+                <app-graphic-driver></app-graphic-driver>
+            </ng-template>
+            <ng-template [ngSwitchCase]="1">
+                <app-graphic-driver-monthly></app-graphic-driver-monthly>
+            </ng-template>
+            <ng-template [ngSwitchCase]="2">
+                <app-graphic-driver-bysupplier></app-graphic-driver-bysupplier>
+            </ng-template>
+        </div>
     </div>
-    <!-- <div class="column is-one-fifth">
-        <app-button-dynamic-control></app-button-dynamic-control>
-    </div> -->
     <div class="column is-half">
-        <app-graphic-supplier></app-graphic-supplier>
+        <div class="card">
+            <div class="card-header">
+                <div class="select is-fullwidth">
+                    <select [(ngModel)]="numSuppliers" class="has-text-centered">
+                        <option value="0">Suppliers</option>
+                        <option value="1">Suppliers Monthly</option>
+                        <option value="2">Suppliers Stadistic</option>
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+        <div class="card" [ngSwitch]="numSuppliers">
+            <ng-template [ngSwitchCase]="0">
+                <app-graphic-supplier></app-graphic-supplier>
+            </ng-template>
+            <ng-template [ngSwitchCase]="1">
+                <!-- <app-graphic-profile-month></app-graphic-profile-month> -->
+            </ng-template>
+            <ng-template [ngSwitchCase]="2">
+                <!-- <app-graphic-profile-month></app-graphic-profile-month> -->
+            </ng-template>
+        </div>
+        
     </div>
     <div class="column is-full">
         <app-footer></app-footer>

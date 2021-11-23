@@ -11,7 +11,7 @@ router.delete('/delete_driver/:rut', [authJwt.verifyToken, authJwt.isAdmin], dri
 router.put('/update_driver/:rut', [authJwt.verifyToken, authJwt.isAdmin], driverController.update_driver);
 
 /* Stadistic */
-router.get('/best_driver',[authJwt.verifyToken], driverController.best_driver);
-router.get('/top_drivers',[authJwt.verifyToken], driverController.top_drivers);
+router.get('/best_driver', [authJwt.verifyToken], driverController.best_driver);
+router.get('/top_drivers', [authJwt.verifyToken], driverController.top_drivers);
 
 module.exports = router;
