@@ -49,6 +49,17 @@ export class FinancesService {
       })
     );
   }
+
+  results_all_suppliers(){
+    return this.http.get(URIs.api+'/results_all_suppliers').pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
   /* -------------------------------------------------------------------- */
 
   /* FINANCES DRIVERS */
@@ -120,6 +131,17 @@ export class FinancesService {
 
   results_drivers_by_suppliers_limit(){    
     return this.http.get(URIs.api+'/results_drivers_by_suppliers_limit').pipe(
+      map((res:any)=>{
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
+  get_global_benefits(){
+    return this.http.get(URIs.api+'/get_global_benefits').pipe(
       map((res:any)=>{
         return res;
       },

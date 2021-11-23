@@ -14,6 +14,8 @@ import { GraphicProfileDriverComponent } from './graphic-profile-driver/graphic-
 import { GraphicProfileMonthComponent } from './graphic-profile-month/graphic-profile-month.component';
 import { GraphicDriverMonthlyComponent } from './graphic-driver-monthly/graphic-driver-monthly.component';
 import { GraphicDriverBysupplierComponent } from './graphic-driver-bysupplier/graphic-driver-bysupplier.component';
+import { GraphicSupplierMonthlyComponent } from './graphic-supplier-monthly/graphic-supplier-monthly.component';
+import { GraphicSupplierGlobalComponent } from './graphic-supplier-global/graphic-supplier-global.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { GraphicDriverBysupplierComponent } from './graphic-driver-bysupplier/gr
     GraphicProfileDriverComponent,
     GraphicProfileMonthComponent,
     GraphicDriverMonthlyComponent,
-    GraphicDriverBysupplierComponent
+    GraphicDriverBysupplierComponent,
+    GraphicSupplierMonthlyComponent,
+    GraphicSupplierGlobalComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,9 @@ import { GraphicDriverBysupplierComponent } from './graphic-driver-bysupplier/gr
     GraphicProfileDriverComponent,
     GraphicProfileMonthComponent,
     GraphicDriverMonthlyComponent,
-    GraphicDriverBysupplierComponent
+    GraphicDriverBysupplierComponent,
+    GraphicSupplierMonthlyComponent,
+    GraphicSupplierGlobalComponent
   ]
 })
 export class GraphicModule { }
