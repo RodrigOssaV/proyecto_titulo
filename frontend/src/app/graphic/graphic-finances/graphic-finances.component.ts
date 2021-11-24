@@ -10,7 +10,7 @@ import { FinancesService } from "src/app/service/finances/finances.service";
 })
 export class GraphicFinancesComponent implements OnInit {
 
-  public doughnutChartLabels: Label[] = ['Profit', 'Losings'];  
+  public doughnutChartLabels: Label[] = ['Total loads', 'Total delivery'];  
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnytChartOptions: ChartOptions = {
@@ -18,52 +18,43 @@ export class GraphicFinancesComponent implements OnInit {
     legend: {
       position: 'top'
     },
-    cutoutPercentage: 90   
-  }
-  public doughnutChartColors: Color[] = [
-    {
-      // TODO ver tema colores velocimetro de encomiendas
-      backgroundColor: ['rgb(75, 192, 192)','rgba(255, 99, 132)'],
+    cutoutPercentage: 90,
+    plugins: {
+      legend: true
     },
-  ];
-  valueEmpresa:any = [];
-  valueDriver:any = [];
-  private dato: any;
-  private datos: any = [];
-  valueTotal = 0;
+    /* title: {
+      display: true,
+      text: 'Results'
+    }, */ 
+  }
+  public doughnutChartColors: Color[] = [{ backgroundColor: ['rgb(75, 0, 130, 0.7)','rgba(138, 43, 226, 0.3)'] }];
+
+  list_benefits: any;
+  private num_amount: any;
+  private num_delivery: any;
+  private global_num: any = [];
 
   constructor(private financeService: FinancesService) { }
 
   ngOnInit(): void {
-    this.getBenefitEmpresa();
-    this.getBenefitDriver();
+    this.getData();
   }
 
-  getBenefitEmpresa(){
-    this.financeService.get_total_benefit_supplier().subscribe(
+  getData(){
+    this.financeService.get_global_benefits().subscribe(
       res => {
-        this.valueEmpresa = res;
-        this.dato = this.valueEmpresa.total_benefit_supplier;
-        this.datos.push(this.dato);
-      },
-      (err) => {
-        console.log(err);
-      } 
-    )
-  }
-
-  getBenefitDriver(){
-    this.financeService.get_total_benefit_driver().subscribe(
-      res => {
-        this.valueDriver = res;
-        this.dato = this.valueDriver.total_benefit_driver;
-        this.datos.push(this.dato);
-        this.cargarDatos(this.datos);
-      },
-      (err) => {
+        this.list_benefits = res;
+        for(const benefit of this.list_benefits){
+          this.num_amount = benefit.total_amount;
+          this.num_delivery = benefit.total_delivery
+          this.global_num.push(this.num_amount);
+          this.global_num.push(this.num_delivery);
+        }
+        this.cargarDatos(this.global_num);
+      }, (err) => {
         console.log(err);
       }
-    )
+    );
   }
 
   cargarDatos(datos:any){
@@ -71,7 +62,6 @@ export class GraphicFinancesComponent implements OnInit {
     for(const index of datos){
       this.doughnutChartData.push(index);
     };
-    this.valueTotal = this.datos[0]-this.datos[1];
   }
 
 }

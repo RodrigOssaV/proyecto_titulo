@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions} from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
+
 import { LoadService } from "src/app/service/load/load.service";
 
 @Component({
-  selector: 'app-graphic-load',
-  templateUrl: './graphic-load.component.html',
-  styleUrls: ['./graphic-load.component.css']
+  selector: 'app-graphic-load-delivery',
+  templateUrl: './graphic-load-delivery.component.html',
+  styleUrls: ['./graphic-load-delivery.component.css']
 })
-export class GraphicLoadComponent implements OnInit {
+export class GraphicLoadDeliveryComponent implements OnInit {
 
   listSumLoads: any;
   totalPorcentage = 0;
@@ -23,7 +24,7 @@ export class GraphicLoadComponent implements OnInit {
     cutoutPercentage: 75    
   }
 
-  public doughnutChartLabels: Label[] = ['delivery', 'notDelivery'];
+  public doughnutChartLabels: Label[] = ['Delivery', 'Not delivery'];
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [
