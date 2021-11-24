@@ -66,7 +66,14 @@ export class GraphicFinancesSupplierComponent implements OnInit {
   cargarDatos(datos:any, name:any){
     this.barChartData = [];
     this.barChartLabels = [];
-    this.barChartData.push({data: datos});    
+    this.barChartData.push({
+      data: datos,
+      backgroundColor: 'rgba(255, 159, 64, 0.2)', 
+      borderColor: 'rgb(255, 159, 64)',
+      borderWidth: 1,
+      fill: true,
+      hoverBackgroundColor: 'rgba(255, 159, 64, 0.2)',
+    });    
     for(const index in datos){
       this.barChartLabels.push(name[index]);
     };

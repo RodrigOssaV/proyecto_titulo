@@ -58,8 +58,8 @@ module.exports = {
     get_global_benefits: async (req, res) => {
         try {
             let data = await sequelize.query(`
-            select distinct table_drivers.*, table_suppliers.*
-            from loads, 
+            select distinct table_drivers.*, table_suppliers.*, sum(amount_load) as total_amount, sum(amount_delivery) as total_delivery, sum(amount_not_delivery) as total_not_delivery
+            from loads,
             (select sum(finances_drivers.benefit_driver) as benefits_drivers from finances_drivers) as table_drivers,
             (select sum(finances_suppliers.benefit_empresa) as benefits_empresa from finances_suppliers) as table_suppliers;
             `);
