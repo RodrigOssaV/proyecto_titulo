@@ -1,12 +1,23 @@
+const sequelize = require('../database/db');
 const Status_Load = require('../model/status-load.model');
 
 module.exports = {
 
-    get_statusloads: (req, res) => {
-        try {
+    get_statusloads: async (req, res) => {
+        /* try {
             Status_Load.findAll().then(result => {
                 res.status(200).json(result);
             })
+        } catch (error) {
+            res.status(400).json(error);
+        } */
+        try {
+            let data = await sequelize.query(`
+            select loads.orden, status_loads.delivery, status_loads.not_delivery, status_loads.received
+            from status_loads
+            left join loads on loads.id_load = status_loads.id_load
+            `);
+            res.status(200).json(data[0]);
         } catch (error) {
             res.status(400).json(error);
         }

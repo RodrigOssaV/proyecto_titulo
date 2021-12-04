@@ -103,4 +103,15 @@ export class LoadService {
     );
   }
 
+  get_total_driver(rut:any){
+    return this.http.get(URIs.api+`/get_total_driver/${rut}`).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
 }

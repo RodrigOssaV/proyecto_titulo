@@ -34,7 +34,7 @@ export class StatusTableComponent implements OnInit {
     this.apiStatus.get_statusloads().subscribe(
       res => {
         this.listStatusLoads = res;
-        /* console.log(this.listStatusLoads); */
+        console.log(this.listStatusLoads);
       },
       err => {
         console.log(err);
