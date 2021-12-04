@@ -22,10 +22,14 @@ export class DriverProfileComponent implements OnInit {
   username?: string;
 
   rutParametro: any;
-  datos:any = [];
-  detalleConductor:any = [];
+  public datos:any = [];
+  public detalleConductor:any = [];
+  public detalleTotalConductor:any = [];
 
   num: number = 0;
+  amount: number = 0;
+  delivery: number = 0;
+  not_delivery: number = 0;
 
   constructor(
     private route: ActivatedRoute, 
@@ -39,6 +43,7 @@ export class DriverProfileComponent implements OnInit {
     this.rutParametro = this.route.snapshot.paramMap.get('rut');
     this.obtenerConductor();
     this.obtenerDetalleConductor();
+    this.obtenerTotalDriver();
 
     this.isLoggedIn = !!this._authService.getToken();
 
@@ -71,6 +76,23 @@ export class DriverProfileComponent implements OnInit {
       res => {
         this.detalleConductor = res;
         /* console.log(this.detalleConductor); */
+      },
+      err => {
+        console.log(err);;
+      }
+    );
+  }
+
+  obtenerTotalDriver(){
+    this.apiLoad.get_total_driver(this.rutParametro).subscribe(
+      res => {
+        this.detalleTotalConductor = res;
+        /* console.log(this.detalleTotalConductor); */
+        for(const total of this.detalleTotalConductor){
+          this.amount = total.total_amount;
+          this.delivery = total.total_delivery;
+          this.not_delivery = total.total_not_delivery;
+        }
       },
       err => {
         console.log(err);;

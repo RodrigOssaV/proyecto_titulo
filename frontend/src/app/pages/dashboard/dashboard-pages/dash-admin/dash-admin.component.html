@@ -19,7 +19,7 @@
 
     <div class="column is-one-quarter">
         <div class="card">
-            <app-graphic-finances-supplier></app-graphic-finances-supplier>            
+            <!-- <app-graphic-finances-supplier></app-graphic-finances-supplier> -->            
         </div>
     </div>
     <div class="column is-one-quarter">
@@ -33,7 +33,7 @@
                 <div class="select is-fullwidth">
                     <select [(ngModel)]="numDrivers" class="has-text-centered">
                         <option value="0">Drivers</option>
-                        <option value="1">Drivers Monthly</option>
+                        <!-- <option value="1">Drivers Monthly</option> -->
                         <option value="2">Drivers Stadistic</option>
                     </select>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="select is-fullwidth">
                     <select [(ngModel)]="numSuppliers" class="has-text-centered">
                         <option value="0">Suppliers</option>
-                        <option value="1">Suppliers Monthly</option>
+                        <!-- <option value="1">Suppliers Monthly</option> -->
                         <option value="2">Suppliers Stadistic</option>
                     </select>
                 </div>
@@ -71,15 +71,26 @@
                 <app-graphic-supplier></app-graphic-supplier>
             </ng-template>
             <ng-template [ngSwitchCase]="1">
-                <!-- <app-graphic-supplier-monthly></app-graphic-supplier-monthly> -->
                 <app-graphic-driver-monthly></app-graphic-driver-monthly>
             </ng-template>
             <ng-template [ngSwitchCase]="2">
                 <app-graphic-supplier-global></app-graphic-supplier-global>
             </ng-template>
-        </div>
-        
+        </div>        
     </div>
+
+    <div class="column is-half">
+        <div class="card">
+            <app-graphic-driver-monthly></app-graphic-driver-monthly>
+        </div>
+    </div>
+
+    <div class="column is-half">
+        <div class="card">
+            <app-graphic-finances-supplier></app-graphic-finances-supplier> 
+        </div>
+    </div>
+
     <div class="column is-full">
         <app-footer></app-footer>
     </div>

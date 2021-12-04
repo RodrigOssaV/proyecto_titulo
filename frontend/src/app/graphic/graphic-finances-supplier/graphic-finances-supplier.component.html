@@ -1,4 +1,18 @@
+<!-- <header class="card-header">
+    <p class="card-header-title">
+        Benefits Suppliers
+    </p>
+</header> -->
 <div class="card-content">
+    <div class="level is-justify-content-center">
+        <div class="level-left">
+            <div class="buttons is-centered">
+                <button class="button is-small" (click)="getDato()">Benefits Suppliers</button>
+                <button class="button is-small" (click)="benefit_driver()">Benefits Drivers</button>
+                <!-- <button class="button is-small" (click)="obtenerDetalleConductor()">This week</button> -->
+            </div>
+        </div>
+    </div>
     <canvas baseChart 
             [datasets]="barChartData" 
             [labels]="barChartLabels" 

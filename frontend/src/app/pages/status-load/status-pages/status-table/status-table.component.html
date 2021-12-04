@@ -13,21 +13,19 @@
     <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
         <thead>
             <tr>
-                <th>Identificador</th>
+                <th>Número Orden</th>
                 <th>Encomiendas entregadas</th>
                 <th>Encomiendas no entregadas</th>
                 <th>Cargas recibidas</th>
-                <th>Identificador carga</th>
                 <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let status of listStatusLoads | paginate: {itemsPerPage: pageSize, currentPage: page} | filter:filterTerm">
-                <td>{{ status.id_status_load }}</td>
+                <td>{{ status.orden }}</td>
                 <td>{{ status.delivery }}</td>
                 <td>{{ status.not_delivery }}</td>
                 <td>{{ status.received }}</td>
-                <td>{{ status.id_load }}</td>
                 <td>
                     <button class="button is-small" (click)="editStatus(status)">Editar</button>
                     <!-- <button class="button is-small">Delete</button>

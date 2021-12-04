@@ -8,6 +8,7 @@ router.get('/get_loads', [authJwt.verifyToken], loadController.get_loads);
 router.get('/get_load/:rut', [authJwt.verifyToken], loadController.get_load);
 router.get('/get_sum_loads', [authJwt.verifyToken], loadController.get_sum_loads);
 
+router.get('/get_total_driver/:rut', loadController.get_total_driver);
 router.get('/get_loads_today/:rut', [authJwt.verifyToken], loadController.get_loads_today);
 router.get('/get_loads_lastweeks/:rut', [authJwt.verifyToken], loadController.get_loads_lastweeks);
 router.get('/get_loads_final/:rut', [authJwt.verifyToken], loadController.get_loads_finalweeks);

@@ -3,14 +3,24 @@ const sequelize = require('../database/db');
 
 module.exports = {
 
-    get_all_finances_driver: (req, res) => {
-        try {
+    get_all_finances_driver: async (req, res) => {
+        /* try {
             FinancesDriver.findAll({}).then(result => {
                 res.status(200).json(result);
             });
         } catch (error) {
             console.log(error);
-        };
+        }; */
+        try {
+            let data = await sequelize.query(`
+            select drivers.rut, drivers.name, finances_drivers.benefit_driver
+            from drivers
+            left join finances_drivers on finances_drivers.rut_driver = drivers.rut;
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
     },
 
     get_total_benefit_driver: (req, res) => {

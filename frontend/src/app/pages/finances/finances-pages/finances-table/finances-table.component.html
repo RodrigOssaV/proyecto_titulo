@@ -3,14 +3,14 @@
         <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
             <thead>
                 <tr>
-                    <th>ID Supplier</th>
+                    <th>Name Supplier</th>
                     <th>Cost Empresa</th>
                     <th>Benefit Empresa</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let finance of listFinances">
-                    <td>{{ finance.id_supplier }}</td>
+                    <td>{{ finance.name_supplier }}</td>
                     <td>{{ finance.cost_empresa | conversion}}</td>
                     <td>{{ finance.benefit_empresa | conversion}}</td>
                 </tr>
@@ -22,15 +22,15 @@
         <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
             <thead>
                 <tr>
-                    <th>ID finance</th>
                     <th>RUT driver</th>
+                    <th>Name</th>
                     <th>Benefit driver</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let finance_driver of listFinancesDriver">
-                    <td>{{ finance_driver.id }}</td>
-                    <td>{{ finance_driver.rut_driver }}</td>
+                    <td>{{ finance_driver.rut }}</td>
+                    <td>{{ finance_driver.name }}</td>
                     <td>{{ finance_driver.benefit_driver | conversion }}</td>
                 </tr>
             </tbody>

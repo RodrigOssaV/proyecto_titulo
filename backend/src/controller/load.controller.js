@@ -124,5 +124,18 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error);
         }
+    },
+
+    get_total_driver: async (req, res) => {
+        try {
+            let data = await sequelize.query(`
+            select sum(amount_load) as total_amount, sum(amount_delivery) as total_delivery, sum(amount_not_delivery) as total_not_delivery
+            from loads
+            where loads.rut_driver = '${req.params.rut}'
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
     }
 };

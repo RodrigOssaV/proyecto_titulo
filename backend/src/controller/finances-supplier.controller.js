@@ -16,18 +16,28 @@ module.exports = {
         }
     },
 
-    get_all_finances_supplier: (req, res) => {
-        try {
+    get_all_finances_supplier: async (req, res) => {
+        /* try {
             FinancesSupplier.findAll({
-                /* attributes: ['costEmpresa', 'benefitEmpresa', 'id_supplier'],
+                attributes: ['costEmpresa', 'benefitEmpresa', 'id_supplier'],
                 limit: 3,
-                order: [['benefitEmpresa', 'DESC']] */
+                order: [['benefitEmpresa', 'DESC']]
             }).then(result => {
                 res.status(200).json(result);
             });
         } catch (error) {
             console.log(error);
-        };
+        }; */
+        try {
+            let data = await sequelize.query(`
+            select suppliers.name_supplier, finances_suppliers.benefit_empresa, finances_suppliers.cost_empresa 
+            from suppliers
+            left join finances_suppliers on finances_suppliers.id_supplier = suppliers.id_supplier
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
     },
 
     get_total_benefit_supplier: (req, res) => {
