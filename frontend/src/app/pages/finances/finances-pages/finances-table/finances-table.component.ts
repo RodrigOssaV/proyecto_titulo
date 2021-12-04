@@ -22,7 +22,7 @@ export class FinancesTableComponent implements OnInit {
     this.financeService.get_all_finances_supplier().subscribe(
       res => {
         this.listFinances = res;
-        console.log(this.listFinances);
+        /* console.log(this.listFinances); */
       },
       (err) => {
         console.log(err);
@@ -34,7 +34,7 @@ export class FinancesTableComponent implements OnInit {
     this.financeService.get_all_finances_driver().subscribe(
       res => {
         this.listFinancesDriver = res;
-        console.log(this.listFinancesDriver);
+        /* console.log(this.listFinancesDriver); */
       },
       (err) => {
         console.log(err);

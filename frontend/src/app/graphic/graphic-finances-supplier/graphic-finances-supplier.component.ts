@@ -23,18 +23,19 @@ export class GraphicFinancesSupplierComponent implements OnInit {
       yAxes: [{
         stacked: true
       }]
-    },
+    },/* 
     plugins: {
       legend: false
     },
     title: {
       display: true,
       text: 'Results'
-    },
+    }, */
   };
-  public barChartType: ChartType = 'horizontalBar';
+  public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartColors: Color[] = [/* {backgroundColor:['rgba(75, 192, 192, 0.2)']} */]
+
   listFinances:any = [];
   private dato: any; /* Dato a cargar */
   private datos: any = []; /* array datos */
@@ -49,13 +50,16 @@ export class GraphicFinancesSupplierComponent implements OnInit {
   getDato(){
     this.finance.get_all_finances_supplier().subscribe(
       res => {
+        this.datos = [];
+        this.name = [];
         this.listFinances = res;
+        /* console.log(this.listFinances); */
         for(const finance_ of this.listFinances){
           this.dato = finance_.benefit_empresa;
           this.datos.push(this.dato);
-          this.name.push(finance_.id_supplier);
+          this.name.push(finance_.name_supplier);
         }
-        this.cargarDatos(this.datos, this.name);
+        this.cargarDatos(this.datos, this.name, /* this.costos */);
       },
       (err) => {
         console.log(err);
@@ -63,17 +67,70 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     );
   }
 
-  cargarDatos(datos:any, name:any){
+  benefit_driver(){
+    this.finance.get_all_finances_driver().subscribe(
+      res => {
+        this.datos = [];
+        this.name = [];
+        this.listFinances = res;
+        /* console.log(this.listFinances); */
+        for(const finance_ of this.listFinances){
+          this.dato = finance_.benefit_driver;
+          this.datos.push(this.dato);
+          this.name.push(finance_.rut);
+        }
+        this.cargarDatosDriver(this.name, this.datos);
+      },
+      (err) => {
+        console.log(err);
+      }      
+    );
+    
+  }
+
+  cargarDatos(datos:any, name:any, /* costs:any */){
     this.barChartData = [];
     this.barChartLabels = [];
     this.barChartData.push({
       data: datos,
+      label: 'Benefits',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
       fill: true,
       hoverBackgroundColor: 'rgba(255, 159, 64, 0.2)',
-    });    
+    });
+    /* this.barChartData.push({
+      data: datos,
+      label: 'Cost empresa',
+      type: 'line',
+      borderColor: 'rgb(75, 192, 192)',
+      fill: false 
+    }); */     
+    for(const index in datos){
+      this.barChartLabels.push(name[index]);
+    };
+  }
+
+  cargarDatosDriver(name:any, datos:any){
+    this.barChartData = [];
+    this.barChartLabels = [];
+    this.barChartData.push({
+      data: datos,
+      label: 'Benefits',
+      backgroundColor: 'rgba(255, 159, 64, 0.2)', 
+      borderColor: 'rgb(255, 159, 64)',
+      borderWidth: 1,
+      fill: true,
+      hoverBackgroundColor: 'rgba(255, 159, 64, 0.2)',
+    });
+    /* this.barChartData.push({
+      data: datos,
+      label: 'Cost empresa',
+      type: 'line',
+      borderColor: 'rgb(75, 192, 192)',
+      fill: false 
+    }); */     
     for(const index in datos){
       this.barChartLabels.push(name[index]);
     };
