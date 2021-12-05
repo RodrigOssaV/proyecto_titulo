@@ -1,0 +1,11 @@
+<form #formSearchDate="ngForm" (ngSubmit)="searchDates(formSearchDate)">
+    <div class="field">
+        <label for="" class="label">Start Date</label>
+        <input type="date" class="input" name="start_date" [(ngModel)]="newDate.start_date" required>
+    </div>
+    <div class="field">
+        <label for="" class="label">End Date</label>
+        <input type="date" class="input" name="end_date" [(ngModel)]="newDate.end_date" required>
+    </div>
+    <button class="button is-primary">Print</button>
+</form>

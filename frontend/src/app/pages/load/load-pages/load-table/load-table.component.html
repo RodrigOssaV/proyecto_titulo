@@ -6,7 +6,7 @@
                     <th>Orden</th>
                     <th>Fecha recepción</th>
                     <th>Conductor asociado</th>
-                    <th>Id proveedor</th>
+                    <th>Proveedor</th>
                     <th>Carga recepcionada</th>
                     <th>Carga entregada</th>
                     <th>Carga no entregada</th> 
@@ -18,7 +18,7 @@
                     <td>{{ load.orden}}</td>
                     <td>{{ load.date_load | date:'mediumDate' }}</td>
                     <td>{{ load.rut_driver }}</td>
-                    <td>{{ load.id_supplier }}</td>
+                    <td>{{ load.name_supplier }}</td>
                     <td>{{ load.amount_load }}</td>
                     <td>{{ load.amount_delivery }}</td>
                     <td>{{ load.amount_not_delivery }}</td>
