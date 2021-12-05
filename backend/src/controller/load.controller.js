@@ -1,5 +1,6 @@
 const Load = require('../model/load.model');
 const sequelize = require('../database/db');
+const {Op} = require('sequelize');
 const { v4: uuid } = require('uuid');
 
 module.exports = {
@@ -24,13 +25,23 @@ module.exports = {
         }
     },
 
-    get_loads: (req, res) => {
-        try {
+    get_loads: async (req, res) => {
+        /* try {
             Load.findAll().then(result => {
                 res.status(200).json(result)
             })
         } catch (error) {
             res.status(400).json(error)
+        } */
+        try {
+            let data = await sequelize.query(`
+            select loads.*, suppliers.name_supplier 
+            from loads
+            left join suppliers on suppliers.id_supplier = loads.id_supplier
+            `);
+            res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
         }
     },
 
@@ -134,6 +145,29 @@ module.exports = {
             where loads.rut_driver = '${req.params.rut}'
             `);
             res.status(200).json(data[0]);
+        } catch (error) {
+            res.status(400).json(error);
+        }
+    },
+
+    search_between_dates: (req, res) => {
+        const startDate = req.body.start_date;
+        const endDate = req.body.end_date;
+        try {
+            Load.findAll({
+                attributes: [
+                    'orden', 'amount_load', 'date_load', 
+                    'amount_delivery', 'amount_not_delivery', 'cost_driver',
+                    'rut_driver'
+                ],
+                where: {
+                    date_load: {
+                        [Op.between] : [startDate, endDate]
+                    }
+                }
+            }).then(result => {
+                res.status(200).json(result);
+            });
         } catch (error) {
             res.status(400).json(error);
         }

@@ -13,5 +13,6 @@ router.get('/get_loads_today/:rut', [authJwt.verifyToken], loadController.get_lo
 router.get('/get_loads_lastweeks/:rut', [authJwt.verifyToken], loadController.get_loads_lastweeks);
 router.get('/get_loads_final/:rut', [authJwt.verifyToken], loadController.get_loads_finalweeks);
 router.get('/get_loads_monthly/:rut', [authJwt.verifyToken], loadController.get_load_monthly);
+router.post('/search_between_dates', loadController.search_between_dates);
 
 module.exports = router;

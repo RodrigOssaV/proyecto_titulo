@@ -114,4 +114,15 @@ export class LoadService {
     );
   }
 
+  search_between_dates(dates:any){
+    return  this.http.post(URIs.api+'/search_between_dates', dates).pipe(
+      map((res:any) => {
+        return res;
+      },
+      (err:any) => {
+        return err;
+      })
+    );
+  }
+
 }
