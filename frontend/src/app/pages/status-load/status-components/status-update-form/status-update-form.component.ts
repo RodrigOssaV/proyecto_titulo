@@ -35,8 +35,8 @@ export class StatusUpdateFormComponent implements OnInit {
   update_status_load(data:any){
     this.setAmount();
     data = this.updateStatusLoad;
-    /* console.log(data); */
-    this.apiStatus.update_status(this.updateStatusLoad.orden, data).subscribe(
+    /* console.log(this.updateStatusLoad); */
+    this.apiStatus.update_status(this.updateStatusLoad.id_status_load, data).subscribe(
       res => {
         this.notifyService.showSuccess("Update load success", "Notification");
         this.updateStatusLoadModal()
