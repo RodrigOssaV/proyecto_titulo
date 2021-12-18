@@ -5,13 +5,15 @@ import { FormsModule } from "@angular/forms";
 import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 
 
 @NgModule({
   declarations: [
     AddFormComponent,
     UpdateFormComponent,
-    DeleteFormComponent
+    DeleteFormComponent,
+    UploadFormComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { DeleteFormComponent } from './delete-form/delete-form.component';
   exports: [
     AddFormComponent,
     UpdateFormComponent,
-    DeleteFormComponent
+    DeleteFormComponent,
+    UploadFormComponent
   ]
 })
 export class DriverComponentsModule { }

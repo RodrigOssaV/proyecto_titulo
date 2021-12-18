@@ -93,4 +93,15 @@ export class DriverService {
     );
   }
   
+  import_drivers(data:any){
+    return this.http.post(URIs.api+'/import_drivers', data).pipe(
+      map((res:any) => {
+        this.turnLoad.next(true);
+        return res
+      },
+      (err:any) => {
+        return err
+      })
+    );
+  }
 }

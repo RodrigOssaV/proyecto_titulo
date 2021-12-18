@@ -13,7 +13,7 @@ module.exports = {
         } */
         try {
             let data = await sequelize.query(`
-            select loads.orden, status_loads.delivery, status_loads.not_delivery, status_loads.received
+            select loads.orden, status_loads.delivery, status_loads.not_delivery, status_loads.received, status_loads.id_status_load
             from status_loads
             left join loads on loads.id_load = status_loads.id_load
             `);
