@@ -14,6 +14,7 @@ module.exports = {
             });
         } catch (error) {
             res.status(400).json(error);
+            return;
         }
     },
 
@@ -97,10 +98,8 @@ module.exports = {
         }
     },
 
-    addDrivers: (req, res) => {
-
-        console.log(req.body);
-
+    import_drivers: (req, res) => {
+        /* console.log(req.body); */
         try {
             Driver.bulkCreate(req.body, {
                 returning: true

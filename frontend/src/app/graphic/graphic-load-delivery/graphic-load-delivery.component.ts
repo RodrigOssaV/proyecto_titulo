@@ -24,7 +24,7 @@ export class GraphicLoadDeliveryComponent implements OnInit {
     cutoutPercentage: 75    
   }
 
-  public doughnutChartLabels: Label[] = ['Delivery', 'Not delivery'];
+  public doughnutChartLabels: Label[] = ['Entregado', 'No entregado'];
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [

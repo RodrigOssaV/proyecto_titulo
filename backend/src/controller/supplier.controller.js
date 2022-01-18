@@ -107,5 +107,18 @@ module.exports = {
         } catch (error) {
             res.status(400).json(error);
         }
+    },
+
+    import_suppliers: (req, res) => {
+        /* console.log(req.body); */
+        try {
+            Supplier.bulkCreate(req.body, {
+                returning: true
+            }).then(result => {
+                res.status(200).json(result);
+            })
+        } catch (error) {
+            res.status(400).json(error);
+        }
     }
 };

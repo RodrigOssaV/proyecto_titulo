@@ -93,4 +93,16 @@ export class SupplierService {
     );
   }
 
+  import_suppliers(data:any){
+    return this.http.post(URIs.api+'/import_suppliers', data).pipe(
+      map((res:any) => {
+        this.turnLoad.next(true);
+        return res
+      },
+      (err:any) => {
+        return err
+      })
+    );
+  }
+
 }

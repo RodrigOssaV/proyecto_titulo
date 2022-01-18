@@ -10,7 +10,7 @@ import { FinancesService } from "src/app/service/finances/finances.service";
 })
 export class GraphicFinancesComponent implements OnInit {
 
-  public doughnutChartLabels: Label[] = ['Total loads', 'Total delivery'];  
+  public doughnutChartLabels: Label[] = ['Total encomiendas', 'Total entregadas'];  
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnytChartOptions: ChartOptions = {

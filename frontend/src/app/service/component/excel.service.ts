@@ -11,6 +11,9 @@ const EXCEL_EXTENSION = '.xlsx';
 
 export class ExcelService {
 
+  isExcelFile!: boolean;
+  spinnerEnabled = false;
+
   constructor() { }
   
   public exportAsExcelFile(json: any[], excelFileName: string): void {
@@ -22,6 +25,25 @@ export class ExcelService {
   
   private saveAsExcelFile(buffer: any, fileName: string): void {
       const data: Blob = new Blob([buffer], { type: EXCEL_TYPE });
-      FileSaver.saveAs(data, fileName + '_export_' + new  Date().getTime() + EXCEL_EXTENSION);
+      FileSaver.saveAs(data, fileName + '_export_' + /* new  Date().getTime()  +*/ EXCEL_EXTENSION);
   }
+
+  /* public importToExcelFile(event:any): void {
+    const selectedFile = event.target.files[0]; 
+    this.isExcelFile = !!selectedFile.name.match(/(.xls|.xlsx)/);
+    if(this.isExcelFile){
+      this.spinnerEnabled = true;
+      const fileReader = new FileReader();
+      fileReader.readAsBinaryString(selectedFile);
+      fileReader.onload = (event) => {
+        let binaryData = event.target?.result;
+        let workbook = XLSX.read(binaryData, {type:'binary'});
+        workbook.SheetNames.forEach(sheet => {
+          const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
+          //this.listDrivers = data;
+          //this.convertedJson = JSON.stringify(data, undefined, 4);
+        })
+      }      
+    }
+  } */
 }

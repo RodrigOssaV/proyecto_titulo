@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Driver } from "src/app/class/driver";
-import { DriverService } from "src/app/service/driver/driver.service";
+import { SupplierService } from "src/app/service/supplier/supplier.service";
 import { NotificationService } from "src/app/service/component/notification.service";
 
+import { Supplier } from "src/app/class/supplier";
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -17,35 +17,26 @@ export class UploadFormComponent implements OnInit {
   spinnerEnabled = false;
   @ViewChild('inputFile') inputFile!: ElementRef;
 
-  listDrivers: any = [];
-  listNewDrivers: any = [];
-  newRut = {
-    rut: '',
-    digito: ''
-  };
+  listSuppliers: any = [];
+  listNewSuppliers: any = [];
 
-  constructor(private apiDriver: DriverService, 
-    private notificationService: NotificationService
-    ) { }
+  constructor(
+    private supplierService: SupplierService,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
   uploadExcel(){
-    for(let driver of this.listDrivers){
-      let newDriver = new Driver();
-      this.newRut.rut = driver.rut;
-      this.newRut.digito = driver.digito; 
-      newDriver.name = driver.nombres;
-      newDriver.lastname = driver.apellidos;
-      newDriver.phone = driver.telefono;
-      newDriver.rut = this.newRut.rut+"-"+this.newRut.digito;
-      this.listNewDrivers.push(newDriver);
+    for(let supplier of this.listSuppliers){
+      let newSupplier = new Supplier();
+      newSupplier.name_supplier = supplier.nombre;
+      newSupplier.type_supplier = supplier.tipo_proveedor;
+      this.listNewSuppliers.push(newSupplier);
     }
-
-    this.apiDriver.import_drivers(this.listNewDrivers).subscribe(
+    this.supplierService.import_suppliers(this.listNewSuppliers).subscribe(
       res => {
-        this.notificationService.showSuccess("Import drivers success","Notificación");
+        this.notificationService.showSuccess("Import suppliers success","Notificación");
         this.launchModal();
       },
       err => {
@@ -53,7 +44,7 @@ export class UploadFormComponent implements OnInit {
       }
     )
   }
-  
+
   fileUpload(event:any){
     const selectedFile = event.target.files[0]; 
     this.isExcelFile = !!selectedFile.name.match(/(.xls|.xlsx)/);
@@ -66,8 +57,8 @@ export class UploadFormComponent implements OnInit {
         let workbook = XLSX.read(binaryData, {type:'binary'});
         workbook.SheetNames.forEach(sheet => {
           const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
-          this.listDrivers = data;
-          /* this.convertedJson = JSON.stringify(data, undefined, 4); */
+          this.listSuppliers = data;
+          this.convertedJson = JSON.stringify(data, undefined, 4);
         })
       }      
     }
@@ -75,7 +66,7 @@ export class UploadFormComponent implements OnInit {
 
   removeData(){
     this.inputFile.nativeElement.value = '';
-    this.listDrivers = [];
+    this.listSuppliers = [];
     this.spinnerEnabled = false;
   }
 
@@ -83,7 +74,8 @@ export class UploadFormComponent implements OnInit {
     const modal = document.querySelector('.modal-upload');
     modal?.classList.toggle('is-active');
     this.inputFile.nativeElement.value = '';
-    this.listDrivers = [];
+    this.listSuppliers = [];
     this.spinnerEnabled = false;
   }
+
 }
