@@ -1,0 +1,62 @@
+<div class="card-footer">
+    <button class="button is-primary m-2" (click)="launchModal()">Import Excel</button>
+    <div class="modal modal-upload" id="uploadExcelSupplier">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Importar proveedores</p>
+                <button class="delete" aria-label="close" (click)="launchModal()"></button>
+            </header>
+            <section class="modal-card-body">
+                
+                <!-- TODO check input import excel -->
+
+                <!-- <div class="file has-name mb-1">
+                    <label class="file-label">
+                        <input class="file-input" type="file" 
+                        (change)="fileUpload($event)"
+                        accept=".xls, .xlsx">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a file…
+                            </span>
+                            <span class="file-name">
+                                No file uploaded
+                            </span>
+                        </span>
+                    </label>
+                </div> -->
+
+                <input class="mb-2" type="file" (change)="fileUpload($event)" #inputFile> <button class="mb-2 ml-2" (click)="removeData()">Remove Data</button>
+                <div *ngIf="isExcelFile === false">
+                    <div class="notification is-danger m-1">
+                        This is not an Excel file.
+                    </div>
+                </div>
+
+                <span *ngIf="spinnerEnabled" class="k-i-loading k-icon"></span>
+
+                <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo Proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let supplier of listSuppliers">
+                            <td>{{ supplier.nombre }}</td>
+                            <td>{{ supplier.tipo_proveedor }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Import data to Excel</button>
+                <button class="button is-danger is-fullwidth m-2" (click)="launchModal()">Cancelar</button>
+            </section>
+        </div>
+    </div>
+</div>

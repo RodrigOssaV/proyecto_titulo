@@ -4,11 +4,13 @@ import { FormsModule } from "@angular/forms";
 
 import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 
 @NgModule({
   declarations: [
     AddFormComponent,
-    UpdateFormComponent
+    UpdateFormComponent,
+    UploadFormComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { UpdateFormComponent } from './update-form/update-form.component';
   ],
   exports: [
     AddFormComponent,
-    UpdateFormComponent
+    UpdateFormComponent,
+    UploadFormComponent
   ]
 })
 export class SupplierComponentsModule { }
