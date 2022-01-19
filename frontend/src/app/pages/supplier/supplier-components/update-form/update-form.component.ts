@@ -11,7 +11,7 @@ import { FinancesService } from "src/app/service/finances/finances.service";
 })
 export class UpdateFormComponent implements OnInit {
 
-  @Input() updateStatusSupplier: Supplier = new Supplier;
+  @Input() updateStatus: Supplier = new Supplier;
 
   newFinancesSupplier = {
     costEmpresa: 0,
@@ -23,12 +23,13 @@ export class UpdateFormComponent implements OnInit {
   constructor(private financesService: FinancesService, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
-    
+    /* console.log(this.updateStatusSupplier); */
   }
 
   update_StatusSupplier(form:any){
-    this.newFinancesSupplier.costEmpresa = form.value.costEmpresa
-    this.newFinancesSupplier.rut = this.updateStatusSupplier.rut
+    this.newFinancesSupplier.costEmpresa = form.value.costEmpresa;
+    this.newFinancesSupplier.rut = this.updateStatus.rut;
+    /* console.log(this.newFinancesSupplier); */
     this.financesService.add_finances_supplier(this.newFinancesSupplier).subscribe(
       res => {
         this.notifyService.showSuccess('Update status!', "Success Update");

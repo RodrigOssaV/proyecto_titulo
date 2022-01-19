@@ -41,7 +41,7 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/Dashboard']);
       },
       err => {
-        console.log(err);
+        /* console.log(err); */
         this.notifyService.showError('Error', 'Error login');
         this.isLoginFailed = true;
       }

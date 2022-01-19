@@ -37,7 +37,10 @@ export class AddFormComponent implements OnInit {
         this.launchModal();
       },
       err => {
-        console.log(err);
+        /* console.log(err); */
+        this.notifyService.showWarning("Ya existe un registro del Proveedor", "Information Supplier");
+        /* form.reset();
+        this.launchModal(); */
       }
     );
   }

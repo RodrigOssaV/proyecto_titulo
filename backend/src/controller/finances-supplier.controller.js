@@ -7,7 +7,7 @@ module.exports = {
         try {
             FinancesSupplier.create({
                 cost_empresa: req.body.costEmpresa,
-                rut_supplier: req.body.id_supplier
+                rut_supplier: req.body.rut
             }).then(result => {
                 res.status(200).json(result);
             });

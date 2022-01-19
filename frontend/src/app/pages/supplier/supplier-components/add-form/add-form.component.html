@@ -16,7 +16,7 @@
                         <label for="" class="label">Razón Social</label>
                         <input 
                         type="text" class="input" placeholder="Marketing y Comunicaciones Soffan" 
-                        name="razon" [(ngModel)]="newSupplier.razon">
+                        name="razon_social" [(ngModel)]="newSupplier.razon_social">
                     </div>
 
                     <div class="columns is-fullwidth">
@@ -44,7 +44,7 @@
                     <div class="field">
                         <label for="" class="label">Tipo proveedor</label> 
                         <div class="select is-fullwidth">
-                            <select name="type_supplier" [(ngModel)]="newSupplier.type">
+                            <select name="type_supplier" [(ngModel)]="newSupplier.type_supplier">
                                 <option [value]="item" *ngFor="let item of type_suppliers">
                                     {{ item }}
                                 </option>
@@ -55,7 +55,7 @@
                     <div class="field">
                         <label for="" class="label">Nombre Contacto</label>
                         <input 
-                        type="text" class="input" placeholder="Cristóbal Mendoza" name="name_contact" [(ngModel)]="newSupplier.name">
+                        type="text" class="input" placeholder="Cristóbal Mendoza" name="name_contact" [(ngModel)]="newSupplier.name_contact">
                     </div>
 
                     <div class="field">
@@ -64,7 +64,7 @@
                                     <p class="button is-static">
                                         +56 9
                                     </p>
-                                    <input type="text" class="input" placeholder="93340575" name="phone_contact" [(ngModel)]="newSupplier.phone">
+                                    <input type="text" class="input" placeholder="93340575" name="phone_contact" [(ngModel)]="newSupplier.phone_contact">
                             </div>
                     </div>
 

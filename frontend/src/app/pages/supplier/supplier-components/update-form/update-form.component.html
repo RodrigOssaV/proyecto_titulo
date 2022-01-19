@@ -14,8 +14,13 @@
             <form #formUpdateStatusSupplier="ngForm" (ngSubmit)="update_StatusSupplier(formUpdateStatusSupplier)">
 
                 <div class="field">
-                    <label for="" class="label">Name Supplier</label>
-                    <input type="text" class="input" [value]="updateStatusSupplier.razon" name="name_supplier" disabled>
+                    <label for="" class="label">Razón Social</label>
+                    <input type="text" class="input" [value]="updateStatus.razon_social" name="razon" disabled>
+                </div>
+
+                <div class="field">
+                    <label for="" class="label">RUT</label>
+                    <input type="text" class="input" [value]="updateStatus.rut" name="rut" disabled>
                 </div>
 
                 <div class="field">

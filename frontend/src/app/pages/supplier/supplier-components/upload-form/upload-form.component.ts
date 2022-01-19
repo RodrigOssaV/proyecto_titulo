@@ -30,8 +30,8 @@ export class UploadFormComponent implements OnInit {
   uploadExcel(){
     for(let supplier of this.listSuppliers){
       let newSupplier = new Supplier();
-      newSupplier.razon = supplier.nombre;
-      newSupplier.type = supplier.tipo_proveedor;
+      newSupplier.razon_social = supplier.nombre;
+      newSupplier.type_supplier = supplier.tipo_proveedor;
       this.listNewSuppliers.push(newSupplier);
     }
     this.supplierService.import_suppliers(this.listNewSuppliers).subscribe(

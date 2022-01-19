@@ -6,11 +6,11 @@ module.exports = {
         try {
             Supplier.create({
                 rut: req.body.rut,
-                razon_social: req.body.razon,
+                razon_social: req.body.razon_social,
                 giro: req.body.giro,
-                type_supplier: req.body.type,
-                name_contact: req.body.name,
-                phone_contact: req.body.phone
+                type_supplier: req.body.type_supplier,
+                name_contact: req.body.name_contact,
+                phone_contact: req.body.phone_contact
             }).then(result => {
                 res.status(200).json(result);
             });

@@ -1,12 +1,12 @@
 export class Supplier {
 
     rut!: string;
-    razon!: string;
+    razon_social!: string;
     giro!: string;
-    type!: string;
-    name!: string;
-    phone!: string;
-    status!: boolean;
+    type_supplier!: string;
+    name_contact!: string;
+    phone_contact!: number;
+    status_supplier!: boolean;
 
     constructor(){}
 }

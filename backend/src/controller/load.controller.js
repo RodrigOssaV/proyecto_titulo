@@ -35,7 +35,7 @@ module.exports = {
         } */
         try {
             let data = await sequelize.query(`
-            select loads.*, suppliers.name_supplier 
+            select loads.*, suppliers.razon_social 
             from loads
             left join suppliers on suppliers.rut = loads.rut_supplier
             `);
@@ -49,7 +49,7 @@ module.exports = {
         
         try {
             let data =  await sequelize.query(`
-            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.razon_social
             from loads as lo
             left join drivers as dri on lo.run_driver = dri.run
             left join suppliers as sup on lo.rut_supplier = sup.rut
