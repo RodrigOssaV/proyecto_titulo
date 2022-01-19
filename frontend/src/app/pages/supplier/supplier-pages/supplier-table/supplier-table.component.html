@@ -2,8 +2,9 @@
     <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
         <thead>
             <tr>
-                <th>Identificador</th>
-                <th>Nombre</th>
+                <th>RUT</th>
+                <th>Razón Social</th>
+                <th>Giro</th>
                 <th>Tipo proveedor</th>
                 <th>Total entregado</th>
                 <th>Estado</th>
@@ -11,8 +12,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let supplier of listSupplier">
-                <td>{{ supplier.id_supplier }}</td>
-                <td>{{ supplier.name_supplier }}</td>
+                <td>{{ supplier.rut }}</td>
+                <td>{{ supplier.razon_social }}</td>
+                <td>{{ supplier.giro }}</td>
                 <td>{{ supplier.type_supplier }}</td>
                 <td>{{ supplier.total_amount }}</td>
                 <td *ngIf="supplier.status_supplier == true; else _statusFalse">

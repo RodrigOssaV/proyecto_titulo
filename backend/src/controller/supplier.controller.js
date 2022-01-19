@@ -5,8 +5,12 @@ module.exports = {
     add_supplier: (req, res) => {
         try {
             Supplier.create({
-                name_supplier: req.body.name_supplier,
-                type_supplier: req.body.type_supplier
+                rut: req.body.rut,
+                razon_social: req.body.razon,
+                giro: req.body.giro,
+                type_supplier: req.body.type,
+                name_contact: req.body.name,
+                phone_contact: req.body.phone
             }).then(result => {
                 res.status(200).json(result);
             });
@@ -26,9 +30,9 @@ module.exports = {
     },
 
     get_supplier: (req, res) => {
-        const {id_supplier} = req.params;
+        const {rut} = req.params;
         try {
-            Supplier.findByPk(id_supplier).then(result => {
+            Supplier.findByPk(rut).then(result => {
                 res.status(200).json(result)
             })
         } catch (error) {
@@ -38,10 +42,10 @@ module.exports = {
     },
 
     delete_supplier: (req, res) => {
-        const {id_supplier} = req.params;
+        const {rut} = req.params;
         try {
             Supplier.destroy({
-                where:{id_supplier}
+                where:{rut}
             }).then(result => {
                 res.status(200).json(result);
             })
@@ -51,13 +55,16 @@ module.exports = {
     },
 
     update_supplier: (req, res) => {
-        const {id_supplier} = req.params;
+        const {rut} = req.params;
         try {
             Supplier.update({
-                name_supplier: req.body.name_supplier,
-                type: req.body.type_supplier
+                razon_social: req.body.razon,
+                giro: req.body.giro,
+                type_supplier: req.body.type,
+                name_contact: req.body.name,
+                phone_contact: req.body.phone
             },{
-                where: {id_supplier}
+                where: {rut}
             }).then(result => {
                 res.status(200).json(result);
             });
@@ -67,12 +74,12 @@ module.exports = {
     },
 
     update_status: (req, res) => {
-        const {id_supplier} = req.params;
+        const {rut} = req.params;
         try {
             Supplier.update({
                 status: true
             },{
-                where: {id_supplier}
+                where: {rut}
             }).then(result => {
                 res.status(200).json({message: 'Update Status Supplier'});
             });
@@ -84,7 +91,7 @@ module.exports = {
     best_supplier: (req, res) => {
         try {
             Supplier.findAll({
-                attributes: ['name_supplier', 'total_amount'],
+                attributes: ['razon_social', 'total_amount'],
                 limit: 1,
                 order: [['total_amount', 'DESC']]
             }).then(result => {
@@ -98,7 +105,7 @@ module.exports = {
     top_suppliers: (req, res) => {
         try {
             Supplier.findAll({
-                attributes: ['name_supplier', 'total_amount'],
+                attributes: ['razon_social', 'total_amount'],
                 limit: 3,
                 order: [['total_amount', 'DESC']]
             }).then(result => {

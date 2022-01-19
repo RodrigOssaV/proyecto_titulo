@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Driver } from 'src/app/class/driver';
-import { DriverService } from "../../../../service/driver/driver.service";
+import { DriverService } from "src/app/service/driver/driver.service";
+import { NotificationService } from "src/app/service/component/notification.service";
 
 @Component({
   selector: 'app-update-form',
@@ -11,14 +12,17 @@ export class UpdateFormComponent implements OnInit {
 
   @Input() updateDriver: Driver = new Driver;
 
-  constructor(private apiDriverService: DriverService) { }
+  type_drivers: string[] = ["Externo", "Interno"];
+
+  constructor(private apiDriverService: DriverService, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
   update_Driver(form:any){
-    this.apiDriverService.update_driver(this.updateDriver.rut, form.value).subscribe(
+    this.apiDriverService.update_driver(this.updateDriver.run, form.value).subscribe(
       res => {
+        this.notifyService.showSuccess("Update Complete", "Notification Update");
         this.toggleEditarModal();
       },
       err => {

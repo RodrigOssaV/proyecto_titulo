@@ -26,8 +26,8 @@ export class DriverService {
     );
   }
 
-  get_driver(rut:any){
-    return this.http.get(URIs.api+`/get_driver/${rut}`).pipe(
+  get_driver(run:any){
+    return this.http.get(URIs.api+`/get_driver/${run}`).pipe(
       map((res:any) => {
         return res;
       },
@@ -48,8 +48,8 @@ export class DriverService {
     );
   }
 
-  update_driver(rut:any, driver:any){
-    return this.http.put(URIs.api+`/update_driver/${rut}`, driver).pipe(
+  update_driver(run:any, driver:any){
+    return this.http.put(URIs.api+`/update_driver/${run}`, driver).pipe(
       map((res:any)=>{
         return res;
       },
@@ -59,8 +59,8 @@ export class DriverService {
     );
   }
 
-  delete_driver(rut:any){
-    return this.http.delete(URIs.api+`/delete_driver/${rut}`).pipe(
+  delete_driver(run:any){
+    return this.http.delete(URIs.api+`/delete_driver/${run}`).pipe(
       map((res:any)=>{
         this.turnLoad.next(true);
         return res;

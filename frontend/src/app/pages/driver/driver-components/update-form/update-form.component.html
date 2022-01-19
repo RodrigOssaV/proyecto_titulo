@@ -35,6 +35,19 @@
 
                 <div class="columns is-fullwidth">
                     <div class="column">
+                        <label for="" class="label">Tipo repartidor</label> 
+                        <div class="select is-fullwidth">
+                            <select name="type_driver" [(ngModel)]="updateDriver.type_driver">
+                                <option [value]="item" *ngFor="let item of type_drivers">
+                                    {{ item }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columns is-fullwidth">
+                    <div class="column">
                         <label for="" class="label">Teléfono</label> 
                         <div class="field has-addons">                                                               
                                 <p class="button is-static">

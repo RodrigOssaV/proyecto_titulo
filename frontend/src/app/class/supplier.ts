@@ -1,8 +1,11 @@
 export class Supplier {
 
-    id_supplier!: number;
-    name_supplier!: string;
-    type_supplier!: string;
+    rut!: string;
+    razon!: string;
+    giro!: string;
+    type!: string;
+    name!: string;
+    phone!: string;
     status!: boolean;
 
     constructor(){}

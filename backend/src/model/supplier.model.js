@@ -4,18 +4,28 @@ const sequelize = require('../database/db');
 class Supplier extends Model {};
 
 Supplier.init({
-    id_supplier: {
-        type: DataTypes.INTEGER,
+    rut: {
+        type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true
     },
-    name_supplier: {
+    razon_social: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    giro: {
         type: DataTypes.STRING,
         allowNull: false
     },
     type_supplier: {
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    name_contact: {
+        type: DataTypes.STRING,
+    },
+    phone_contact: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     total_amount: {
@@ -27,7 +37,7 @@ Supplier.init({
         defaultValue: false
     }
 },{
-    timestamps: false,
+    timestamps: true,
     sequelize,
     modelName: 'Supplier'
 });

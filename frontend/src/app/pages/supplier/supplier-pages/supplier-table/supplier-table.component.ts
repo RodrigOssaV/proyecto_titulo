@@ -41,6 +41,7 @@ export class SupplierTableComponent implements OnInit {
     this.apiSupplier.get_suppliers().subscribe(
       res => {
         this.listSupplier = res;
+        /* console.log(this.listSupplier); */
       },
       err => {
         console.log(err);

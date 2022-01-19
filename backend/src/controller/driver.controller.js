@@ -5,16 +5,16 @@ module.exports = {
     add_driver: (req, res) => {
         try {
             Driver.create({
-                rut: req.body.rut,
+                run: req.body.run,
                 name: req.body.name,
                 lastname: req.body.lastname,
-                phone: req.body.phone
+                phone: req.body.phone,
+                type_driver: req.body.type_driver
             }).then(result => {
                 res.status(200).json(result);
             });
         } catch (error) {
             res.status(400).json(error);
-            return;
         }
     },
 
@@ -29,9 +29,9 @@ module.exports = {
     },
 
     get_driver: (req, res) => {
-        const {rut} = req.params;
+        const {run} = req.params;
         try {
-            Driver.findByPk(rut).then(result => {
+            Driver.findByPk(run).then(result => {
                 res.status(200).json(result)
             })
         } catch (error) {
@@ -40,10 +40,10 @@ module.exports = {
     },
 
     delete_driver: (req, res) => {
-        const {rut} = req.params;
+        const {run} = req.params;
         try {
             Driver.destroy({
-                where:{rut}
+                where:{run}
             }).then(result => {
                 res.status(200).json(result);
             })
@@ -53,15 +53,16 @@ module.exports = {
     },
     
     update_driver: (req, res) => {
-        const {rut} = req.params;
+        const {run} = req.params;
         try {
             Driver.update({
-                rut: req.body.rut,
+                /* run: req.body.run, */
                 name: req.body.name,
                 lastname: req.body.lastname,
-                phone: req.body.phone
+                phone: req.body.phone,
+                type_driver: req.body.type_driver
             },{
-                where: {rut}
+                where: {run}
             }).then(result => {
                 res.status(200).json(result);
             })

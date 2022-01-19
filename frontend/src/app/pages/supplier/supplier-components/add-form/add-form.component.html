@@ -13,17 +13,59 @@
                 <form #formAddSupplier="ngForm" (ngSubmit)="addSupplier(formAddSupplier)">
 
                     <div class="field">
-                        <label for="" class="label">Nombre</label>
+                        <label for="" class="label">Razón Social</label>
                         <input 
                         type="text" class="input" placeholder="Marketing y Comunicaciones Soffan" 
-                        name="name_supplier" [(ngModel)]="newSupplier.name_supplier">
+                        name="razon" [(ngModel)]="newSupplier.razon">
+                    </div>
+
+                    <div class="columns is-fullwidth">
+                        <div class="column is-8">
+                            <div class="field">
+                                <label for="" class="label">Rol único tributario</label>
+                                <input type="text" placeholder="76050528" class="input" name="rut_supplier" [(ngModel)]="newRUT.rut">
+                            </div>
+                        </div>
+                        <div class="column is-2">
+                            <div class="field">
+                                <label for="" class="label">Dígito</label>
+                                <input type="text" class="input" placeholder="5" name="digito_supplier" [(ngModel)]="newRUT.digito">
+                            </div>
+                        </div>                        
                     </div>
 
                     <div class="field">
-                        <label for="" class="label">Tipo proveedor</label>
+                        <label for="" class="label">Giro</label>
                         <input 
-                        type="text" class="input" placeholder="encomiendas, diarios, sobres, camas, etc..." 
-                        name="type_supplier" [(ngModel)]="newSupplier.type_supplier">
+                        type="text" class="input" placeholder="Marketing y Comunicaciones Soffan" 
+                        name="giro" [(ngModel)]="newSupplier.giro">
+                    </div>
+
+                    <div class="field">
+                        <label for="" class="label">Tipo proveedor</label> 
+                        <div class="select is-fullwidth">
+                            <select name="type_supplier" [(ngModel)]="newSupplier.type">
+                                <option [value]="item" *ngFor="let item of type_suppliers">
+                                    {{ item }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="" class="label">Nombre Contacto</label>
+                        <input 
+                        type="text" class="input" placeholder="Cristóbal Mendoza" name="name_contact" [(ngModel)]="newSupplier.name">
+                    </div>
+
+                    <div class="field">
+                        <label for="" class="label">Teléfono</label> 
+                            <div class="field has-addons">                                                               
+                                    <p class="button is-static">
+                                        +56 9
+                                    </p>
+                                    <input type="text" class="input" placeholder="93340575" name="phone_contact" [(ngModel)]="newSupplier.phone">
+                            </div>
                     </div>
 
                     <button class="button is-primary mt5 is-fullwidth">Guardar</button>
