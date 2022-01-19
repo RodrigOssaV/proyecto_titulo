@@ -33,7 +33,7 @@ export class GraphicProfileDriverComponent implements OnInit {
 
   detalleConductor:any;
   listLoad:any;
-  rutParametro: any;
+  runParametro: any;
   private dato: any;
   private datos: any = [];
   private dateLoad:any = [];
@@ -47,12 +47,12 @@ export class GraphicProfileDriverComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.rutParametro = this.route.snapshot.paramMap.get('rut');
+    this.runParametro = this.route.snapshot.paramMap.get('run');
     this.obtenerDetalleConductor();
   }
 
   obtenerDetalleConductor(){
-    this.loadService.get_loads_today(this.rutParametro).subscribe(
+    this.loadService.get_loads_today(this.runParametro).subscribe(
       res => {
         this.detalleConductor = res;
         this.datos = [];
@@ -75,7 +75,7 @@ export class GraphicProfileDriverComponent implements OnInit {
   }
 
   changeTwoWeeks(){
-    this.loadService.get_loads_lastweeks(this.rutParametro).subscribe(
+    this.loadService.get_loads_lastweeks(this.runParametro).subscribe(
       res => {
         this.detalleConductor = res;
         this.datos = [];
@@ -98,7 +98,7 @@ export class GraphicProfileDriverComponent implements OnInit {
   }
   
   changeThreeWeeks(){
-    this.loadService.get_loads_final(this.rutParametro).subscribe(
+    this.loadService.get_loads_final(this.runParametro).subscribe(
       res => {
         this.detalleConductor = res;
         this.datos = [];

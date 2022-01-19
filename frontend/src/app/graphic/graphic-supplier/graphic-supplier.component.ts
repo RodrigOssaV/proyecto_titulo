@@ -68,7 +68,7 @@ export class GraphicSupplierComponent implements OnInit {
           this.datos_amounts.push(this.dato_amount);
           this.datos_deliverys.push(this.dato_delivery);
           this.datos_not_deliverys.push(this.dato_not_delivery);
-          this.name.push(result.name_supplier);
+          this.name.push(result.razon_social);
         };
         this.cargarDatos(this.datos_amounts, this.name, this.datos_deliverys, this.datos_not_deliverys);
       },

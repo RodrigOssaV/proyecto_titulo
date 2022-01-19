@@ -78,7 +78,7 @@ export class GraphicSupplierGlobalComponent implements OnInit {
           this.datos_max.push(this.dato_max);
           this.datos_min.push(this.dato_min);
           this.datos_percent.push(this.dato_percent);
-          this.name_driver.push(data.name_supplier);
+          this.name_driver.push(data.razon_social);
         }
         this.cargarDatos(this.name_driver, this.datos_base, this.datos_max, this.datos_min, this.datos_percent);
       }, (err) => {

@@ -62,6 +62,7 @@ export class GraphicDriverBysupplierComponent implements OnInit {
     this.finance.results_all_drivers().subscribe(
       res => {
         this.listDataBase = res;
+        console.log(this.listDataBase);
         this.datos_base = [];
         this.name_driver = [];
         this.datos_min = [];
@@ -77,7 +78,7 @@ export class GraphicDriverBysupplierComponent implements OnInit {
           this.datos_max.push(this.dato_max);
           this.datos_min.push(this.dato_min);
           this.datos_percent.push(this.dato_percent);
-          this.name_driver.push(data.rut_driver);
+          this.name_driver.push(data.run_driver);
         }
         this.cargarDatos(this.name_driver, this.datos_base, this.datos_max, this.datos_min, this.datos_percent);
       }, (err) => {
@@ -90,6 +91,7 @@ export class GraphicDriverBysupplierComponent implements OnInit {
     this.finance.results_drivers_by_suppliers_limit().subscribe(
       res => {
         this.listDataBase = res;
+        console.log(this.listDataBase);
         this.datos_base = [];
         this.name_driver = [];
         this.datos_min = [];
@@ -105,7 +107,7 @@ export class GraphicDriverBysupplierComponent implements OnInit {
           this.datos_max.push(this.dato_max);
           this.datos_min.push(this.dato_min);
           this.datos_percent.push(this.dato_percent);
-          this.name_driver.push(data.rut_driver);
+          this.name_driver.push(data.run_driver);
         }
         this.cargarDatos(this.name_driver, this.datos_base, this.datos_max, this.datos_min, this.datos_percent);
       }, (err) => {

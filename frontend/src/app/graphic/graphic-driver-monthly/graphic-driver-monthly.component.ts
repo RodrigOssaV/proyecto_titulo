@@ -55,6 +55,7 @@ export class GraphicDriverMonthlyComponent implements OnInit {
     this.finance.results_drivers_monthly().subscribe(
       res => {
         this.listResultMonthly = res;
+        console.log(this.listResultMonthly);
         for(const result of this.listResultMonthly){
           this.dato_amount = result.total_loads_monthly;
           this.dato_delivery = result.total_delivery_monthly;

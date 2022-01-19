@@ -80,7 +80,7 @@ module.exports = {
     get_loads_lastweeks: async (req, res) => {
         try {
             let data = await sequelize.query(`
-            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.razon_social
             from loads as lo
             left join drivers as dri on lo.run_driver = dri.run
             left join suppliers as sup on lo.rut_supplier = sup.rut
@@ -96,11 +96,11 @@ module.exports = {
     get_loads_finalweeks: async (req, res) => {
         try {
             let data = await sequelize.query(`
-            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.name_supplier
+            select lo.date_load, lo.amount_load, lo.amount_delivery, lo.amount_not_delivery, sup.razon_social
             from loads as lo
             left join drivers as dri on lo.run_driver = dri.run
             left join suppliers as sup on lo.rut_supplier = sup.rut
-            where lo.rut_driver = '${req.params.run}'
+            where lo.run_driver = '${req.params.run}'
             order by date_load desc
             limit 15`);
             res.status(200).json(data[0]);
@@ -116,7 +116,7 @@ module.exports = {
             from loads as lo
             left join drivers as dri on lo.run_driver = dri.run
             left join suppliers as sup on lo.rut_supplier = sup.rut
-            where lo.rut_driver = '${req.params.run}'
+            where lo.run_driver = '${req.params.run}'
             group by month(date_load)
             order by date_load desc;
             `);

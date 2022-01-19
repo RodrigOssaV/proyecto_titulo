@@ -54,7 +54,7 @@ export class GraphicProfileMonthComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.rutParametro = this.route.snapshot.paramMap.get('rut');
+    this.rutParametro = this.route.snapshot.paramMap.get('run');
     this.obtenerDetalleConductor();
   }
 

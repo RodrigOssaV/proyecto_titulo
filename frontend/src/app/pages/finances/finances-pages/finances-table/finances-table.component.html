@@ -10,7 +10,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let finance of listFinances">
-                    <td>{{ finance.name_supplier }}</td>
+                    <td>{{ finance.razon_social }}</td>
                     <td>{{ finance.cost_empresa | conversion}}</td>
                     <td>{{ finance.benefit_empresa | conversion}}</td>
                 </tr>
@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let finance_driver of listFinancesDriver">
-                    <td>{{ finance_driver.rut }}</td>
+                    <td>{{ finance_driver.run }}</td>
                     <td>{{ finance_driver.name }}</td>
                     <td>{{ finance_driver.benefit_driver | conversion }}</td>
                 </tr>
