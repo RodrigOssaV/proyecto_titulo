@@ -21,7 +21,7 @@ export class DriverProfileComponent implements OnInit {
   showUserBoard = false;
   username?: string;
 
-  rutParametro: any;
+  runParametro: any;
   public datos:any = [];
   public detalleConductor:any = [];
   public detalleTotalConductor:any = [];
@@ -40,7 +40,8 @@ export class DriverProfileComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.rutParametro = this.route.snapshot.paramMap.get('rut');
+    this.runParametro = this.route.snapshot.paramMap.get('run');
+    /* console.log(this.runParametro); */
     this.obtenerConductor();
     this.obtenerDetalleConductor();
     this.obtenerTotalDriver();
@@ -60,7 +61,7 @@ export class DriverProfileComponent implements OnInit {
   }
 
   obtenerConductor(){
-    this.apiDriver.get_driver(this.rutParametro).subscribe(
+    this.apiDriver.get_driver(this.runParametro).subscribe(
       res => {
         this.datos = res;
         /* console.log(this.datos); */
@@ -72,7 +73,7 @@ export class DriverProfileComponent implements OnInit {
   }
 
   obtenerDetalleConductor(){
-    this.apiLoad.get_load(this.rutParametro).subscribe(
+    this.apiLoad.get_load(this.runParametro).subscribe(
       res => {
         this.detalleConductor = res;
         /* console.log(this.detalleConductor); */
@@ -84,7 +85,7 @@ export class DriverProfileComponent implements OnInit {
   }
 
   obtenerTotalDriver(){
-    this.apiLoad.get_total_driver(this.rutParametro).subscribe(
+    this.apiLoad.get_total_driver(this.runParametro).subscribe(
       res => {
         this.detalleTotalConductor = res;
         /* console.log(this.detalleTotalConductor); */

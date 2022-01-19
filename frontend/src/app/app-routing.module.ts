@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'Supplier', component: SupplierComponent, canActivate: [AuthGuard] },
   { path: 'Load', component: LoadComponent, canActivate: [AuthGuard] },
   { path: 'Status', component: StatusLoadComponent, canActivate: [AuthGuard] },
-  { path: 'Profile/:rut', component: DriverProfileComponent, canActivate: [AuthGuard] },
+  { path: 'Profile/:run', component: DriverProfileComponent, canActivate: [AuthGuard] },
   { path: 'Users', component: UsuarioComponent, canActivate: [AuthGuard] },
   { path: 'Finances', component: FinancesComponent, canActivate: [AuthGuard] }
 ];

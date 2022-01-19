@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Load } from "../../../../class/load";
 
-import { DriverService } from "../../../../service/driver/driver.service";
-import { SupplierService } from "../../../../service/supplier/supplier.service";
-import { LoadService } from "../../../../service/load/load.service";
-import { NotificationService } from "../../../../service/component/notification.service";
+import { Load } from "src/app/class/load";
+
+import { DriverService } from "src/app/service/driver/driver.service";
+import { SupplierService } from "src/app/service/supplier/supplier.service";
+import { LoadService } from "src/app/service/load/load.service";
+import { NotificationService } from "src/app/service/component/notification.service";
 
 @Component({
   selector: 'app-load-add-form',
@@ -15,7 +16,7 @@ export class LoadAddFormComponent implements OnInit {
 
   listDrivers: any;
   listSuppliers: any;
-  load: Load = new Load();
+  newLoad: Load = new Load();
 
   constructor(
     private apiDriver: DriverService,
@@ -30,6 +31,7 @@ export class LoadAddFormComponent implements OnInit {
   }
 
   addLoad(form:any){
+    /* console.log(form.value); */
     this.apiLoad.add_load(form.value).subscribe(
       res => {
         this.notifyService.showSuccess("Success assigments","Notificación");
@@ -39,7 +41,7 @@ export class LoadAddFormComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
   loadListDrivers(){

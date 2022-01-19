@@ -33,7 +33,7 @@
                                 <figure class="image is-128x128 container-figure"></figure>
                             </div>
                             <div class="card-content media-content">
-                                <p><strong>RUN:</strong> {{datos.rut}}</p> 
+                                <p><strong>RUN:</strong> {{datos.run}}</p> 
                                 <p><strong>Nombre:</strong> {{datos.name}}</p>
                                 <p><strong>Apellidos:</strong> {{datos.lastname}}</p>
                                 <p><strong>Teléfono:</strong> {{datos.phone}}</p>
@@ -86,7 +86,7 @@
                     <tbody>
                         <tr *ngFor="let detalle of detalleConductor">
                             <td>{{ detalle.date_load | date:'mediumDate' }}</td>
-                            <td>{{ detalle.name_supplier }}</td>
+                            <td>{{ detalle.razon_social }}</td>
                             <td>{{ detalle.amount_load }}</td>
                             <td>{{ detalle.amount_delivery }}</td>
                             <td>{{ detalle.amount_not_delivery }}</td>
