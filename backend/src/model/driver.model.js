@@ -4,7 +4,7 @@ const sequelize = require('../database/db');
 class Driver extends Model{};
 
 Driver.init({
-    rut: {
+    run: {
         type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false
@@ -25,9 +25,13 @@ Driver.init({
         type: DataTypes.INTEGER,
         allowNull: true,
         defaultValue: 0
+    },
+    type_driver: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 },{
-    timestamps: false,
+    timestamps: true,
     sequelize,
     modelName: 'Driver'
 });

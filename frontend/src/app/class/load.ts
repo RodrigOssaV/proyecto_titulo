@@ -3,8 +3,8 @@ export class Load {
     id_load!: number;
     amount_load!: number;
     date_load!: string;
-    rut_driver!: string;
-    id_supplier!: number;
+    run_driver!: string;
+    rut_supplier!: string;
     cost_driver!: number;
 
     constructor(){}

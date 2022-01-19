@@ -8,11 +8,13 @@ import { LoadComponentsModule } from "../load-components/load-components.module"
 
 import { LoadPanelComponent } from './load-panel/load-panel.component';
 import { LoadTableComponent } from './load-table/load-table.component';
+import { LoadDetailComponent } from './load-detail/load-detail.component';
 
 @NgModule({
   declarations: [
     LoadPanelComponent,
-    LoadTableComponent
+    LoadTableComponent,
+    LoadDetailComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { LoadTableComponent } from './load-table/load-table.component';
   ],
   exports: [
     LoadPanelComponent,
-    LoadTableComponent
+    LoadTableComponent,
+    LoadDetailComponent
   ]
 })
 export class LoadPagesModule { }

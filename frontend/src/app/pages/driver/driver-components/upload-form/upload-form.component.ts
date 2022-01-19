@@ -19,8 +19,8 @@ export class UploadFormComponent implements OnInit {
 
   listDrivers: any = [];
   listNewDrivers: any = [];
-  newRut = {
-    rut: '',
+  newRUN = {
+    run: '',
     digito: ''
   };
 
@@ -34,12 +34,12 @@ export class UploadFormComponent implements OnInit {
   uploadExcel(){
     for(let driver of this.listDrivers){
       let newDriver = new Driver();
-      this.newRut.rut = driver.rut;
-      this.newRut.digito = driver.digito; 
+      this.newRUN.run = driver.run;
+      this.newRUN.digito = driver.digito; 
       newDriver.name = driver.nombres;
       newDriver.lastname = driver.apellidos;
       newDriver.phone = driver.telefono;
-      newDriver.rut = this.newRut.rut+"-"+this.newRut.digito;
+      newDriver.run = this.newRUN.run+"-"+this.newRUN.digito;
       this.listNewDrivers.push(newDriver);
     }
 

@@ -13,6 +13,13 @@ export class AddFormComponent implements OnInit {
 
   newSupplier: Supplier = new Supplier();
 
+  newRUT = {
+    rut: '',
+    digito: ''
+  }
+
+  type_suppliers: string[] = ["Encomienda", "Sobre", "Diario", "Otro"];
+
   constructor(
     private apiSupplier: SupplierService,
     private notifyService: NotificationService) { }
@@ -21,14 +28,19 @@ export class AddFormComponent implements OnInit {
   }
 
   addSupplier(form:any){
-    this.apiSupplier.add_supplier(form.value).subscribe(
+    this.newSupplier.rut = this.newRUT.rut+"-"+this.newRUT.digito;
+    /* console.log(this.newSupplier); */
+    this.apiSupplier.add_supplier(this.newSupplier).subscribe(
       res => {
         this.notifyService.showSuccess("Success incorporate supplier","Notificación");
         form.reset();
         this.launchModal();
       },
       err => {
-        console.log(err);
+        /* console.log(err); */
+        this.notifyService.showWarning("Ya existe un registro del Proveedor", "Information Supplier");
+        /* form.reset();
+        this.launchModal(); */
       }
     );
   }

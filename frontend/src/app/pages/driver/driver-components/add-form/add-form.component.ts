@@ -12,10 +12,12 @@ export class AddFormComponent implements OnInit {
 
   newDriver: Driver = new Driver();
 
-  newRut = {
-    rut: '',
+  newRUN = {
+    run: '',
     digito: ''
   };
+
+  type_drivers: string[] = ["Externo", "Interno"];
 
   constructor(private apiDriverService: DriverService, private notificationService: NotificationService) { }
 
@@ -23,7 +25,7 @@ export class AddFormComponent implements OnInit {
   }
 
   addDriver(form:any){
-    this.newDriver.rut = this.newRut.rut+"-"+this.newRut.digito;
+    this.newDriver.run = this.newRUN.run+"-"+this.newRUN.digito;
 
     this.apiDriverService.add_driver(this.newDriver).subscribe(
       res => {
@@ -32,6 +34,7 @@ export class AddFormComponent implements OnInit {
         this.launchModal();
       },
       err => {
+        this.notificationService.showError("Error al ingresar", "Notificación Error");
         console.log(err);
       }
     );    

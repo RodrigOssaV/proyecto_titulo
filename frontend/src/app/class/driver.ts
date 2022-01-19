@@ -1,9 +1,10 @@
 export class Driver {
 
-    rut!: string;
+    run!: string;
     name!: string;
     lastname!: string;
     phone!: number;
+    type_driver!: string;
 
     constructor(){}
 }

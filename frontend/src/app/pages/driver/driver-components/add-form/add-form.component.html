@@ -11,29 +11,43 @@
 
             <section class="modal-card-body">
                 <form #formAddDriver="ngForm" (ngSubmit)="addDriver(formAddDriver)">
+                    
                     <div class="field">
                         <label for="" class="label">Nombres</label>
-                        <input type="text" class="input" placeholder="Daniel Alonso" name="name_driver" [(ngModel)]="newDriver.name">
+                        <input type="text" class="input" placeholder="Daniel Alonso" name="name_driver" [(ngModel)]="newDriver.name" required>
                     </div>
 
                     <div class="field">
                         <label for="" class="label">Apellidos </label>
-                        <input type="text" class="input" placeholder="Burgos Moreno" name="name_driver" [(ngModel)]="newDriver.lastname">
+                        <input type="text" class="input" placeholder="Burgos Moreno" name="name_driver" [(ngModel)]="newDriver.lastname" required>
                     </div>
 
                     <div class="columns is-fullwidth">
                         <div class="column is-8">
                             <div class="field">
                                 <label for="" class="label">Rol único nacional</label>
-                                <input type="text" placeholder="17670744" class="input" name="rut_driver" [(ngModel)]="newRut.rut">
+                                <input type="text" placeholder="17670744" class="input" name="rut_driver" [(ngModel)]="newRUN.run" required>
                             </div>
                         </div>
                         <div class="column is-2">
                             <div class="field">
                                 <label for="" class="label">Dígito</label>
-                                <input type="text" class="input" placeholder="5" name="digito_driver" [(ngModel)]="newRut.digito">
+                                <input type="text" class="input" placeholder="5" name="digito_driver" [(ngModel)]="newRUN.digito" required>
                             </div>
                         </div>                        
+                    </div>
+
+                    <div class="columns is-fullwidth">
+                        <div class="column">
+                            <label for="" class="label">Tipo repartidor</label> 
+                            <div class="select is-fullwidth">
+                                <select name="type_driver" [(ngModel)]="newDriver.type_driver">
+                                    <option [value]="item" *ngFor="let item of type_drivers">
+                                        {{ item }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="columns is-fullwidth">
@@ -43,7 +57,7 @@
                                     <p class="button is-static">
                                         +56 9
                                     </p>
-                                    <input type="text" class="input" placeholder="93340575" name="phone_driver" [(ngModel)]="newDriver.phone">
+                                    <input type="text" class="input" placeholder="93340575" name="phone_driver" [(ngModel)]="newDriver.phone" required>
                             </div>                            
                         </div>
                     </div>

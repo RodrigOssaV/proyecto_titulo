@@ -7,20 +7,22 @@
                 <th>Apellidos</th>
                 <th>Teléfono</th>
                 <th>Cantidad entregada</th>
+                <th>Tipo repartidor</th>
                 <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let driver of listDrivers">
-                <td>{{ driver.rut }}</td>
+                <td>{{ driver.run }}</td>
                 <td>{{ driver.name }}</td>
                 <td>{{ driver.lastname }}</td>
                 <td>{{ driver.phone }}</td>
                 <td>{{ driver.total_load }}</td>
+                <td>{{ driver.type_driver }}</td>
                 <td>
                     <button class="button is-small" (click)="editDriver(driver)">Editar</button>
                     <button class="button is-small" (click)="deleteDriver(driver)">Delete</button>
-                    <button class="button is-small" routerLink="/Profile/{{driver.rut}}">Profile</button>
+                    <button class="button is-small" routerLink="/Profile/{{driver.run}}">Profile</button>
                 </td>
             </tr>
         </tbody>

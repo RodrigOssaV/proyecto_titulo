@@ -7,7 +7,7 @@ module.exports = {
         try {
             FinancesSupplier.create({
                 cost_empresa: req.body.costEmpresa,
-                id_supplier: req.body.id_supplier
+                rut_supplier: req.body.rut
             }).then(result => {
                 res.status(200).json(result);
             });
@@ -30,9 +30,9 @@ module.exports = {
         }; */
         try {
             let data = await sequelize.query(`
-            select suppliers.name_supplier, finances_suppliers.benefit_empresa, finances_suppliers.cost_empresa 
+            select suppliers.razon_social, finances_suppliers.benefit_empresa, finances_suppliers.cost_empresa 
             from suppliers
-            left join finances_suppliers on finances_suppliers.id_supplier = suppliers.id_supplier
+            left join finances_suppliers on finances_suppliers.rut_supplier = suppliers.rut
             `);
             res.status(200).json(data[0]);
         } catch (error) {
@@ -53,11 +53,11 @@ module.exports = {
     results_all_suppliers: async (req, res) => {
         try {
             let data = await sequelize.query(`
-            select sum(amount_load) as total_amount_loads, sum(amount_delivery) as total_amount_delivery, sum(amount_not_delivery) as total_not_deliverys, sup.name_supplier,
+            select sum(amount_load) as total_amount_loads, sum(amount_delivery) as total_amount_delivery, sum(amount_not_delivery) as total_not_deliverys, sup.razon_social,
             max(amount_delivery) as max_delivery, min(amount_delivery) as min_delivery
             from loads
-            left join suppliers sup on sup.id_supplier = loads.id_supplier
-            group by (sup.id_supplier);
+            left join suppliers sup on sup.rut = loads.rut_supplier
+            group by (sup.rut);
             `);
             res.status(200).json(data[0]);
         } catch (error) {

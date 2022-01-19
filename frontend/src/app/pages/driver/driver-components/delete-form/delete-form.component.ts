@@ -13,7 +13,7 @@ export class DeleteFormComponent implements OnInit {
 
   @Input() deleteDriver: Driver = new Driver;
 
-  deleteRut!: string;
+  deleteRUN!: string;
 
   constructor(private apiDriverService: DriverService, private notifyService: NotificationService) { }
 
@@ -22,8 +22,8 @@ export class DeleteFormComponent implements OnInit {
   }
 
   delete_Driver(){
-    this.deleteRut = this.deleteDriver.rut;
-    this.apiDriverService.delete_driver(this.deleteRut).subscribe(
+    this.deleteRUN = this.deleteDriver.run;
+    this.apiDriverService.delete_driver(this.deleteRUN).subscribe(
       res => {
         this.notifyService.showWarning("Conductor eliminado","Notificación");
         this.launchDeleteModal();
