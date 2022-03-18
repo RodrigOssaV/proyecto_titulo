@@ -111,7 +111,7 @@ export class GraphicDriverComponent implements OnInit {
     this.barChartData.push({
       data: datos,
       type: 'bar',
-      label: 'Total amount loads',
+      label: 'Total encomiendas',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -121,14 +121,14 @@ export class GraphicDriverComponent implements OnInit {
     this.barChartData.push({
       data: not_deliverys,
       type: 'line',
-      label: 'Total not delivery',
+      label: 'Total no entregado',
       borderColor: 'rgba(255, 99, 132)',
       fill: false,
     });
     this.barChartData.push({
       data: deliverys,
       type: 'line',
-      label: 'Total delivery',
+      label: 'Total entregado',
       borderColor: 'rgb(75, 192, 192)',
       fill: false 
     });      

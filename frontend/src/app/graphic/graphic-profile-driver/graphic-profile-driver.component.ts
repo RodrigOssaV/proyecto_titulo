@@ -124,7 +124,7 @@ export class GraphicProfileDriverComponent implements OnInit {
     this.barChartData = [];
     this.barChartData.push({ 
       data: datos, 
-      label: 'Amount load', 
+      label: 'Cantidad asignada', 
       type: 'bar', 
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
@@ -134,7 +134,7 @@ export class GraphicProfileDriverComponent implements OnInit {
     });
     this.barChartData.push({ 
       data: numLoads, 
-      label: 'Amount delivery', 
+      label: 'Cantidad entregada', 
       type: 'line', 
       borderColor: 'rgb(75, 192, 192)', 
       fill: false 

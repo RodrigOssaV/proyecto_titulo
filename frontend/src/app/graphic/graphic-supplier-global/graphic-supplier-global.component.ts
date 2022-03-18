@@ -93,7 +93,7 @@ export class GraphicSupplierGlobalComponent implements OnInit {
     this.barChartData.push({
       data: datos,
       type: 'bar',
-      label: 'Total amount loads',
+      label: 'Total encomiendas asignadas',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -103,21 +103,21 @@ export class GraphicSupplierGlobalComponent implements OnInit {
     this.barChartData.push({
       data: max,
       type: 'line',
-      label: 'Max delivery',
+      label: 'Max entregado',
       borderColor: 'rgb(75, 192, 192)',
       fill: false 
     });
     this.barChartData.push({
       data: min,
       type: 'line',
-      label: 'Min delivery',
+      label: 'Min. entregado',
       borderColor: 'rgb(255, 153, 255)',
       fill: false 
     });
     this.barChartData.push({
       data: percent,
       type: 'line',
-      label: 'Percent',
+      label: 'Porcentaje',
       borderColor: 'rgb(194, 42, 199)',
       fill: false 
     });

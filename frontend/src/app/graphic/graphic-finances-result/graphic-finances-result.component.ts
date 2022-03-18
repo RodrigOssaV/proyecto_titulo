@@ -14,7 +14,7 @@ export class GraphicFinancesResultComponent implements OnInit {
   public barChartData: ChartDataSets[] = [
     { data: [708, 612, 96, 55,138], label: 'Total'},
   ];
-  public barChartLabels: string[] = ['total', 'delivery', 'not', 'drivers', 'empresa'];
+  public barChartLabels: string[] = ['Total', 'Entregado', 'No entregado', 'Repartidores', 'Empresa'];
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: { 
@@ -76,7 +76,7 @@ export class GraphicFinancesResultComponent implements OnInit {
     this.barChartData = [];
     this.barChartData.push({
       data: drivers,
-      label: 'Benefit drivers',
+      label: 'Beneficios repartidores',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -85,7 +85,7 @@ export class GraphicFinancesResultComponent implements OnInit {
     });
     this.barChartData.push({
       data: suppliers,
-      label: 'Benefit empresa',
+      label: 'Beneficios empresa',
       backgroundColor: 'rgba(255, 153, 153, 0.2)', 
       borderColor: 'rgb(255, 153, 153)',
       borderWidth: 1,
@@ -94,7 +94,7 @@ export class GraphicFinancesResultComponent implements OnInit {
     });
     this.barChartData.push({
       data: loads,
-      label: 'Total loads',
+      label: 'Total encomiendas',
       backgroundColor: 'rgba(159, 140, 30, 0.2)', 
       borderColor: 'rgba(159, 140, 30)',
       borderWidth: 1,
@@ -124,7 +124,7 @@ export class GraphicFinancesResultComponent implements OnInit {
   cargarDatosLoad(loads:any){
     this.barChartData.push({
       data: loads,
-      label: 'Total loads',
+      label: 'Total encomiendas',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,

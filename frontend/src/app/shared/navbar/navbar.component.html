@@ -19,7 +19,7 @@
 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        PROFILE {{username | uppercase}}
+                        PERFIL {{username | uppercase}}
                     </a>
             
                     <div class="navbar-dropdown">
@@ -28,15 +28,15 @@
                         </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item">
-                            Preferences
+                            Preferencias
                         </a>
                         <ng-container *ngIf=showAdminBoard>
                             <a class="navbar-item" routerLink="/Users">
-                                Add Users
+                                Agregar Usuario
                             </a>
                         </ng-container>
                         <a class="navbar-item">
-                            Last move
+                            Últimos Movimientos
                         </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item" (click)="authService.logout()">

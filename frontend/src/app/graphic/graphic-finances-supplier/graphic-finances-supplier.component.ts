@@ -93,7 +93,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     this.barChartLabels = [];
     this.barChartData.push({
       data: datos,
-      label: 'Benefits',
+      label: 'Beneficio',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -117,7 +117,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     this.barChartLabels = [];
     this.barChartData.push({
       data: datos,
-      label: 'Benefits',
+      label: 'Beneficio',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
