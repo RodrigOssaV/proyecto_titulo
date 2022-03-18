@@ -55,6 +55,7 @@ export class GraphicDriverMonthlyComponent implements OnInit {
     this.finance.results_drivers_monthly().subscribe(
       res => {
         this.listResultMonthly = res;
+        console.log(this.listResultMonthly);
         for(const result of this.listResultMonthly){
           this.dato_amount = result.total_loads_monthly;
           this.dato_delivery = result.total_delivery_monthly;
@@ -78,7 +79,7 @@ export class GraphicDriverMonthlyComponent implements OnInit {
     this.barChartData.push({
       data: datos,
       type: 'bar',
-      label: 'Total amount loads',
+      label: 'Total encomiendas',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -88,14 +89,14 @@ export class GraphicDriverMonthlyComponent implements OnInit {
     this.barChartData.push({
       data: not_deliverys,
       type: 'line',
-      label: 'Total not delivery',
+      label: 'Total no entregadas',
       borderColor: 'rgba(255, 99, 132)',
       fill: false,
     });
     this.barChartData.push({
       data: deliverys,
       type: 'line',
-      label: 'Total delivery',
+      label: 'Total entregadas',
       borderColor: 'rgb(75, 192, 192)',
       fill: false 
     });      

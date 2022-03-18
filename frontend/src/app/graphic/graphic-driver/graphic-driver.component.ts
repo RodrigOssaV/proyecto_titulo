@@ -54,6 +54,7 @@ export class GraphicDriverComponent implements OnInit {
     this.finance.results_all_drivers().subscribe(
       res => {
         this.listResultDrivers = res;
+        console.log(this.listResultDrivers);
         this.datos_amounts = [];
         this.datos_deliverys = [];
         this.datos_not_deliverys = [];
@@ -67,7 +68,7 @@ export class GraphicDriverComponent implements OnInit {
           this.datos_amounts.push(this.dato_amount);
           this.datos_deliverys.push(this.dato_delivery);
           this.datos_not_deliverys.push(this.dato_not_delivery);
-          this.name.push(result.rut_driver);
+          this.name.push(result.run_driver);
         };
         this.cargarDatos(this.datos_amounts, this.name, this.datos_deliverys, this.datos_not_deliverys);
       },
@@ -94,7 +95,7 @@ export class GraphicDriverComponent implements OnInit {
           this.datos_amounts.push(this.dato_amount);
           this.datos_deliverys.push(this.dato_delivery);
           this.datos_not_deliverys.push(this.dato_not_delivery);
-          this.name.push(result.rut_driver);
+          this.name.push(result.run_driver);
         };
         this.cargarDatos(this.datos_amounts, this.name, this.datos_deliverys, this.datos_not_deliverys);
       },
@@ -110,7 +111,7 @@ export class GraphicDriverComponent implements OnInit {
     this.barChartData.push({
       data: datos,
       type: 'bar',
-      label: 'Total amount loads',
+      label: 'Total encomiendas',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -120,14 +121,14 @@ export class GraphicDriverComponent implements OnInit {
     this.barChartData.push({
       data: not_deliverys,
       type: 'line',
-      label: 'Total not delivery',
+      label: 'Total no entregado',
       borderColor: 'rgba(255, 99, 132)',
       fill: false,
     });
     this.barChartData.push({
       data: deliverys,
       type: 'line',
-      label: 'Total delivery',
+      label: 'Total entregado',
       borderColor: 'rgb(75, 192, 192)',
       fill: false 
     });      

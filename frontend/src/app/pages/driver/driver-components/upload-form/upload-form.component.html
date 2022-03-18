@@ -1,5 +1,5 @@
 <div class="card-footer">
-    <button class="button is-primary m-2" (click)="launchModal()">Import Excel</button>
+    <button class="button is-primary m-2" (click)="launchModal()">Importar Excel</button>
     <div class="modal modal-upload" id="uploadExcelDriver">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -10,7 +10,6 @@
             <section class="modal-card-body">
                 
                 <!-- TODO check input import excel -->
-
                 <!-- <div class="file has-name mb-1">
                     <label class="file-label">
                         <input class="file-input" type="file" 
@@ -29,10 +28,10 @@
                         </span>
                     </label>
                 </div> -->
-                <input class="mb-2" type="file" (change)="fileUpload($event)" #inputFile> <button class="mb-2 ml-2" (click)="removeData()">Remove Data</button>
+                <input class="mb-2" type="file" (change)="fileUpload($event)" #inputFile> <button class="mb-2 ml-2" (click)="removeData()">Eliminar información</button>
                 <div *ngIf="isExcelFile === false">
                     <div class="notification is-danger m-1">
-                        This is not an Excel file.
+                        No es un archivo Excel.
                     </div>
                 </div>
 
@@ -41,23 +40,25 @@
                 <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
                     <thead>
                         <tr>
-                            <th>RUT</th>
+                            <th>RUN</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Teléfono</th>
+                            <th>Tipo repartidor</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let driver of listDrivers">
-                            <td>{{ driver.rut }}-{{ driver.digito }}</td>
+                            <td>{{ driver.run }}-{{ driver.digito }}</td>
                             <td>{{ driver.nombres }}</td>
                             <td>{{ driver.apellidos }}</td>
                             <td>{{ driver.telefono }}</td>
+                            <td>{{ driver.tipo_trabajador }}</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Import data to Excel</button>
+                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Importar Excel</button>
                 <button class="button is-danger is-fullwidth m-2" (click)="launchModal()">Cancelar</button>
             </section>
         </div>

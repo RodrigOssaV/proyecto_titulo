@@ -33,7 +33,7 @@ export class SupplierTableComponent implements OnInit {
 
   editStatusSupplier(supplier: Supplier){
     this.statusSupplier = supplier;
-    console.log(this.statusSupplier);
+    /* console.log(this.statusSupplier); */
     const editModal = document.querySelector('#updateStatusSupplierModal')!;
     editModal.classList.toggle('is-active');
   }
@@ -42,7 +42,7 @@ export class SupplierTableComponent implements OnInit {
     this.apiSupplier.get_suppliers().subscribe(
       res => {
         this.listSupplier = res;
-        console.log(this.listSupplier);
+        /* console.log(this.listSupplier); */
       },
       err => {
         console.log(err);

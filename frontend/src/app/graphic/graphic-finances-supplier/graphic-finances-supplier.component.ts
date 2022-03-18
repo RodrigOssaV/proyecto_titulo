@@ -53,11 +53,11 @@ export class GraphicFinancesSupplierComponent implements OnInit {
         this.datos = [];
         this.name = [];
         this.listFinances = res;
-        /* console.log(this.listFinances); */
+        console.log(this.listFinances);
         for(const finance_ of this.listFinances){
           this.dato = finance_.benefit_empresa;
           this.datos.push(this.dato);
-          this.name.push(finance_.name_supplier);
+          this.name.push(finance_.razon_social);
         }
         this.cargarDatos(this.datos, this.name, /* this.costos */);
       },
@@ -73,11 +73,11 @@ export class GraphicFinancesSupplierComponent implements OnInit {
         this.datos = [];
         this.name = [];
         this.listFinances = res;
-        /* console.log(this.listFinances); */
+        console.log(this.listFinances);
         for(const finance_ of this.listFinances){
           this.dato = finance_.benefit_driver;
           this.datos.push(this.dato);
-          this.name.push(finance_.rut);
+          this.name.push(finance_.run);
         }
         this.cargarDatosDriver(this.name, this.datos);
       },
@@ -93,7 +93,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     this.barChartLabels = [];
     this.barChartData.push({
       data: datos,
-      label: 'Benefits',
+      label: 'Beneficio',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,
@@ -117,7 +117,7 @@ export class GraphicFinancesSupplierComponent implements OnInit {
     this.barChartLabels = [];
     this.barChartData.push({
       data: datos,
-      label: 'Benefits',
+      label: 'Beneficio',
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgb(255, 159, 64)',
       borderWidth: 1,

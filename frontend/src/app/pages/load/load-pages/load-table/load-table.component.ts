@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadService } from "src/app/service/load/load.service";
+
 import { Load } from "src/app/class/load";
+import { DetailLoad } from "src/app/class/detail-load";
 
 @Component({
   selector: 'app-load-table',
@@ -11,7 +13,8 @@ export class LoadTableComponent implements OnInit {
 
   listLoads:any;
 
-  detail_Load: Load = new Load();
+  /* detail: Load = new Load(); */
+  detail: DetailLoad = new DetailLoad();
 
   currentIndex = -1;
   page = 1;
@@ -41,9 +44,9 @@ export class LoadTableComponent implements OnInit {
     );
   }
 
-  detailLoad(load: Load){
-    this.detail_Load = load;
-    /* console.log(this.detail_Load); */
+  detailLoad(load: DetailLoad){
+    this.detail = load;
+    /* console.log(this.detail); */
     const editModal = document.querySelector('#detailLoadModal')!;
     editModal.classList.toggle('is-active');
   }

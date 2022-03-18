@@ -1,18 +1,18 @@
 <div class="card-footer">
-    <button class="button is-primary is-fullwidth" (click)="launchModal()">Assigments</button>
+    <button class="button is-primary is-fullwidth" (click)="launchModal()">Asignar encomienda</button>
 
     <div class="modal" id="addDriverService">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">Assigment loads</p>
+                <p class="modal-card-title">Asignar Encomienda</p>
                 <button class="delete" aria-label="close" (click)="launchModal()"></button>
             </header>
 
             <section class="modal-card-body">
                 <form #formAddLoad="ngForm" (ngSubmit)="addLoad(formAddLoad)">
                     <div class="autocomplete-container">
-                        <label for="" class="label">Search driver...</label>
+                        <label for="" class="label">Buscar repartidor...</label>
                         <div class="autocomplete-suggestions">
                             <div class="select is-fullwidth">
                                 <select name="run_driver" [(ngModel)]="newLoad.run_driver">
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="autocomplete-container">
-                        <label for="" class="label">Search supplier...</label>
+                        <label for="" class="label">Buscar proveedor...</label>
                         <div class="autocomplete-suggestions">
                             <div class="select is-fullwidth">
                                 <select name="rut_supplier" [(ngModel)]="newLoad.rut_supplier">
@@ -42,24 +42,24 @@
                     </div>
 
                     <div class="field">
-                        <label for="" class="label">Date assigment</label>
+                        <label for="" class="label">Fecha asignación</label>
                         <input type="date" class="input" name="date_load" [(ngModel)]="newLoad.date_load">
                     </div>
 
                     <div class="field">
-                        <label for="" class="label">Amount assigment</label>
+                        <label for="" class="label">Cantidad asignada</label>
                         <input type="number" class="input" name="amount_load" min="0" [(ngModel)]="newLoad.amount_load"
                         onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57">
                     </div>
 
                     <div class="field">
                         <!-- TODO costo repartidor no puede ser mayor que ganancia de la empresa -->
-                        <label for="" class="label">Cost driver</label>
+                        <label for="" class="label">Precio repartidor</label>
                         <input type="number" class="input" name="cost_driver" min="0" [(ngModel)]="newLoad.cost_driver"
                         onkeypress="return (event.charCode==8 || event.charCode==0 || event.charCode==13) ? null : event.charCode>=48 && event.charCode<=57">
                     </div>
 
-                    <button class="button is-primary mt5 is-fullwidth">Save assigment</button>
+                    <button class="button is-primary mt5 is-fullwidth">Asignar</button>
                 </form>
 
                 <button class="button is-danger is-fullwidth mt-5" (click)="launchModal()">Cancelar</button>

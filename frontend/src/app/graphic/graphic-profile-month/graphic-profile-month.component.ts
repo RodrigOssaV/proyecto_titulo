@@ -54,7 +54,7 @@ export class GraphicProfileMonthComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.rutParametro = this.route.snapshot.paramMap.get('rut');
+    this.rutParametro = this.route.snapshot.paramMap.get('run');
     this.obtenerDetalleConductor();
   }
 
@@ -86,7 +86,7 @@ export class GraphicProfileMonthComponent implements OnInit {
     this.barChartData = [];
     this.barChartData.push({ 
       data: numLoads, 
-      label: 'Total loads', 
+      label: 'Total encomiendas', 
       type: 'bar', 
       backgroundColor: 'rgba(255, 159, 64, 0.2)', 
       borderColor: 'rgba(255, 159, 64, 0.2)',
@@ -96,14 +96,14 @@ export class GraphicProfileMonthComponent implements OnInit {
     });      
     this.barChartData.push({ 
       data: notDeliverys, 
-      label: 'Total not delivery', 
+      label: 'Total no entregadas', 
       type: 'line', 
       borderColor: 'rgba(255, 99, 132)',
       fill: false 
     });
     this.barChartData.push({ 
       data: datos, 
-      label: 'Total delivery', 
+      label: 'Total entregadas', 
       type: 'line', 
       borderColor: 'rgb(75, 192, 192)', 
       fill: false 

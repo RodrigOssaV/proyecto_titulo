@@ -40,8 +40,10 @@ export class UploadFormComponent implements OnInit {
       newDriver.lastname = driver.apellidos;
       newDriver.phone = driver.telefono;
       newDriver.run = this.newRUN.run+"-"+this.newRUN.digito;
+      newDriver.type_driver = driver.tipo_trabajador;
       this.listNewDrivers.push(newDriver);
     }
+    /* console.log(this.listNewDrivers); */
 
     this.apiDriver.import_drivers(this.listNewDrivers).subscribe(
       res => {
@@ -51,7 +53,7 @@ export class UploadFormComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
   
   fileUpload(event:any){
@@ -68,9 +70,9 @@ export class UploadFormComponent implements OnInit {
           const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
           this.listDrivers = data;
           /* this.convertedJson = JSON.stringify(data, undefined, 4); */
-        })
-      }      
-    }
+        });
+      };      
+    };
   }
 
   removeData(){

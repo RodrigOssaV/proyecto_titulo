@@ -12,22 +12,22 @@
             <section class="modal-card-body">
                 <form #formAddUser="ngForm" (ngSubmit)="signInUser(formAddUser)">
                     <div class="field">
-                        <label for="" class="label">Username</label>
+                        <label for="" class="label">Usuario</label>
                         <input type="text" class="input" placeholder="Username" name="username" [(ngModel)]="userTemplate.username">
                     </div>
 
                     <div class="field">
-                        <label for="" class="label">Email </label>
+                        <label for="" class="label">Email</label>
                         <input type="email" class="input" placeholder="email@emgail.com" name="email" [(ngModel)]="userTemplate.email">
                     </div>
 
                     <div class="field">
-                        <label for="" class="label">Password</label>
+                        <label for="" class="label">Contraseña</label>
                         <input type="password" placeholder="password" class="input" name="password" [(ngModel)]="userTemplate.password">
                     </div>
 
                     <div class="field">
-                        <label for="" class="label">Type Rol</label>
+                        <label for="" class="label">Tipo de Rol</label>
                         <div class="select is-fullwidth">
                             <select name="roles" [(ngModel)]="userTemplate.roles">
                                 <option [value]="rol.role" *ngFor="let rol of typeRole">{{ rol.role }}</option>

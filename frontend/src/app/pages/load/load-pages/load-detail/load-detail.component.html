@@ -5,5 +5,49 @@
             <p class="modal-card-title">Detalle Encomienda</p>
             <button class="delete" aria-label="close" (click)="toggleEditarModal()"></button>
         </header>
+
+        <section class="modal-card-body">
+
+            <div class="field">
+                <label for="" class="label">Orden asignación</label>
+                <input type="text" class="input" [value]="detail_Load.orden" name="orden" disabled>
+            </div>
+
+            <div class="field">
+                <label for="" class="label">Fecha Asignación</label>
+                <input type="text" class="input" [value]="detail_Load.date_load" name="orden" disabled>
+            </div>
+
+            <div class="field">
+                <!-- TODO nombre del repartidor en detalle asignación encomienda -->
+                <label for="" class="label">Nombre repartidor</label>
+                <!-- <input type="text" class="input" [value]="detail_Load.date_load" name="orden" disabled> -->
+            </div>
+
+            <div class="field">
+                <label for="" class="label">Proveedor asociado</label>
+                <input type="text" class="input" [value]="detail_Load.razon_social" name="orden" disabled>
+            </div>
+
+            <div class="field">
+                <label for="" class="label">Cantidad Asignada</label>
+                <input type="text" class="input" [value]="detail_Load.amount_load" name="orden" disabled>
+            </div>
+
+            <div class="field">
+                <label for="" class="label">Cantidad No entregada</label>
+                <input type="text" class="input" [value]="detail_Load.amount_not_delivery" name="orden" disabled>
+            </div>
+
+            <div class="field">
+                <label for="" class="label">Cantidad entregada</label>
+                <input type="text" class="input" [value]="detail_Load.amount_delivery" name="orden" disabled>
+            </div>
+
+            <div class="field">
+                <label for="" class="label">Costo repartidor</label>
+                <input type="text" class="input" [value]="detail_Load.cost_driver" name="orden" disabled>
+            </div>
+        </section>
     </div>
 </div>

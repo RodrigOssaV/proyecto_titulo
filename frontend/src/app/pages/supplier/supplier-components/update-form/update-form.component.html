@@ -2,13 +2,13 @@
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Status change</p>
+            <p class="modal-card-title">Cambiar estado</p>
             <button class="delete" aria-label="close" (click)="toggleEditarModal()"></button>
         </header>
 
         <section class="modal-card-body">
             <div class="card-content">
-                Do you wish change your status to Online?
+                Desea cambiar el estado a ACTIVO?
             </div>
 
             <form #formUpdateStatusSupplier="ngForm" (ngSubmit)="update_StatusSupplier(formUpdateStatusSupplier)">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="" class="label">Cost Empresa</label>
+                    <label for="" class="label">Precio empresa</label>
                     <input type="text" class="input" placeholder="$$$" name="costEmpresa" [(ngModel)]="newFinancesSupplier.costEmpresa">
                 </div>
 
@@ -55,7 +55,7 @@
                     </div>
                 </div> -->
 
-                <button class="button is-primary mt5 is-fullwidth">Change status supplier</button>
+                <button class="button is-primary mt5 is-fullwidth">Cambiar estado</button>
             </form>
             <button class="button is-danger is-fullwidth mt-5" (click)="toggleEditarModal()">Cancelar</button>
         </section>

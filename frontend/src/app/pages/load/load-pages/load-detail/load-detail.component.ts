@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Load } from 'src/app/class/load';
+
+import { DetailLoad } from "src/app/class/detail-load";
+import { DriverService } from "src/app/service/driver/driver.service";
 
 @Component({
   selector: 'app-load-detail',
@@ -8,14 +10,28 @@ import { Load } from 'src/app/class/load';
 })
 export class LoadDetailComponent implements OnInit {
 
-  @Input() detailLoad_: Load = new Load;
+  @Input() detail_Load: DetailLoad = new DetailLoad();
+  profileDriver:any;
 
-  constructor() { }
+  constructor(private driverService: DriverService) { }
 
   ngOnInit(): void {
   }
 
+  obtenerRepartidor(){
+    this.driverService.get_driver(this.detail_Load.run_driver).subscribe(
+      res => {
+        this.profileDriver = res;
+        console.log(this.profileDriver);
+      }, err => {
+        console.log(err);
+      }
+    );
+  }
+
   toggleEditarModal(){
+    /* console.log(this.detail_Load); */
+    /* this.obtenerRepartidor(); */
     let modal = document.querySelector('#detailLoadModal')!;
     modal.classList.toggle('is-active');
   }
