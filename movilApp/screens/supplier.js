@@ -26,7 +26,7 @@ const supplier = () => {
     return (
         <FlatList 
             data = {suppliers}
-            keyExtractor = {(item) => item.id_supplier +''}
+            keyExtractor = {(item) => item.rut +''}
             renderItem = {renderItem}
         />
     )

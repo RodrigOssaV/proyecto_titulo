@@ -15,4 +15,7 @@ router.post('/import_drivers', [authJwt.verifyToken, authJwt.isAdmin], driverCon
 router.get('/best_driver', [authJwt.verifyToken], driverController.best_driver);
 router.get('/top_drivers', [authJwt.verifyToken], driverController.top_drivers);
 
+/* MOVIL ROUTE */
+router.get('/get_movil', driverController.get_drivers);
+
 module.exports = router;

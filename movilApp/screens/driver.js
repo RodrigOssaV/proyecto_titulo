@@ -34,7 +34,7 @@ const driver = () => {
     return (
         <FlatList 
             data = {drivers}
-            keyExtractor = {(item) => item.rut + ''}
+            keyExtractor = {(item) => item.run + ''}
             renderItem = {renderDriver}
             refreshing = {refreshing}
             refreshControl = {

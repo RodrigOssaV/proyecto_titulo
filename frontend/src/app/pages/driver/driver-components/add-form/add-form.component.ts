@@ -34,7 +34,7 @@ export class AddFormComponent implements OnInit {
         this.launchModal();
       },
       err => {
-        this.notificationService.showError("Error al ingresar", "Notificación Error");
+        this.notificationService.showWarning("Ya existe un registro del conductor", "Notificación Error");
         console.log(err);
       }
     );    
