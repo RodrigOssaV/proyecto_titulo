@@ -1,5 +1,5 @@
 <div class="card-footer">
-    <button class="button is-primary m-2" (click)="launchModal()">Import Excel</button>
+    <button class="button is-primary m-2" (click)="launchModal()">Importar Excel</button>
     <div class="modal modal-upload" id="uploadExcelSupplier">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -42,19 +42,27 @@
                 <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
+                            <th>RUT</th>
+                            <th>Razón Social</th>
+                            <th>Giro</th>
                             <th>Tipo Proveedor</th>
+                            <th>Nombre Contacto</th>
+                            <th>Teléfono Contacto</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let supplier of listSuppliers">
-                            <td>{{ supplier.nombre }}</td>
-                            <td>{{ supplier.tipo_proveedor }}</td>
+                        <tr *ngFor="let supplier of listSuppliers">                            
+                            <td>{{ supplier.rut }}</td>
+                            <td>{{ supplier.razon }}</td>
+                            <td>{{ supplier.giro }}</td>
+                            <td>{{ supplier.tipo }}</td>
+                            <td>{{ supplier.contacto }}</td>
+                            <td>{{ supplier.telefono_contacto }}</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Importar desde Excel</button>
+                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Importar Excel</button>
                 <button class="button is-danger is-fullwidth m-2" (click)="launchModal()">Cancelar</button>
             </section>
         </div>

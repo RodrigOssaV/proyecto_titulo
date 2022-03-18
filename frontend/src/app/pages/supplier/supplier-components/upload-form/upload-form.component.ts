@@ -25,13 +25,18 @@ export class UploadFormComponent implements OnInit {
     private notificationService: NotificationService) { }
 
   ngOnInit(): void {
+    /* console.log(this.listSuppliers); */
   }
 
-  uploadExcel(){
+  uploadExcel(){    
     for(let supplier of this.listSuppliers){
       let newSupplier = new Supplier();
-      newSupplier.razon_social = supplier.nombre;
-      newSupplier.type_supplier = supplier.tipo_proveedor;
+      newSupplier.razon_social = supplier.razon;
+      newSupplier.type_supplier = supplier.tipo;
+      newSupplier.giro = supplier.giro;
+      newSupplier.name_contact = supplier.contacto;
+      newSupplier.phone_contact = supplier.telefono_contacto;
+      newSupplier.rut = supplier.rut;
       this.listNewSuppliers.push(newSupplier);
     }
     this.supplierService.import_suppliers(this.listNewSuppliers).subscribe(
@@ -58,7 +63,8 @@ export class UploadFormComponent implements OnInit {
         workbook.SheetNames.forEach(sheet => {
           const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
           this.listSuppliers = data;
-          this.convertedJson = JSON.stringify(data, undefined, 4);
+          /* this.convertedJson = JSON.stringify(data, undefined, 4); */
+          /* console.log(this.listSuppliers); */
         })
       }      
     }

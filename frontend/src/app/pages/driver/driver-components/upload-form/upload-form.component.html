@@ -1,5 +1,5 @@
 <div class="card-footer">
-    <button class="button is-primary m-2" (click)="launchModal()">Import Excel</button>
+    <button class="button is-primary m-2" (click)="launchModal()">Importar Excel</button>
     <div class="modal modal-upload" id="uploadExcelDriver">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -49,7 +49,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let driver of listDrivers">
-                            <td>{{ driver.rut }}-{{ driver.digito }}</td>
+                            <td>{{ driver.run }}-{{ driver.digito }}</td>
                             <td>{{ driver.nombres }}</td>
                             <td>{{ driver.apellidos }}</td>
                             <td>{{ driver.telefono }}</td>
@@ -58,7 +58,7 @@
                     </tbody>
                 </table>
 
-                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Importar a Excel</button>
+                <button class="button is-primary is-fullwidth m-2" (click)="uploadExcel()">Importar Excel</button>
                 <button class="button is-danger is-fullwidth m-2" (click)="launchModal()">Cancelar</button>
             </section>
         </div>
