@@ -10,7 +10,6 @@
             <section class="modal-card-body">
                 
                 <!-- TODO check input import excel -->
-
                 <!-- <div class="file has-name mb-1">
                     <label class="file-label">
                         <input class="file-input" type="file" 
@@ -41,10 +40,11 @@
                 <table class="table is-bordered is-striped is-narrow is-fullwidth has-text-centered">
                     <thead>
                         <tr>
-                            <th>RUT</th>
+                            <th>RUN</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Teléfono</th>
+                            <th>Tipo repartidor</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,6 +53,7 @@
                             <td>{{ driver.nombres }}</td>
                             <td>{{ driver.apellidos }}</td>
                             <td>{{ driver.telefono }}</td>
+                            <td>{{ driver.tipo_trabajador }}</td>
                         </tr>
                     </tbody>
                 </table>
