@@ -7,8 +7,8 @@ const supplierItem = ({supplier}) => {
     return (
         <Layout>
             <View style = {style.supplierContainer}>
-                <Text style={style.supplierTitle}>{supplier.name_supplier}</Text>
-                <Text style={style.supplierTitle}>{supplier.type_supplier}</Text>
+                <Text style={style.supplierTitle}>{supplier.rut}</Text>
+                <Text style={style.supplierTitle}>{supplier.razon_social}</Text>
                 <Text style={style.supplierTitle}>{supplier.total_amount}</Text>
             </View>
         </Layout>

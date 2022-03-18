@@ -13,12 +13,12 @@ const driverItem = ({driver}) => {
             <View style = {style.driverContainer}>
                 <TouchableOpacity 
                     style = {style.box}
-                    onPress = {()=> navigation.navigate('DriverFormScreen', {rut: driver.rut})}
+                    /* onPress = {()=> navigation.navigate('DriverFormScreen', {rut: driver.run})} */
                 >
                     <Image style = {style.tinyLogo} 
                         source = {{uri: 'https://reactnative.dev/img/tiny_logo.png'}}/>
                     <Text style = {style.driverTitle}>{driver.name} {driver.lastname}</Text>
-                    <Text style = {style.driverTitle}>{driver.rut}</Text>
+                    <Text style = {style.driverTitle}>{driver.run}</Text>
                     <Text style = {style.driverTitle}>(+56) {driver.phone}</Text>
                 </TouchableOpacity>
             </View>

@@ -12,4 +12,7 @@ router.post('/import_suppliers', [authJwt.verifyToken], supplierController.impor
 router.get('/best_supplier', [authJwt.verifyToken], supplierController.best_supplier);
 router.get('/top_suppliers', [authJwt.verifyToken], supplierController.top_suppliers);
 
+/* MOVIL ROUTE */
+router.get('/get_movil_sup', supplierController.get_suppliers);
+
 module.exports = router;
