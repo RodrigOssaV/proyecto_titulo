@@ -32,7 +32,7 @@ export class UpdateFormComponent implements OnInit {
     /* console.log(this.newFinancesSupplier); */
     this.financesService.add_finances_supplier(this.newFinancesSupplier).subscribe(
       res => {
-        this.notifyService.showSuccess('Update status!', "Success Update");
+        this.notifyService.showSuccess('Estado actualizado con éxito.', "Completado.");
         form.reset();
         this.toggleEditarModal();
       },

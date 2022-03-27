@@ -41,7 +41,7 @@ export class UploadFormComponent implements OnInit {
     }
     this.supplierService.import_suppliers(this.listNewSuppliers).subscribe(
       res => {
-        this.notificationService.showSuccess("Import suppliers success","Notificación");
+        this.notificationService.showSuccess("Importación con éxito.","Completado.");
         this.launchModal();
       },
       err => {

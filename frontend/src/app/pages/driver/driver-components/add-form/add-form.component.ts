@@ -29,12 +29,12 @@ export class AddFormComponent implements OnInit {
 
     this.apiDriverService.add_driver(this.newDriver).subscribe(
       res => {
-        this.notificationService.showSuccess("Conductor agregado","Notificación");
+        this.notificationService.showSuccess("Conductor agregado con éxito.","Completado.");
         form.reset();
         this.launchModal();
       },
       err => {
-        this.notificationService.showWarning("Ya existe un registro del conductor", "Notificación Error");
+        this.notificationService.showWarning("Ya existe un registro del conductor", "Error en la operación.");
         console.log(err);
       }
     );    

@@ -65,8 +65,8 @@ export class GraphicProfileDriverComponent implements OnInit {
           this.numLoads.push(this.numLoad);
           this.dateLoad.push(driver.date_load);          
         };
-        const reversed = this.dateLoad.reverse();
-        this.cargarDatos(this.datos, reversed, this.numLoads);
+        /* const reversed = this.dateLoad.reverse(); */
+        this.cargarDatos(this.datos, this.dateLoad, this.numLoads);
       },
       err => {
         console.log(err);;
@@ -88,8 +88,8 @@ export class GraphicProfileDriverComponent implements OnInit {
           this.numLoads.push(this.numLoad);
           this.dateLoad.push(driver.date_load);          
         };
-        const reversed = this.dateLoad.reverse();
-        this.cargarDatos(this.datos, reversed, this.numLoads);
+        /* const reversed = this.dateLoad.reverse(); */
+        this.cargarDatos(this.datos, this.dateLoad, this.numLoads);
         },
         err => {
           console.log(err);
@@ -111,8 +111,8 @@ export class GraphicProfileDriverComponent implements OnInit {
           this.numLoads.push(this.numLoad);
           this.dateLoad.push(driver.date_load); 
         };
-        const reversed = this.dateLoad.reverse();
-        this.cargarDatos(this.datos, reversed, this.numLoads);
+        /* const reversed = this.dateLoad.reverse(); */
+        this.cargarDatos(this.datos, this.dateLoad, this.numLoads);
       }, (err) => {
         console.log(err);
       }

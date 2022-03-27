@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, TextInput, TouchableOpacity, Text, View } from 'react-native'
+import { StyleSheet, TextInput, TouchableOpacity, Text, View, Image } from 'react-native'
 
 import Layout from "../styles/layout";
 import { addDriver, updateDriver, getDriver } from "../services/driver";
@@ -7,10 +7,12 @@ import { addDriver, updateDriver, getDriver } from "../services/driver";
 const driverForm = ({navigation, route}) => {
 
     const [driver, setDriver] = useState({
-        rut: '',
+        run: '',
         name: '',
         lastname: '',
-        phone: ''
+        phone: '',
+        type_driver: ''
+        
     });
 
     const [editing, setEditing] = useState(false);
@@ -24,23 +26,24 @@ const driverForm = ({navigation, route}) => {
         if (!editing) {
             await addDriver(driver);
         } else {
-            await updateDriver(route.params.rut, driver);
+            await updateDriver(route.params.run, driver);
         }
         navigation.navigate('DriverScreen');
     };
 
     useEffect(()=>{
-        if (route.params && route.params.rut){
+        if (route.params && route.params.run){
             navigation.setOptions({headerTitle: 'Update driver'});
             setEditing(true);
 
             (async () => {
-                const driver = await getDriver(route.params.rut);
+                const driver = await getDriver(route.params.run);
                 setDriver({
-                    rut: driver.rut,
+                    run: driver.run,
                     name: driver.name,
                     lastname: driver.lastname,
-                    phone: driver.phone
+                    phone: driver.phone,
+                    type_driver: driver.type_driver
                 })
             })();
 
@@ -52,40 +55,47 @@ const driverForm = ({navigation, route}) => {
             <View style={style.container}>
                 <TextInput
                     style = {style.input}
-                    placeholder = 'Name driver'
+                    placeholder = 'Nombre'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('name', driver)}
                     value = {driver.name}
                 />
                 <TextInput
                     style = {style.input}
-                    placeholder = 'Lastname driver'
+                    placeholder = 'Apellido'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('lastname', driver)}
                     value = {driver.lastname}
                 />
                 <TextInput
                     style = {style.input}
-                    placeholder = 'RUT driver'
+                    placeholder = 'RUN'
                     placeholderTextColor='#546574'
-                    onChangeText = {(driver) => handleChange('rut', driver)}
+                    onChangeText = {(driver) => handleChange('run', driver)}
                     value = {driver.rut}
                 />
                 <TextInput
                     style = {style.input}
-                    placeholder = 'Phone driver'
+                    placeholder = 'Teléfono'
                     placeholderTextColor='#546574'
                     onChangeText = {(driver) => handleChange('phone', driver)}
                     value = {driver.phone.toString()}
                 />
+                <TextInput
+                    style = {style.input}
+                    placeholder = 'Tipo'
+                    placeholderTextColor='#546574'
+                    onChangeText = {(driver) => handleChange('type_driver', driver)}
+                    value = {driver.type_driver}
+                />
                 {
                     !editing ? (
                         <TouchableOpacity style={style.button} onPress={handleSubmit}>
-                            <Text style={style.buttonText}>Add driver</Text>
+                            <Text style={style.buttonText}>Guardar</Text>
                         </TouchableOpacity>
                     ): (
                         <TouchableOpacity style={style.button} onPress={handleSubmit}>
-                            <Text style={style.buttonText}>Update driver</Text>
+                            <Text style={style.buttonText}>Actualizar</Text>
                         </TouchableOpacity>
                     )
                 }
@@ -115,7 +125,7 @@ const style = StyleSheet.create({
         paddingBottom: 10,
         borderRadius: 5,
         marginBottom: 3,
-        backgroundColor: '#a855f7',
+        backgroundColor: '#1C658C',
         width: '90%'
     },
     buttonText: {
@@ -132,7 +142,12 @@ const style = StyleSheet.create({
         margin: 2,
         borderRadius: 15,
         opacity: 0.9
-    }
+    },
+    tinyLogo: {
+        width: 50,
+        height: 50,
+        opacity: 1,
+    },
 });
 
 export default driverForm

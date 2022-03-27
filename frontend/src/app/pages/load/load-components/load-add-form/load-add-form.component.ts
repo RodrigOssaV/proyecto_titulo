@@ -34,7 +34,7 @@ export class LoadAddFormComponent implements OnInit {
     /* console.log(form.value); */
     this.apiLoad.add_load(form.value).subscribe(
       res => {
-        this.notifyService.showSuccess("Success assigments","Notificación");
+        this.notifyService.showSuccess("Asignación completada.","Completado.");
         form.reset();
         this.launchModal();
       },

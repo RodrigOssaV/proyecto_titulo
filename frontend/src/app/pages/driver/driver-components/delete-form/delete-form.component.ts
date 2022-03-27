@@ -25,7 +25,7 @@ export class DeleteFormComponent implements OnInit {
     this.deleteRUN = this.deleteDriver.run;
     this.apiDriverService.delete_driver(this.deleteRUN).subscribe(
       res => {
-        this.notifyService.showWarning("Conductor eliminado","Notificación");
+        this.notifyService.showInfo("Conductor ha sido eliminado.","Información importante.");
         this.launchDeleteModal();
       },
       err => {

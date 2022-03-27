@@ -38,6 +38,7 @@ module.exports = {
             select loads.*, suppliers.razon_social 
             from loads
             left join suppliers on suppliers.rut = loads.rut_supplier
+            order by date_load desc
             `);
             res.status(200).json(data[0]);
         } catch (error) {

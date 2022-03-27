@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashModeratorComponent implements OnInit {
 
+  numDrivers: number = 0;
+  numSuppliers: number = 0;
   constructor() { }
 
   ngOnInit(): void {

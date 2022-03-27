@@ -22,7 +22,7 @@ export class UpdateFormComponent implements OnInit {
   update_Driver(form:any){
     this.apiDriverService.update_driver(this.updateDriver.run, form.value).subscribe(
       res => {
-        this.notifyService.showSuccess("Update Complete", "Notification Update");
+        this.notifyService.showSuccess("Conductor modificado con éxito.", "Completado.");
         this.toggleEditarModal();
       },
       err => {
