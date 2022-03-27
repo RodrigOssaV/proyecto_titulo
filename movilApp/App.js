@@ -76,7 +76,16 @@ const App = () => {
             title: 'Proveedores',
             headerStyle: {backgroundColor: '#1C658C'}, 
             headerTitleStyle: {color: '#ffffff'},
-            headerTintColor: '#ffffff'
+            headerTintColor: '#ffffff',
+            headerRight: () => (
+              <TouchableOpacity /* onPress = {() => navigation.navigate('DriverFormScreen')} */>
+                  <Text style={{
+                    color: '#ffffff',
+                    marginRight: 20,
+                    fontSize: 15
+                  }}>Agregar</Text>
+                </TouchableOpacity>
+            )
           }}
         />
         <Stack.Screen
