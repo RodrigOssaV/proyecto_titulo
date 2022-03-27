@@ -1,10 +1,13 @@
 .container-img {
-    background-color: blue;
+    background-image: url('../../public/img/fondo_start.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
 }
 
 .container-login {
     height: 85vh;
-    background-color: aquamarine;
+    background-color: #dfe1ee;
     display: flex;
     justify-content: center;
     align-items: center;

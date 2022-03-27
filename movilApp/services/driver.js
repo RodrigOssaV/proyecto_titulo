@@ -14,7 +14,7 @@ export const getDriver = async (rut) => {
 
 /* add_driver */
 export const addDriver = async (newDriver) => {
-    await fetch(API+'/add_driver', {
+    await fetch(API+'/post_movil', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

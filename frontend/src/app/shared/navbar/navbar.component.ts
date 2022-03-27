@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  showUserBoard = false;
   username?: string;
 
   constructor(public authService: AuthService) { }
@@ -25,8 +26,9 @@ export class NavbarComponent implements OnInit {
       this.roles = user.roles;
       this.typeRole = this.roles[0];
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showAdminBoard = this.roles.includes('ROLE_ADMINISTRADOR');
+      this.showModeratorBoard = this.roles.includes('ROLE_SUPERVISOR');
+      this.showUserBoard = this.roles.includes('ROLE_MODERADOR');
 
       this.username = user.username;
     }

@@ -36,7 +36,7 @@ const App = () => {
           name = "HomeScreen"
           component = {HomeScreen}
           options={{
-            title: 'Home App',
+            title: 'WareSoffan App Móvil',
             headerStyle: {backgroundColor: '#701a75'}, 
             headerTitleStyle: {color: '#ffffff'},
             headerTintColor: '#ffffff',

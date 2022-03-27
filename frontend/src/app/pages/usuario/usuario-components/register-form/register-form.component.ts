@@ -17,7 +17,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   typeRole = [
-    {id:"1", role:"admin"}, {id:"2", role:"moderator"}, {id:"3", role:"user"}
+    {id:"1", role:"administrador"}, {id:"2", role:"supervisor"}, {id:"3", role:"moderador"}
   ]
 
 
@@ -29,7 +29,7 @@ export class RegisterFormComponent implements OnInit {
   signInUser(form:any){
     this.authService.registroUser(form.value).subscribe(
       res => {
-        this.notifyService.showSuccess("Usuario agregado","Notificación");
+        this.notifyService.showSuccess("Usuario agregado con éxito.","Completado.");
         form.reset();
         this.launchModal();
       },

@@ -25,9 +25,9 @@ export class UsuarioComponent implements OnInit {
       const user = this._authService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-      this.showUserBoard = this.roles.includes('ROLE_USER');
+      this.showAdminBoard = this.roles.includes('ROLE_ADMINISTRADOR');
+      this.showModeratorBoard = this.roles.includes('ROLE_SUPERVISOR');
+      this.showUserBoard = this.roles.includes('ROLE_MODERADOR');
 
       this.username = user.username;
     }    

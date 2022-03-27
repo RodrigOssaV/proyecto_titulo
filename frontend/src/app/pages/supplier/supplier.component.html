@@ -1,4 +1,4 @@
-<div class="columns is-multiline is-mobile" *ngIf=showAdminBoard>
+<div class="columns is-multiline is-mobile" *ngIf="showUserBoard || showAdminBoard">
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>
@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="columns is-multiline" *ngIf="showUserBoard || showModeratorBoard">
+<div class="columns is-multiline" *ngIf=showModeratorBoard>
     <div class="column is-full">
         <app-navbar></app-navbar>
     </div>

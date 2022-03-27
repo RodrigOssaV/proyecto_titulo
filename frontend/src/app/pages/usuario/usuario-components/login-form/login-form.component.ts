@@ -42,7 +42,7 @@ export class LoginFormComponent implements OnInit {
       },
       err => {
         /* console.log(err); */
-        this.notifyService.showError('Error', 'Error login');
+        this.notifyService.showWarning('Existe un error en usuario o contraseña.', 'Error en la operación.');
         this.isLoginFailed = true;
       }
     )

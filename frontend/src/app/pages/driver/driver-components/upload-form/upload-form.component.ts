@@ -47,7 +47,7 @@ export class UploadFormComponent implements OnInit {
 
     this.apiDriver.import_drivers(this.listNewDrivers).subscribe(
       res => {
-        this.notificationService.showSuccess("Import drivers success","Notificación");
+        this.notificationService.showSuccess("Importación con éxito.","Completado.");
         this.launchModal();
       },
       err => {

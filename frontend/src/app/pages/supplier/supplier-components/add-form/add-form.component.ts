@@ -32,13 +32,13 @@ export class AddFormComponent implements OnInit {
     /* console.log(this.newSupplier); */
     this.apiSupplier.add_supplier(this.newSupplier).subscribe(
       res => {
-        this.notifyService.showSuccess("Success incorporate supplier","Notificación");
+        this.notifyService.showSuccess("Proveedor ingresado con éxito.","Completado");
         form.reset();
         this.launchModal();
       },
       err => {
         /* console.log(err); */
-        this.notifyService.showWarning("Ya existe un registro del Proveedor", "Information Supplier");
+        this.notifyService.showWarning("Ya existe un registro del Proveedor", "Error en la operación.");
         /* form.reset();
         this.launchModal(); */
       }

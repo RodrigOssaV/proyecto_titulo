@@ -11,6 +11,7 @@ export class SubnavbarComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  showUserBoard = false;
   username?: string;
 
   constructor(private _authService: AuthService) { }
@@ -22,8 +23,9 @@ export class SubnavbarComponent implements OnInit {
       const user = this._authService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showAdminBoard = this.roles.includes('ROLE_ADMINISTRADOR');
+      this.showModeratorBoard = this.roles.includes('ROLE_SUPERVISOR');
+      this.showUserBoard = this.roles.includes('ROLE_MODERADOR');
 
       this.username = user.username;
     }

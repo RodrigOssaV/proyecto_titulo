@@ -17,5 +17,6 @@ router.get('/top_drivers', [authJwt.verifyToken], driverController.top_drivers);
 
 /* MOVIL ROUTE */
 router.get('/get_movil', driverController.get_drivers);
+router.post('/post_movil', driverController.add_driver);
 
 module.exports = router;

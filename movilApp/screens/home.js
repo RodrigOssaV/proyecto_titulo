@@ -11,13 +11,13 @@ const home = () => {
     return (
         <Layout>
             <TouchableOpacity onPress = {() => navigation.navigate("DriverScreen")}>
-                <Text style = {style.button}>Drivers</Text>
+                <Text style = {style.button}>Repartidores</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress = {() => navigation.navigate("SupplierScreen")}>
-                <Text style = {style.button}>Suppliers</Text>
+                <Text style = {style.button}>Proveedores</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress = {() => navigation.navigate("LoadScreen")}>
-                <Text style = {style.button}>Assing Loads</Text>
+                <Text style = {style.button}>Asignar Carga</Text>
             </TouchableOpacity>
         </Layout>
     )
