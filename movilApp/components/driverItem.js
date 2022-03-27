@@ -16,7 +16,7 @@ const driverItem = ({driver}) => {
                     /* onPress = {()=> navigation.navigate('DriverFormScreen', {rut: driver.run})} */
                 >
                     <Image style = {style.tinyLogo} 
-                        source = {{uri: 'https://reactnative.dev/img/tiny_logo.png'}}/>
+                        source = {require('../assets/profile-avatar_32x32.png')}/>
                     <Text style = {style.driverTitle}>{driver.name} {driver.lastname}</Text>
                     <Text style = {style.driverTitle}>{driver.run}</Text>
                     <Text style = {style.driverTitle}>(+56) {driver.phone}</Text>
@@ -29,7 +29,7 @@ const driverItem = ({driver}) => {
 const style = StyleSheet.create({
     driverContainer: {
         width: '80%',
-        backgroundColor: '#333333',
+        backgroundColor: '#D8D2CB',
         padding: 20,
         flexDirection: 'column',
         alignItems: 'center',
@@ -39,16 +39,17 @@ const style = StyleSheet.create({
         /* opacity: 0.7 */
     },
     driverTitle: {
-        color: '#ffffff',
+        color: '#000000',
         fontWeight: 'bold',
         /* opacity: 1 */
     },
     rutTitle: {
-        color: '#ffffff',
+        color: '#000000',
     },
     tinyLogo: {
         width: 50,
         height: 50,
+        opacity: 1
     },
     box: {
         alignItems: 'center'

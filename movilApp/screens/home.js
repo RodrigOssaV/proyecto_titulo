@@ -25,14 +25,14 @@ const home = () => {
 
 const style = StyleSheet.create({
     button: {
-        backgroundColor: '#a855f7',
+        backgroundColor: '#1C658C',
         padding: 20,
         marginVertical: 10,
         borderRadius: 5,
         justifyContent: 'space-between',
         alignItems: 'center',
         color: '#fae8ff',
-        fontSize: 14,
+        fontSize: 18,
         fontWeight: 'bold'
     }
 })

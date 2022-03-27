@@ -11,7 +11,7 @@ const layout = ({children}) => {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        backgroundColor: "#86198f",
+        backgroundColor: "#398AB9", /* FONDO APLICACION */
         padding: 20,
         flex: 1,
         alignItems: 'center'

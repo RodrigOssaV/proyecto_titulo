@@ -19,7 +19,7 @@ const loadItem = ({load}) => {
 const style = StyleSheet.create({
     driverContainer: {
         width: '80%',
-        backgroundColor: '#333333',
+        backgroundColor: '#D8D2CB',
         padding: 20,
         flexDirection: 'column',
         alignItems: 'center',

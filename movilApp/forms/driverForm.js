@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, TextInput, TouchableOpacity, Text, View } from 'react-native'
+import { StyleSheet, TextInput, TouchableOpacity, Text, View, Image } from 'react-native'
 
 import Layout from "../styles/layout";
 import { addDriver, updateDriver, getDriver } from "../services/driver";
@@ -125,7 +125,7 @@ const style = StyleSheet.create({
         paddingBottom: 10,
         borderRadius: 5,
         marginBottom: 3,
-        backgroundColor: '#a855f7',
+        backgroundColor: '#1C658C',
         width: '90%'
     },
     buttonText: {
@@ -142,7 +142,12 @@ const style = StyleSheet.create({
         margin: 2,
         borderRadius: 15,
         opacity: 0.9
-    }
+    },
+    tinyLogo: {
+        width: 50,
+        height: 50,
+        opacity: 1,
+    },
 });
 
 export default driverForm

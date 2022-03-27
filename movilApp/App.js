@@ -37,7 +37,7 @@ const App = () => {
           component = {HomeScreen}
           options={{
             title: 'WareSoffan App Móvil',
-            headerStyle: {backgroundColor: '#701a75'}, 
+            headerStyle: {backgroundColor: '#1C658C'}, 
             headerTitleStyle: {color: '#ffffff'},
             headerTintColor: '#ffffff',
           }}
@@ -53,8 +53,8 @@ const App = () => {
           }} */
           options = {({navigation}) => (
             {
-              title: 'Drivers',
-              headerStyle: {backgroundColor: '#6F0876'}, 
+              title: 'Repartidores',
+              headerStyle: {backgroundColor: '#1C658C'}, 
               headerTitleStyle: {color: '#ffffff'},
               headerTintColor: '#ffffff',
               headerRight: () => (
@@ -63,7 +63,7 @@ const App = () => {
                     color: '#ffffff',
                     marginRight: 20,
                     fontSize: 15
-                  }}>New driver</Text>
+                  }}>Agregar</Text>
                 </TouchableOpacity>
               )
             }
@@ -73,8 +73,8 @@ const App = () => {
           name = "SupplierScreen"
           component = {SupplierScreen}
           options={{
-            title: 'Suppliers',
-            headerStyle: {backgroundColor: '#6F0876'}, 
+            title: 'Proveedores',
+            headerStyle: {backgroundColor: '#1C658C'}, 
             headerTitleStyle: {color: '#ffffff'},
             headerTintColor: '#ffffff'
           }}
@@ -83,8 +83,8 @@ const App = () => {
           name = "DriverFormScreen"
           component = {driverForm}
           options = {{
-            title: 'Create driver',
-            headerStyle: {backgroundColor: '#6F0876'}, 
+            title: 'Agregar Repartidor',
+            headerStyle: {backgroundColor: '#1C658C'}, 
             headerTitleStyle: {color: '#ffffff'},
             headerTintColor: '#ffffff'
           }}
@@ -93,8 +93,8 @@ const App = () => {
           name = "LoadScreen"
           component = {LoadScreen}
           options = {{
-            title: 'Assing load',
-            headerStyle: {backgroundColor: '#6F0876'}, 
+            title: 'Asignar encomienda',
+            headerStyle: {backgroundColor: '#1C658C'}, 
             headerTitleStyle: {color: '#ffffff'},
             headerTintColor: '#ffffff',
             headerRight: () => (
@@ -103,7 +103,7 @@ const App = () => {
                   color: '#ffffff',
                   marginRight: 20,
                   fontSize: 15
-                }}>New load</Text>
+                }}>Asignar</Text>
               </TouchableOpacity>
             )
           }}
