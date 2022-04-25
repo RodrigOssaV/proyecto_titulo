@@ -34,7 +34,7 @@ isAdmin = (req, res, next) => {
             }
         }
         res.status(403).send({
-            message: "Require Admin Role!"
+            message: "Requiere permisos del Administrador!"
         });
         return;
     });
@@ -52,7 +52,7 @@ isModerator = (req, res, next) => {
             }
         }
         res.status(403).send({
-            message: "Require Moderator Role!"
+            message: "Requiere permisos del Administrador!"
         });
         });
     });
@@ -73,7 +73,7 @@ isModeratorOrAdmin = (req, res, next) => {
             }
             }
             res.status(403).send({
-            message: "Require Moderator or Admin Role!"
+            message: "Requiere permisos del Administrador!"
             });
         });
     });
