@@ -65,8 +65,8 @@ export class GraphicDriverMonthlyComponent implements OnInit {
           this.datos_not_deliverys.push(this.dato_not_delivery);
           this.name.push(result.nameMonth);
         }
-        const reversed = this.name.reverse();
-        this.cargarDatos(this.datos_amounts, reversed, this.datos_deliverys, this.datos_not_deliverys);
+        /* const reversed = this.name.reverse(); */
+        this.cargarDatos(this.datos_amounts, this.name, this.datos_deliverys, this.datos_not_deliverys);
       }, (err) => {
         console.log(err);
       }
